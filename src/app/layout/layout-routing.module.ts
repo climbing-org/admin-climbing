@@ -12,11 +12,13 @@ const routes: Routes = [
             { path: 'charts', loadChildren: './charts/charts.module#ChartsModule' },
             { path: 'tables', loadChildren: './tables/tables.module#TablesModule' },
             { path: 'forms', loadChildren: './form/form.module#FormModule' },
-            { path: 'new-static-page', loadChildren: './new-static-page/new-static-page.module#NewStaticPageModule' },
             { path: 'bs-element', loadChildren: './bs-element/bs-element.module#BsElementModule' },
             { path: 'grid', loadChildren: './grid/grid.module#GridModule' },
             { path: 'components', loadChildren: './bs-component/bs-component.module#BsComponentModule' },
-            { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' }
+            { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' },
+            { path: 'new-static-page', loadChildren: './new-static-page/new-static-page.module#NewStaticPageModule' },
+            { path: 'static-page-table', loadChildren: './static-page-table/static-page-table.module#StaticPageTableModule' },
+            { path: 'static-page/:id', loadChildren: './new-static-page/new-static-page.module#NewStaticPageModule' }
         ]
     }
 ];

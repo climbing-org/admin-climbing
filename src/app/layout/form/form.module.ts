@@ -5,8 +5,8 @@ import { FormRoutingModule } from './form-routing.module';
 import { FormComponent } from './form.component';
 import { PageHeaderModule } from './../../shared';
 import { FormsModule } from '@angular/forms';
-import { MenuService } from '../dashboard/services/menu.service';
-import { StaticPageService } from '../dashboard/services/static-page.service';
+import { MenuService } from '../../shared/services/menu.service';
+import { StaticPageService } from '../../shared/services/static-page.service';
 
 @NgModule({
     imports: [CommonModule, FormRoutingModule, PageHeaderModule, FormsModule],

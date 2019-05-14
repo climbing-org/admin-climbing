@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { StaticPageService } from '../dashboard/services/static-page.service';
+import { Component, Input, OnInit } from '@angular/core';
+import { StaticPageService } from '../../shared/services/static-page.service';
+import StaticPage from '../../shared/classes/static-page';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-new-static-page',
@@ -8,33 +10,32 @@ import { StaticPageService } from '../dashboard/services/static-page.service';
 })
 export class NewStaticPageComponent implements OnInit {
 
-    name: string;
     slug: string;
-    seo_hashtag: string;
-    seo_title: string;
-    seo_keywords: string;
-    seo_description: string;
-    content: string;
+    staticPage: StaticPage = new StaticPage();
 
-
-  constructor(private staticPageService: StaticPageService) { }
+  constructor(private staticPageService: StaticPageService,
+              private router: ActivatedRoute) { }
 
   ngOnInit() {
+      this.slug = this.router.snapshot.params['id'];
+      if (this.slug) {
+        this.staticPageService.get(this.slug).subscribe((staticPage: {data: StaticPage}) => {
+            console.log(staticPage);
+            this.staticPage = staticPage.data;
+        });
+      }
   }
 
   submit() {
-      const body = {
-        name: this.name,
-        slug: this.slug,
-        seo_hashtag: this.seo_hashtag,
-        seo_title: this.seo_title,
-        seo_keywords: this.seo_keywords,
-        seo_description: this.seo_description,
-        content: this.content
-      };
-      this.staticPageService.post(body).subscribe((res) => {
-console.log(res);
-      });
+      if (this.slug) {
+          this.staticPageService.update(this.slug, this.staticPage).subscribe((res) => {
+              console.log(res);
+          });
+      } else {
+          this.staticPageService.post(this.staticPage).subscribe((res) => {
+              console.log(res);
+          });
+      }
   }
 
 }

@@ -5,8 +5,8 @@ import { AuthGuard, PageHeaderModule } from './../../shared';
 import { FormsModule } from '@angular/forms';
 import { NewStaticPageComponent } from './new-static-page.component';
 import { NewStaticPageRoutingModule } from './new-static-page-routing.module';
-import { MenuService } from '../dashboard/services/menu.service';
-import { StaticPageService } from '../dashboard/services/static-page.service';
+import { MenuService } from '../../shared/services/menu.service';
+import { StaticPageService } from '../../shared/services/static-page.service';
 
 @NgModule({
     imports: [CommonModule, NewStaticPageRoutingModule, PageHeaderModule, FormsModule],

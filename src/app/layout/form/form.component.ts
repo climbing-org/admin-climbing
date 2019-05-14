@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
-import { MenuService } from '../dashboard/services/menu.service';
+import { MenuService } from '../../shared/services/menu.service';
 
 @Component({
     selector: 'app-form',
