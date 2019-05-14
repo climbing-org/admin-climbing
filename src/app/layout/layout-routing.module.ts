@@ -16,9 +16,13 @@ const routes: Routes = [
             { path: 'grid', loadChildren: './grid/grid.module#GridModule' },
             { path: 'components', loadChildren: './bs-component/bs-component.module#BsComponentModule' },
             { path: 'blank-page', loadChildren: './blank-page/blank-page.module#BlankPageModule' },
+
             { path: 'new-static-page', loadChildren: './new-static-page/new-static-page.module#NewStaticPageModule' },
             { path: 'static-page-table', loadChildren: './static-page-table/static-page-table.module#StaticPageTableModule' },
-            { path: 'static-page/:id', loadChildren: './new-static-page/new-static-page.module#NewStaticPageModule' }
+            { path: 'static-page/:id', loadChildren: './new-static-page/new-static-page.module#NewStaticPageModule' },
+            { path: 'new-menu', loadChildren: './menu/menu-details/menu-details.module#MenuDetailsModule' },
+            { path: 'menu-table', loadChildren: './menu/menu-table/menu-table.module#MenuTableModule' },
+            { path: 'menu/:id', loadChildren: './menu/menu-details/menu-details.module#MenuDetailsModule' }
         ]
     }
 ];

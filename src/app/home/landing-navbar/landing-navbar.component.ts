@@ -1,4 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { MenuService } from '../../shared/services/menu.service';
+import Menu from '../../shared/classes/menu';
 
 declare const $;
 
@@ -9,9 +11,15 @@ declare const $;
 })
 export class LandingNavbarComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+    menu: Menu[];
+
+  constructor(private menuService: MenuService) { }
 
   ngOnInit() {
+      this.menuService.list().subscribe((res: {data: Menu[]}) => {
+          this.menu = res.data;
+          console.log(res);
+      });
   }
 
   ngAfterViewInit(): void {

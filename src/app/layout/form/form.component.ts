@@ -17,14 +17,14 @@ export class FormComponent implements OnInit {
     ngOnInit() {}
 
     submit() {
-        this.testService.get().subscribe((r) => {
-            console.log(r);
-        });
-        this.testService.post('1').subscribe((r) => {
-            console.log(r);
-        });
-        this.testService.delete().subscribe((r) => {
-            console.log(r);
-        });
+        // this.testService.get().subscribe((r) => {
+        //     console.log(r);
+        // });
+        // this.testService.post('1').subscribe((r) => {
+        //     console.log(r);
+        // });
+        // this.testService.delete().subscribe((r) => {
+        //     console.log(r);
+        // });
     }
 }

@@ -27,7 +27,7 @@ export class StaticPageService {
         return this.http.put('http://192.241.156.153:8000/api/v1/static-page/' + slug, body);
     }
 
-    delete() {
-        return this.http.delete('http://192.241.156.153:8000/api/v1/static-page/');
+    delete(id: string) {
+        return this.http.delete('http://192.241.156.153:8000/api/v1/static-page/' + id);
     }
 }
