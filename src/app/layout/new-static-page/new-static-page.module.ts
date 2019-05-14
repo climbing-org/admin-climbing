@@ -7,9 +7,10 @@ import { NewStaticPageComponent } from './new-static-page.component';
 import { NewStaticPageRoutingModule } from './new-static-page-routing.module';
 import { MenuService } from '../../shared/services/menu.service';
 import { StaticPageService } from '../../shared/services/static-page.service';
+import { EditorModule } from '@tinymce/tinymce-angular';
 
 @NgModule({
-    imports: [CommonModule, NewStaticPageRoutingModule, PageHeaderModule, FormsModule],
+    imports: [CommonModule, NewStaticPageRoutingModule, PageHeaderModule, FormsModule, EditorModule],
     declarations: [NewStaticPageComponent],
     providers: [MenuService, StaticPageService],
 })

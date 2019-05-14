@@ -12,6 +12,7 @@ export class NewStaticPageComponent implements OnInit {
 
     slug: string;
     staticPage: StaticPage = new StaticPage();
+    dataModel: any;
 
   constructor(private staticPageService: StaticPageService,
               private router: ActivatedRoute) { }
@@ -27,6 +28,7 @@ export class NewStaticPageComponent implements OnInit {
   }
 
   submit() {
+      console.log(this.dataModel);
       if (this.slug) {
           this.staticPageService.update(this.slug, this.staticPage).subscribe((res) => {
               console.log(res);

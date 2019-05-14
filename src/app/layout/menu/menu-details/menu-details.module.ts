@@ -5,6 +5,7 @@ import { MenuDetailsRoutingModule } from './menu-details-routing.module';
 import { MenuDetailsComponent } from './menu-details.component';
 import { FormsModule } from '@angular/forms';
 import { MenuService } from '../../../shared/services/menu.service';
+import { StaticPageService } from '../../../shared/services/static-page.service';
 
 @NgModule({
   declarations: [MenuDetailsComponent],
@@ -14,7 +15,8 @@ import { MenuService } from '../../../shared/services/menu.service';
       FormsModule
   ],
     providers: [
-        MenuService
+        MenuService,
+        StaticPageService
     ]
 })
 export class MenuDetailsModule { }
