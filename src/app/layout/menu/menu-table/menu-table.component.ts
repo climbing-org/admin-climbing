@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 export class MenuTableComponent implements OnInit {
 
     menu: Menu[];
-    selectedMenu: Menu;
+    selectedMenu1: Menu;
+    selectedMenu2: Menu;
 
   constructor(private menuService: MenuService,
               private router: Router) { }

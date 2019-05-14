@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NewsPageComponent } from './new-static-page.component';
+import { NewsTableComponent } from './static-page-table.component';
 
-describe('NewStaticPageComponent', () => {
-  let component: NewsPageComponent;
-  let fixture: ComponentFixture<NewsPageComponent>;
+describe('StaticPageTableComponent', () => {
+  let component: NewsTableComponent;
+  let fixture: ComponentFixture<NewsTableComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewsPageComponent ]
+      declarations: [ NewsTableComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NewsPageComponent);
+    fixture = TestBed.createComponent(NewsTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

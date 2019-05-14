@@ -5,13 +5,15 @@ import { MenuTableRoutingModule } from './menu-table-routing.module';
 import { MenuTableComponent } from './menu-table.component';
 import { FormsModule } from '@angular/forms';
 import { MenuService } from '../../../shared/services/menu.service';
+import { PageHeaderModule } from '../../../shared/modules';
 
 @NgModule({
   declarations: [MenuTableComponent],
   imports: [
     CommonModule,
     MenuTableRoutingModule,
-      FormsModule
+      FormsModule,
+      PageHeaderModule
   ],
     providers: [
         MenuService

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { StaticPageService } from '../../shared/services/static-page.service';
 import StaticPage from '../../shared/classes/static-page';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-static-page',
@@ -15,10 +15,11 @@ export class NewStaticPageComponent implements OnInit {
     dataModel: any;
 
   constructor(private staticPageService: StaticPageService,
-              private router: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
-      this.slug = this.router.snapshot.params['id'];
+      this.slug = this.route.snapshot.params['id'];
       if (this.slug) {
         this.staticPageService.get(this.slug).subscribe((staticPage: {data: StaticPage}) => {
             console.log(staticPage);
@@ -31,6 +32,7 @@ export class NewStaticPageComponent implements OnInit {
       console.log(this.dataModel);
       if (this.slug) {
           this.staticPageService.update(this.slug, this.staticPage).subscribe((res) => {
+              this.router.navigateByUrl('/admin/static-page-table');
               console.log(res);
           });
       } else {

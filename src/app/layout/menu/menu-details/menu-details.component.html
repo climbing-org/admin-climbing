@@ -1,3 +1,13 @@
+<div class="row">
+    <div class="col-xl-12">
+        <h2 class="page-header">
+            Детали Меню
+        </h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Детали Меню</li>
+        </ol>
+    </div>
+</div>
 <fieldset class="form-group">
     <label>Название меню</label>
     <input class="form-control" [(ngModel)]="menu.name">
@@ -33,4 +43,5 @@
     </select>
 </div>
 
-<button type="submit" class="btn btn-secondary" (click)="submit()">Submit Button</button>
+<button *ngIf="!slug" type="submit" class="btn btn-secondary" (click)="submit()">Сохранить</button>
+<button *ngIf="slug" type="submit" class="btn btn-secondary" (click)="submit()">Редактировать</button>

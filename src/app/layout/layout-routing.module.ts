@@ -22,7 +22,10 @@ const routes: Routes = [
             { path: 'static-page/:id', loadChildren: './new-static-page/new-static-page.module#NewStaticPageModule' },
             { path: 'new-menu', loadChildren: './menu/menu-details/menu-details.module#MenuDetailsModule' },
             { path: 'menu-table', loadChildren: './menu/menu-table/menu-table.module#MenuTableModule' },
-            { path: 'menu/:id', loadChildren: './menu/menu-details/menu-details.module#MenuDetailsModule' }
+            { path: 'menu/:id', loadChildren: './menu/menu-details/menu-details.module#MenuDetailsModule' },
+            { path: 'news-page', loadChildren: './news/news-page/news-page.module#NewsPageModule' },
+            { path: 'news-table', loadChildren: './news/news-table/news-table.module#NewsTableModule' },
+            { path: 'news-page/:id', loadChildren: './news/news-page/news-page.module#NewsPageModule' },
         ]
     }
 ];

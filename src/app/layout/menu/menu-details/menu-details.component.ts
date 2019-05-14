@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import Menu from '../../../shared/classes/menu';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MenuService } from '../../../shared/services/menu.service';
 import { StaticPageService } from '../../../shared/services/static-page.service';
 import StaticPage from '../../../shared/classes/static-page';
@@ -18,6 +18,7 @@ export class MenuDetailsComponent implements OnInit {
     staticPageSlugs: string[] = [];
 
   constructor(private activeRoute: ActivatedRoute,
+              private router: Router,
               private menuService: MenuService,
               private staticPageService: StaticPageService) { }
 
@@ -67,6 +68,8 @@ export class MenuDetailsComponent implements OnInit {
         if (this.slug) {
             this.menuService.update(this.slug, this.menu).subscribe((res) => {
                 console.log(res);
+                this.router.navigateByUrl('/admin/menu-table');
+
             });
         } else {
             this.menuService.post(this.menu).subscribe((res) => {
