@@ -23,7 +23,7 @@ export class MenuTableComponent implements OnInit {
   }
 
   edit(m: Menu) {
-      this.router.navigateByUrl('/menu/' + m.id);
+      this.router.navigateByUrl('/admin/menu/' + m.id);
       console.log(m);
   }
 

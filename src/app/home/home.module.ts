@@ -12,6 +12,9 @@ import { FooterComponent } from './footer/footer.component';
 import { AssociatesComponent } from './associates/associates.component';
 import { TestService } from './services/test.service';
 import { FormsModule } from '@angular/forms';
+import { MenuService } from '../shared/services/menu.service';
+import { StaticPageService } from '../shared/services/static-page.service';
+import { StaticPageComponent } from './static-page/static-page.component';
 
 const ADMIN_COMPONENTS = [
   HomeComponent,
@@ -32,9 +35,12 @@ const ADMIN_COMPONENTS = [
     HeaderComponent,
     FooterComponent,
     AssociatesComponent,
+    StaticPageComponent,
   ],
   providers   : [
     TestService,
+      MenuService,
+      StaticPageService
   ],
 })
 export class HomeModule {

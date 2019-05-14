@@ -22,7 +22,7 @@ export class StaticPageTableComponent implements OnInit {
   }
 
   select(s: StaticPage) {
-      this.router.navigateByUrl('/static-page/' + s.slug);
+      this.router.navigateByUrl('/admin/static-page/' + s.slug);
       console.log(s);
   }
 

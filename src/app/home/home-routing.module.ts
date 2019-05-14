@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { HomeComponent } from './home.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { StaticPageComponent } from './static-page/static-page.component';
 
 const routes: Routes = [{
   path: '',
@@ -10,6 +11,9 @@ const routes: Routes = [{
   children: [{
     path: '',
     component: LandingPageComponent,
+  }, {
+      path: 'static-page/:id',
+      component: StaticPageComponent,
   }],
 }];
 
