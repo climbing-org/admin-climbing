@@ -7,13 +7,13 @@ import { NewsPageComponent } from './news-page.component';
 import { NewsPageRoutingModule } from './news-page-routing.module';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { MenuService } from '../../../shared/services/menu.service';
-import { StaticPageService } from '../../../shared/services/static-page.service';
 import { UploadService } from '../../../shared/services/upload.service';
+import { NewsService } from '../../../shared/services/news.service';
 
 @NgModule({
     imports: [CommonModule, NewsPageRoutingModule, PageHeaderModule, FormsModule, EditorModule],
     declarations: [NewsPageComponent],
-    providers: [MenuService, StaticPageService, UploadService],
+    providers: [MenuService, NewsService, UploadService],
 })
 export class NewsPageModule {
 }

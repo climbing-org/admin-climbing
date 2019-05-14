@@ -1,8 +1,8 @@
 import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { StaticPageService } from '../../../shared/services/static-page.service';
-import StaticPage from '../../../shared/classes/static-page';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UploadService } from '../../../shared/services/upload.service';
+import News from '../../../shared/classes/news';
+import { NewsService } from '../../../shared/services/news.service';
 
 declare const $: any;
 
@@ -15,10 +15,10 @@ export class NewsPageComponent implements OnInit, AfterViewInit {
     @ViewChild('inputFile') inputFile: ElementRef;
 
     slug: string;
-    staticPage: StaticPage = new StaticPage();
+    news: News = new News();
     dataModel: any;
 
-  constructor(private staticPageService: StaticPageService,
+  constructor(private newsService: NewsService,
               private route: ActivatedRoute,
               private uploadService: UploadService,
               private router: Router) { }
@@ -26,9 +26,9 @@ export class NewsPageComponent implements OnInit, AfterViewInit {
   ngOnInit() {
       this.slug = this.route.snapshot.params['id'];
       if (this.slug) {
-        this.staticPageService.get(this.slug).subscribe((staticPage: {data: StaticPage}) => {
-            console.log(staticPage);
-            this.staticPage = staticPage.data;
+        this.newsService.get(this.slug).subscribe((res: {data: News}) => {
+            console.log(res);
+            this.news = res.data;
         });
       }
   }
@@ -40,7 +40,8 @@ export class NewsPageComponent implements OnInit, AfterViewInit {
               return;
           }
           console.log(inputFile);
-          this.uploadService.post(inputFile).subscribe((res) => {
+          this.uploadService.post(inputFile).subscribe((res: {location: string}) => {
+              this.news.logo = res.location;
               console.log(res);
           });
       });
@@ -49,12 +50,13 @@ export class NewsPageComponent implements OnInit, AfterViewInit {
   submit() {
       console.log(this.dataModel);
       if (this.slug) {
-          this.staticPageService.update(this.slug, this.staticPage).subscribe((res) => {
+          this.newsService.update(this.slug, this.news).subscribe((res) => {
               this.router.navigateByUrl('/admin/news-table');
               console.log(res);
           });
       } else {
-          this.staticPageService.post(this.staticPage).subscribe((res) => {
+          this.newsService.post(this.news).subscribe((res) => {
+              this.router.navigateByUrl('/admin/news-table');
               console.log(res);
           });
       }

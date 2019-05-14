@@ -37,6 +37,7 @@ export class NewStaticPageComponent implements OnInit {
           });
       } else {
           this.staticPageService.post(this.staticPage).subscribe((res) => {
+              this.router.navigateByUrl('/admin/static-page-table');
               console.log(res);
           });
       }

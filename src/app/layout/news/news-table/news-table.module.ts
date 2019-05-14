@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { NewsTableRoutingModule } from './news-table-routing.module';
 import { NewsTableComponent } from './news-table.component';
-import { StaticPageService } from '../../../shared/services/static-page.service';
+import { NewsService } from '../../../shared/services/news.service';
 
 @NgModule({
     imports: [
@@ -14,7 +14,7 @@ import { StaticPageService } from '../../../shared/services/static-page.service'
           NewsTableComponent
       ],
     providers: [
-        StaticPageService
+        NewsService
     ],
 })
 export class NewsTableModule { }

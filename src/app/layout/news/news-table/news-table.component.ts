@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { StaticPageService } from '../../../shared/services/static-page.service';
 import StaticPage from '../../../shared/classes/static-page';
 import { Router } from '@angular/router';
+import News from '../../../shared/classes/news';
+import { NewsService } from '../../../shared/services/news.service';
 
 @Component({
   selector: 'app-news-table',
@@ -10,19 +11,19 @@ import { Router } from '@angular/router';
 })
 export class NewsTableComponent implements OnInit {
 
-    staticPages: StaticPage[];
+    news: News[];
 
-  constructor(private staticPageService: StaticPageService,
+  constructor(private newsService: NewsService,
               private router: Router) { }
 
   ngOnInit() {
-      this.staticPageService.list().subscribe((res: {data: StaticPage[]}) => {
-          this.staticPages = res.data;
+      this.newsService.list().subscribe((res: {data: News[]}) => {
+          this.news = res.data;
       });
   }
 
-  select(s: StaticPage) {
-      this.router.navigateByUrl('/admin/news/' + s.slug);
+  select(s: News) {
+      this.router.navigateByUrl('/admin/news-page/' + s.slug);
       console.log(s);
   }
 
