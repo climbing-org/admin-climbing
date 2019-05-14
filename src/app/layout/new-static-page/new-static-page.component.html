@@ -1,0 +1,30 @@
+<fieldset class="form-group">
+    <label>Заголовок</label>
+    <input class="form-control" [(ngModel)]="name">
+</fieldset>
+<fieldset class="form-group">
+    <label>Slug</label>
+    <input class="form-control" [(ngModel)]="slug">
+</fieldset>
+<fieldset class="form-group">
+    <label>SEO хэштег</label>
+    <input class="form-control" [(ngModel)]="seo_hashtag">
+</fieldset>
+<fieldset class="form-group">
+    <label>SEO заголовок</label>
+    <input class="form-control" [(ngModel)]="seo_title">
+</fieldset>
+<fieldset class="form-group">
+    <label>SEO ключевые слова</label>
+    <input class="form-control" [(ngModel)]="seo_keywords">
+</fieldset>
+<fieldset class="form-group">
+    <label>SEO описание</label>
+    <input class="form-control" [(ngModel)]="seo_description">
+</fieldset>
+<fieldset class="form-group">
+    <label>Content</label>
+    <input class="form-control" [(ngModel)]="content">
+</fieldset>
+
+<button type="submit" class="btn btn-secondary" (click)="submit()">Submit Button</button>

@@ -1,0 +1,45 @@
+.header {
+  height: 159px;
+  background-image: url('/assets/home/layer-1.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 15px;
+}
+
+.vertical-line {
+  border-left: 1px solid;
+  border-color: #1c327a;
+  display: inline-block;
+}
+
+.ins {
+  margin: 0;
+}
+
+.text-md-right {
+  color: white;
+  .name {
+    text-decoration: underline;
+  }
+}
+
+.circular--landscape {
+  display: inline-block;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-left: 15px;
+  margin-bottom: -10px;
+}
+
+.circular--landscape img {
+  width: auto;
+  height: 100%;
+  margin-left: -10px;
+}
+
+.social-media {
+  margin-top: 43px;
+}

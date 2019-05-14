@@ -1,0 +1,343 @@
+//@import '../../@theme/styles/themes';
+//
+//@include nb-install-component() {
+//  .calendars-container {
+//    margin-top: 2rem;
+//  }
+//
+//  h2 {
+//    font-size: nb-theme(font-size-xlg);
+//    text-align: center;
+//  }
+//
+//  .nebular-calendar {
+//    display: flex;
+//    flex-direction: column;
+//    align-items: center;
+//    margin-bottom: 3rem;
+//  }
+//}
+
+.col-md-8.my {
+  flex: 0 0 61.66666667%;
+  max-width: 61.66666667%;
+}
+
+.col-md-4.my {
+  flex: 0 0 38.33333333%;
+  max-width: 38.33333333%;
+}
+
+
+
+
+
+.carousel {
+  img {
+    max-height: 550px;
+    min-width: auto;
+  }
+}
+:host ::ng-deep .carousel-item {
+  border-radius: 0 0 50px;
+  overflow: hidden;
+}
+
+:host ::ng-deep nb-card {
+  width: 21.875rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  //background: #ffffff;
+  color: #4b4b4b;
+  margin-bottom: 1.5rem;
+  //border-radius: 0.375rem;
+  //-webkit-box-shadow: 0 2px 12px 0 #dfe3eb;
+  //box-shadow: 0 2px 12px 0 #dfe3eb;
+  font-weight: 400;
+  //border: 0 solid #ffffff;
+  scrollbar-face-color: #dadada;
+  scrollbar-track-color: #f2f2f2;
+  margin-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+:host ::ng-deep nb-card-header {
+  padding: 1.25rem;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: #ebeef2;
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+  color: #2a2a2a;
+  //font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.25;
+  background: #ffffff;
+  margin-bottom: 1.5rem;
+  border-radius: 0.375rem;
+  box-shadow: 0 2px 12px 0 #dfe3eb;
+  border: 0 solid #ffffff;
+  display: none;
+}
+
+:host ::ng-deep nb-calendar-header .header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+:host ::ng-deep nb-calendar-header .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #4b4b4b;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+:host ::ng-deep nb-calendar-header .sub-title {
+  color: #a4abb3;
+  font-weight: 200;
+  font-size: 1rem;
+}
+
+:host ::ng-deep nb-base-calendar.medium nb-card nb-card-body {
+  height: 25.625rem;
+}
+
+:host ::ng-deep nb-card-body {
+  -webkit-box-flex: 1;
+  flex: 1;
+  -ms-flex: 1 1 auto;
+  overflow: auto;
+  padding: 1.25rem;
+  position: relative;
+  scrollbar-face-color: #dadada;
+  scrollbar-track-color: #f2f2f2;
+}
+
+:host ::ng-deep nb-base-calendar nb-card-body > nb-calendar-pageable-navigation {
+  padding: 0 1rem 1.5rem;
+}
+
+:host ::ng-deep nb-calendar-navigation button[nbButton] {
+  width: 10rem;
+  //background-color: #40dc7e;
+  color: #1d3279;
+  height: 3.125rem;
+}
+
+:host ::ng-deep [nbButton] {
+  color: #ffffff;
+  font-weight: 500;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  cursor: default;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  border-radius: 0.375rem;
+}
+
+// hz
+:host ::ng-deep nb-calendar-days-names {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+:host ::ng-deep nb-calendar-days-names .day.holiday {
+  color: #ff4c6a;
+}
+
+:host ::ng-deep .day {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 1px;
+}
+
+:host ::ng-deep nb-calendar-days-names .day {
+  width: 2.625rem;
+  height: 1.75rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+:host ::ng-deep nb-calendar-picker-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+:host ::ng-deep nb-calendar-day-picker .day-cell:not(.empty):not(.disabled),
+nb-calendar-month-picker .month-cell:not(.empty):not(.disabled),
+nb-calendar-year-picker .year-cell:not(.empty):not(.disabled) {
+  cursor: pointer;
+}
+
+:host ::ng-deep nb-calendar-day-picker .day-cell.bounding-month {
+  opacity: 0.5;
+}
+
+:host ::ng-deep nb-calendar-day-picker.medium .day-cell {
+  width: 2.625rem;
+  height: 2.625rem;
+}
+
+:host ::ng-deep nb-calendar-day-picker .day-cell {
+  border-radius: 0.375rem;
+}
+
+:host ::ng-deep nb-calendar-day-picker .day-cell, nb-calendar-month-picker .month-cell, nb-calendar-year-picker .year-cell {
+  color: #4b4b4b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 1px;
+}
+
+:host ::ng-deep nb-calendar-day-picker .day-cell.selected, nb-calendar-day-picker .day-cell.range-cell.start, nb-calendar-day-picker .day-cell.range-cell.end {
+  background: #1d3279;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.blue {
+  background-color: #3391cf;
+  padding: 3px;
+  color: white;
+}
+
+
+.card {
+  border: none;
+  background-color: transparent;
+}
+
+
+
+.row {
+  margin-top: 25px;
+}
+
+.row:first-child {
+  margin-top: 0;
+}
+
+.ratings {
+  text-transform: uppercase;
+  margin-top:30px;
+  h2 {
+    font-size: 26px;
+    color: #1c3279;
+    margin-bottom: 20px;
+  }
+  .circular--landscape {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  .circular--landscape img {
+    width: auto;
+    height: 100%;
+    margin-left: -10px;
+  }
+
+  .media-body {
+    margin-left: 11px;
+    color: #6c7293;
+    font-size: 12px;
+  }
+  .blue, .level, .rank {
+    font-size: 13px;
+  }
+  .level {
+    color: #1c3279;
+  }
+  .rank {
+    color: #1c3279;
+  }
+}
+
+.events {
+  border-radius: 50px 0 0 50px;
+  background: white;
+}
+.event-content {
+  margin-left: 22px;
+  margin-top: 33px;
+  margin-bottom: 30px;
+  h2 {
+    text-transform: uppercase;
+    font-size: 26px;
+    color: #1c3279;
+    margin-bottom: 20px;
+  }
+  .dates {
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+  .event-description {
+    font-size: 13px;
+    font-family: 'Open Sans Semibold', 'Open Sans';
+    color: #6c7293;
+  }
+  .event-location {
+    font-size: 12px;
+    color: #6c7293;
+  }
+  article {
+    margin-bottom: 17px;
+  }
+}
+
+
+.news {
+  h2 {
+    text-transform: uppercase;
+    font-size: 26px;
+    color: #1c3279;
+    margin-bottom: 20px;
+  }
+  .card-body {
+    .card-title {
+      font-size: 18px;
+      color: #6c7293;
+    }
+    .card-text {
+      font-size: 12px;
+      color: #9f9f9f;
+    }
+  }
+}
+
+.news-event {
+  margin-bottom: 145px;
+}
