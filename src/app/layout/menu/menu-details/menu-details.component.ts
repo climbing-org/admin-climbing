@@ -29,6 +29,8 @@ export class MenuDetailsComponent implements OnInit {
               this.menu = res.data;
               this.getSelectData();
           });
+      } else {
+          this.getSelectData();
       }
   }
 
