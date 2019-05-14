@@ -10,11 +10,11 @@ import { NbCalendarModule } from '@nebular/theme';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './footer/footer.component';
 import { AssociatesComponent } from './associates/associates.component';
-import { TestService } from './services/test.service';
 import { FormsModule } from '@angular/forms';
 import { MenuService } from '../shared/services/menu.service';
 import { StaticPageService } from '../shared/services/static-page.service';
 import { StaticPageComponent } from './static-page/static-page.component';
+import { NewsService } from '../shared/services/news.service';
 
 const ADMIN_COMPONENTS = [
   HomeComponent,
@@ -38,9 +38,9 @@ const ADMIN_COMPONENTS = [
     StaticPageComponent,
   ],
   providers   : [
-    TestService,
       MenuService,
-      StaticPageService
+      StaticPageService,
+      NewsService
   ],
 })
 export class HomeModule {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import { TestService } from '../services/test.service';
+import { NewsService } from '../../shared/services/news.service';
+import News from '../../shared/classes/news';
 
 @Component({
   selector: 'ngx-landing-page',
@@ -11,9 +12,10 @@ export class LandingPageComponent implements OnInit {
 
   date = new Date();
   images;
+  news: News[];
 
   constructor(config: NgbCarouselConfig,
-              private test: TestService) {
+              private newsService: NewsService ) {
     // customize default values of carousels used by this component tree
     config.interval = 100000000;
     config.wrap = false;
@@ -22,11 +24,10 @@ export class LandingPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.images = [1, 2, 3].map(() => `https://picsum.photos/900/500?random&t=${Math.random()}`);
-    // console.log(this.images);
     this.images = ['/assets/home/carousel-pic.png', '/assets/home/carousel-pic.png', '/assets/home/carousel-pic.png'];
-    this.test.get().subscribe((r) => {
-      console.log(r);
+    this.newsService.list().subscribe((res: {data: News[]}) => {
+        this.news = res.data;
+        console.log(res);
     });
   }
 

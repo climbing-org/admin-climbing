@@ -227,6 +227,19 @@
           </div>
         </div>
       </div>
+        <div class="card mb-3" *ngFor="let n of news">
+            <div class="row no-gutters">
+                <div class="col-md-3">
+                    <img [src]="'http://192.241.156.153:8000' + n.logo" class="card-img" alt="...">
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body">
+                        <h5 class="card-title"><b>{{n.name}}</b></h5>
+                        <p class="card-text">{{n.content}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     </div>
 
