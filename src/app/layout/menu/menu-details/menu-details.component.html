@@ -10,7 +10,10 @@
 </div>
 <fieldset class="form-group">
     <label>Название меню</label>
-    <input class="form-control" [(ngModel)]="menu.name">
+    <input class="form-control" [ngClass]="{'is-invalid': !menu.name}" [(ngModel)]="menu.name">
+    <div class="invalid-feedback" *ngIf="!menu.name">
+        Не может быть пустым
+    </div>
 </fieldset>
 <div class="form-group">
     <label>Добавить в хэдер</label>

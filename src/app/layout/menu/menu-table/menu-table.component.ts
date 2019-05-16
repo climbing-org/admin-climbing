@@ -13,6 +13,8 @@ export class MenuTableComponent implements OnInit {
     menu: Menu[];
     selectedMenu1: Menu;
     selectedMenu2: Menu;
+    selectedMenu3: Menu;
+    selectedMenu4: Menu;
 
   constructor(private menuService: MenuService,
               private router: Router) { }

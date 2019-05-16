@@ -10,7 +10,10 @@
 </div>
 <fieldset class="form-group">
     <label>Заголовок</label>
-    <input class="form-control" [(ngModel)]="news.name">
+    <input class="form-control" [ngClass]="{'is-invalid': !news.name}" [(ngModel)]="news.name">
+    <div class="invalid-feedback" *ngIf="!news.name">
+        Не может быть пустым
+    </div>
 </fieldset>
 <fieldset class="form-group">
     <label>Content</label>
@@ -63,12 +66,18 @@
     </div>
 </div>
 
-<input #inputFile type="file">
-<br>
-<br>
-<div *ngIf="news.logo">
-    <img [src]="'https://androidios.kz:8000' + news.logo" alt="" width="100" />
-</div>
+<a (click)="inputFile.click()" style="cursor: pointer; color: #007bff; margin-right: 10px;">
+    <i class="fa fa-paperclip"></i>
+    Прикрепить картинку
+</a>
+<span *ngIf="file">
+      <div *ngIf="loading" class="ui mini inline loader" [ngClass]="{active: loading}"></div>
+        <i class="fa green fa-check" style="color: green"></i>
+        {{file.name}}
+        <i class="fa fa-remove" style="color: red"></i>
+  </span>
+<input #inputFile type="file" style="display: none">
+
 <br>
 <br>
 

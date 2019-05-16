@@ -17,6 +17,8 @@ export class NewsPageComponent implements OnInit, AfterViewInit {
     slug: string;
     news: News = new News();
     dataModel: any;
+    file: File;
+    loading = false;
 
   constructor(private newsService: NewsService,
               private route: ActivatedRoute,
@@ -35,14 +37,15 @@ export class NewsPageComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
       $(this.inputFile.nativeElement).on('change', event => {
+          this.loading = true;
           const inputFile = event.target.files[0];
           if (!inputFile || !inputFile.name) {
               return;
           }
-          console.log(inputFile);
           this.uploadService.post(inputFile).subscribe((res: {location: string}) => {
+              this.loading = true;
+              this.file = inputFile;
               this.news.logo = res.location;
-              console.log(res);
           });
       });
   }

@@ -10,7 +10,10 @@
 </div>
 <fieldset class="form-group">
     <label>Заголовок</label>
-    <input class="form-control" [(ngModel)]="staticPage.name">
+    <input class="form-control" [ngClass]="{'is-invalid': !staticPage.name}"  [(ngModel)]="staticPage.name">
+    <div class="invalid-feedback" *ngIf="!staticPage.name">
+        Не может быть пустым
+    </div>
 </fieldset>
 <fieldset class="form-group">
     <label>Content</label>
