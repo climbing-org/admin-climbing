@@ -6,7 +6,7 @@ export default class Menu {
     header: boolean;
     footer: boolean;
     parent: number;
-    static_page: number;
+    static_page: string;
     created_at: Date;
     childs: Menu[];
 }
