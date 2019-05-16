@@ -17,8 +17,8 @@ export class LandingNavbarComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
       this.menuService.list().subscribe((res: {data: Menu[]}) => {
-          this.menu = res.data;
-          console.log(res);
+          this.menu = res.data.filter(menu => menu.header);
+          console.log(this.menu);
       });
   }
 

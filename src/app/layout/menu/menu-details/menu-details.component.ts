@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Menu from '../../../shared/classes/menu';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MenuService } from '../../../shared/services/menu.service';
@@ -14,8 +14,10 @@ export class MenuDetailsComponent implements OnInit {
 
     menu: Menu = new Menu();
     slug: string;
-    menuIds: number[] = [];
-    staticPageSlugs: string[] = [];
+    menuIds: {name: string, id: number}[] = [];
+    staticPage: StaticPage[] = [];
+
+    // @ViewChild('staticPage') staticPage: ElementRef;
 
   constructor(private activeRoute: ActivatedRoute,
               private router: Router,
@@ -28,6 +30,8 @@ export class MenuDetailsComponent implements OnInit {
           this.menuService.get(this.slug).subscribe((res: {data: Menu}) => {
               console.log(res);
               this.menu = res.data;
+              // console.log($(this.staticPage.nativeElement));
+              // $(this.staticPage.nativeElement)[0].value = this.menu.static_page;
               this.getSelectData();
           });
       } else {
@@ -38,17 +42,17 @@ export class MenuDetailsComponent implements OnInit {
   getSelectData(): void {
       this.menuService.list().subscribe( (res: {data: Menu[]}) => {
           res.data.forEach((menu) => {
-              if (this.menu.id !== menu.id) this.menuIds.push(menu.id);
+              if (this.menu.id !== menu.id) this.menuIds.push({name: menu.name, id: menu.id});
               console.log(this.menuIds);
               if (menu.childs  && menu.childs.length) {
                   menu.childs.forEach((m) => {
-                      if (this.menu.id !== menu.id) this.menuIds.push(m.id);
+                      if (this.menu.id !== menu.id) this.menuIds.push({name: m.name, id: m.id});
                       if (m.childs && m.childs.length) {
                           m.childs.forEach((m1) => {
-                              if (this.menu.id !== menu.id) this.menuIds.push(m1.id);
+                              if (this.menu.id !== menu.id) this.menuIds.push({name: m1.name, id: m1.id});
                               if (m1.childs && m1.childs.length) {
                                   m1.childs.forEach((m2) => {
-                                      if (this.menu.id !== menu.id) this.menuIds.push(m2.id);
+                                      if (this.menu.id !== menu.id) this.menuIds.push({name: m2.name, id: m2.id});
                                   });
                               }
                           });
@@ -58,9 +62,7 @@ export class MenuDetailsComponent implements OnInit {
           });
       });
       this.staticPageService.list().subscribe((res: {data: StaticPage[]}) => {
-            res.data.forEach((sp) => {
-                this.staticPageSlugs.push(sp.slug);
-            });
+          this.staticPage = res.data;
       });
   }
 
@@ -74,6 +76,7 @@ export class MenuDetailsComponent implements OnInit {
         } else {
             this.menuService.post(this.menu).subscribe((res) => {
                 console.log(res);
+                this.router.navigateByUrl('/admin/menu-table');
             });
         }
     }

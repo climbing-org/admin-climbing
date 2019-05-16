@@ -32,14 +32,14 @@
     <label>Родительское меню</label>
     <select class="form-control" [(ngModel)]="menu.parent">
         <option></option>
-        <option *ngFor="let m of menuIds">{{m}}</option>
+        <option [value]="m.id" *ngFor="let m of menuIds">{{m.name}}</option>
     </select>
 </div>
 <div class="form-group">
     <label>Страница</label>
     <select class="form-control" [(ngModel)]="menu.static_page">
         <option></option>
-        <option *ngFor="let sp of staticPageSlugs">{{sp}}</option>
+        <option [value]="sp.slug" *ngFor="let sp of staticPage">{{sp.name}}</option>
     </select>
 </div>
 
