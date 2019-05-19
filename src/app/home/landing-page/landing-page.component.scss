@@ -129,6 +129,16 @@
   padding: 0 1rem 1.5rem;
 }
 
+:host ::ng-deep .nb-arrow-right::before {
+    //content: url('/assets/home/f.png');
+    content: '\2192';
+}
+
+:host ::ng-deep .nb-arrow-left::before {
+    //content: url('/assets/home/f.png');
+    content: '\2190';
+}
+
 :host ::ng-deep nb-calendar-navigation button[nbButton] {
   width: 10rem;
   //background-color: #40dc7e;

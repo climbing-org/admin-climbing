@@ -15,7 +15,15 @@ export class FooterComponent implements OnInit {
 
   ngOnInit() {
       this.menuService.list().subscribe((res: {data: Menu[]}) => {
-          this.menu = res.data.filter(menu => menu.footer);
+          if (res.data) {
+              if (res.data['detail']) {
+                  this.menu = [];
+              } else {
+                  this.menu = res.data.filter(menu => menu.footer);
+              }
+          } else {
+              this.menu = [];
+          }
           console.log(this.menu);
       });
   }
