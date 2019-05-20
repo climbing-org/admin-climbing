@@ -20,10 +20,6 @@ export class StaticPageService {
     }
 
     update(slug: string, body: StaticPage) {
-        if (body) {
-            delete body['author'];
-            delete body['created_at'];
-        }
         return this.http.put('https://androidios.kz:8000/api/v1/static-page/' + slug + '/', body);
     }
 

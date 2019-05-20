@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { NewsService } from '../../shared/services/news.service';
 import News from '../../shared/classes/news';
+import { EventService } from '../../shared/services/event.service';
+import { GeneralHelper } from '../../shared/helpers/general.helper';
 
 @Component({
   selector: 'ngx-landing-page',
@@ -13,8 +15,10 @@ export class LandingPageComponent implements OnInit {
   date = new Date();
   images;
   news: News[];
+  events: Event[];
 
   constructor(config: NgbCarouselConfig,
+              private eventService: EventService,
               private newsService: NewsService ) {
     // customize default values of carousels used by this component tree
     config.interval = 100000000;
@@ -26,17 +30,11 @@ export class LandingPageComponent implements OnInit {
   ngOnInit() {
     this.images = ['/assets/home/carousel-pic.png', '/assets/home/rick-and-morty.jpg', '/assets/home/carousel-pic4.jpg'];
     this.newsService.list().subscribe((res: {data: News[]}) => {
-        if (res.data) {
-            if (res.data['detail']) {
-                this.news = [];
-            } else {
-                this.news = res.data;
-            }
-        } else {
-            this.news = [];
-        }
-        console.log(this.news);
+        this.news = GeneralHelper.isEmpty(res) ? [] : res.data;
     });
+      this.eventService.list().subscribe((res: {data: Event[]}) => {
+          this.events = GeneralHelper.isEmpty(res) ? [] : res.data;
+      });
   }
 
 }

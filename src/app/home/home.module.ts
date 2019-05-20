@@ -15,6 +15,7 @@ import { MenuService } from '../shared/services/menu.service';
 import { StaticPageService } from '../shared/services/static-page.service';
 import { StaticPageComponent } from './static-page/static-page.component';
 import { NewsService } from '../shared/services/news.service';
+import { EventService } from '../shared/services/event.service';
 
 const ADMIN_COMPONENTS = [
   HomeComponent,
@@ -40,7 +41,8 @@ const ADMIN_COMPONENTS = [
   providers   : [
       MenuService,
       StaticPageService,
-      NewsService
+      NewsService,
+      EventService
   ],
 })
 export class HomeModule {
