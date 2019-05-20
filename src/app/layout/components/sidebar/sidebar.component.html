@@ -69,6 +69,29 @@
             </li>
         </div>
 
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('events')">
+                <i class="fa fa-plus"></i>&nbsp;
+                <span>Мероприятия</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'events'">
+                <ul class="submenu">
+                    <li>
+                        <a routerLink="/admin/events-table">
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>Таблица мероприятий</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/admin/events-page">
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>Новые мериприятии</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
 
 
 

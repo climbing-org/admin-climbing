@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import StaticPage from '../../../shared/classes/static-page';
 import { Router } from '@angular/router';
 import News from '../../../shared/classes/news';
 import { NewsService } from '../../../shared/services/news.service';
+import { GeneralHelper } from '../../../shared/helpers/general.helper';
 
 @Component({
   selector: 'app-news-table',
@@ -18,7 +18,7 @@ export class NewsTableComponent implements OnInit {
 
   ngOnInit() {
       this.newsService.list().subscribe((res: {data: News[]}) => {
-          this.news = res.data;
+          this.news = GeneralHelper.isEmpty(res) ? [] : res.data;
       });
   }
 

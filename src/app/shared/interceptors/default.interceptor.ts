@@ -14,7 +14,7 @@ import { SecurityService } from '../services/security.service';
 import { Router } from '@angular/router';
 import {JWTHelper} from '../helpers/jwt.helper';
 
-const headerJWT = 'token';
+const headerJWT = 'Authorization';
 const headerNewJWT = 'token-new';
 
 @Injectable()
@@ -56,7 +56,7 @@ export class DefaultInterceptor implements HttpInterceptor {
   private injectJWTHeader(req: HttpRequest<any>): HttpRequest<any> {
       if (JWTHelper.getToken()) {
           return req.clone({
-              headers: req.headers.set(headerJWT, JWTHelper.getToken())
+              headers: req.headers.set(headerJWT, `Token ${JWTHelper.getToken()}`)
           });
       }
       return req.clone({

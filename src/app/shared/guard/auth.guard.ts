@@ -24,7 +24,7 @@ export class AuthGuard implements CanActivate {
             // }
 
             const t = this.ss.getToken();
-            console.log(t);
+            // console.log(t);
             // if (t !== null) { resolve(true); }
             if (t) { resolve(true); }
             else {

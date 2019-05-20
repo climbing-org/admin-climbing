@@ -26,6 +26,9 @@ const routes: Routes = [
             { path: 'news-page', loadChildren: './news/news-page/news-page.module#NewsPageModule' },
             { path: 'news-table', loadChildren: './news/news-table/news-table.module#NewsTableModule' },
             { path: 'news-page/:id', loadChildren: './news/news-page/news-page.module#NewsPageModule' },
+            { path: 'events-page', loadChildren: './events/events-page/events-page.module#EventsPageModule' },
+            { path: 'events-table', loadChildren: './events/events-table/events-table.module#EventsTableModule' },
+            { path: 'events-page/:id', loadChildren: './events/events-page/events-page.module#EventsPageModule' },
         ]
     }
 ];

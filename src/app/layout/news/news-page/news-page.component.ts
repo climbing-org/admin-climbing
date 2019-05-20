@@ -16,7 +16,6 @@ export class NewsPageComponent implements OnInit, AfterViewInit {
 
     slug: string;
     news: News = new News();
-    dataModel: any;
     file: File;
     loading = false;
 
@@ -51,7 +50,6 @@ export class NewsPageComponent implements OnInit, AfterViewInit {
   }
 
   submit() {
-      console.log(this.dataModel);
       if (this.slug) {
           this.newsService.update(this.slug, this.news).subscribe((res) => {
               this.router.navigateByUrl('/admin/news-table');
