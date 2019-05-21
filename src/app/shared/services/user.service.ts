@@ -19,8 +19,8 @@ export class UsersService {
         return this.http.post('https://androidios.kz:8000/api/v1/users/', body);
     }
 
-    update(body: User) {
-        return this.http.put('https://androidios.kz:8000/api/v1/users/' + body.id + '/', body);
+    update(id: number, body: User) {
+        return this.http.put('https://androidios.kz:8000/api/v1/users/' + id + '/', body);
     }
 
     partial_update(id: number, body: any) {
@@ -31,7 +31,10 @@ export class UsersService {
         return this.http.post('https://androidios.kz:8000/api/v1/users/' + id + '/change_password/', body);
     }
 
-    set_password(id: number, body: any) {
+    set_password(id: number, newPassword: string) {
+      const body = {
+          password: newPassword
+      };
         return this.http.post('https://androidios.kz:8000/api/v1/users/' + id + '/set_password/', body);
     }
 

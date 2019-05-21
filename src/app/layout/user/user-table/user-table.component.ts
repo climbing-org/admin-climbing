@@ -23,7 +23,11 @@ export class UserTableComponent implements OnInit {
   }
 
     select(s: User) {
-        this.router.navigateByUrl('/admin/profile-sportsman/' + s.id);
+        if (s.role) {
+            this.router.navigateByUrl(`/admin/profile-${s.role}/` + s.id);
+        } else {
+            this.router.navigateByUrl(`/admin/profile-sportsman/` + s.id);
+        }
         console.log(s);
     }
 

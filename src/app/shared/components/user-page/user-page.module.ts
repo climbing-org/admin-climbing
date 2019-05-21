@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { UserPageComponent } from './user-page.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UsersService } from '../../services/user.service';
+import { UploadService } from '../../services/upload.service';
 
 @NgModule({
   declarations: [UserPageComponent],
@@ -16,7 +17,8 @@ import { UsersService } from '../../services/user.service';
         UserPageComponent
     ],
     providers: [
-        UsersService
+        UsersService,
+        UploadService
     ]
 })
 export class UserPageModule { }

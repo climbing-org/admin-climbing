@@ -32,6 +32,13 @@ const routes: Routes = [
             { path: 'new-user', loadChildren: './user/new-user/new-user.module#NewUserModule' },
             { path: 'user-table', loadChildren: './user/user-table/user-table.module#UserTableModule' },
             { path: 'profile-sportsman/:id', loadChildren: './profile/profile-sportsman/profile-sportsman.module#ProfileSportsmanModule' },
+            { path: 'profile-judge/:id', loadChildren: './profile/profile-judge/profile-judge.module#ProfileJudgeModule' },
+            { path: 'profile-trainer/:id', loadChildren: './profile/profile-trainer/profile-trainer.module#ProfileTrainerModule' },
+            { path: 'my-profile/:id', loadChildren: './profile/my-profile/my-profile.module#MyProfileModule' },
+            { path: 'profile-sportsman', loadChildren: './profile/profile-sportsman/profile-sportsman.module#ProfileSportsmanModule' },
+            { path: 'profile-judge', loadChildren: './profile/profile-judge/profile-judge.module#ProfileJudgeModule' },
+            { path: 'profile-trainer', loadChildren: './profile/profile-trainer/profile-trainer.module#ProfileTrainerModule' },
+            { path: 'my-profile', loadChildren: './profile/my-profile/my-profile.module#MyProfileModule' },
         ]
     }
 ];

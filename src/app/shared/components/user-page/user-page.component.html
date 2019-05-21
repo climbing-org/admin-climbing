@@ -1,29 +1,81 @@
 <form role="form" [formGroup]="form">
+
     <div class="row">
         <div class="col-md-6">
-            <fieldset class="form-group">
-                <label>Биография</label>
-                <input class="form-control" formControlName="email">
-            </fieldset>
+            <div class="row">
+                <div class="col-md-12">
+                    <fieldset class="form-group">
+                        <label>Биография</label>
+                        <textarea class="form-control" formControlName="biography" rows="3"></textarea>
+                    </fieldset>
+                </div>
+                <div class="col-md-12">
+                    <fieldset class="form-group">
+                        <label>Разряд</label>
+                        <input class="form-control" formControlName="level">
+                    </fieldset>
+                </div>
+            </div>
         </div>
+
         <div class="col-md-6">
-            <fieldset class="form-group">
-                <label>SEO заголовок</label>
-                <input class="form-control" formControlName="email">
-            </fieldset>
-        </div>
-        <div class="col-md-6">
-            <fieldset class="form-group">
-                <label>SEO ключевые слова</label>
-                <input class="form-control" formControlName="email">
-            </fieldset>
-        </div>
-        <div class="col-md-6">
-            <fieldset class="form-group">
-                <label>SEO описание</label>
-                <input class="form-control" formControlName="email">
-            </fieldset>
+            <div class="row">
+                <div class="col-md-12">
+                    <fieldset class="form-group">
+                        <label>Имя</label>
+                        <input class="form-control" formControlName="first_name">
+                    </fieldset>
+                </div>
+                <div class="col-md-12">
+                    <fieldset class="form-group">
+                        <label>Фамилия</label>
+                        <input class="form-control" formControlName="last_name">
+                    </fieldset>
+                </div>
+                <div class="col-md-12">
+                    <fieldset class="form-group">
+                        <label>Отчество</label>
+                        <input class="form-control" formControlName="second_name">
+                    </fieldset>
+                </div>
+                <div class="col-md-8">
+                    <fieldset class="form-group">
+                        <label>Аватар</label>
+                        <br>
+                        <a (click)="inputFile.click()" style="cursor: pointer; color: #007bff; margin-right: 10px;">
+                            <i class="fa fa-paperclip"></i>
+                            Прикрепить картинку
+                        </a>
+                        <span *ngIf="file">
+                              <div *ngIf="loading" class="ui mini inline loader" [ngClass]="{active: loading}"></div>
+                                <i class="fa green fa-check" style="color: green"></i>
+                                                    {{file.name}}
+                                                    <!--    <i class="fa fa-remove" style="color: red"></i>-->
+                          </span>
+                        <input #inputFile type="file" style="display: none">
+                    </fieldset>
+                </div>
+                <div class="col-md-4">
+                    <img *ngIf="user?.avatar" [src]="'https://androidios.kz:8000' + user.avatar" class="card-img" alt="...">
+                </div>
+                <div class="col-md-12">
+                    <label>Новый пароль</label>
+                    <button *ngIf="!showNewPasswordInput" (click)="showNewPasswordInput=true" type="submit" class="btn btn-secondary mb-2" style="float: right;">
+                        Создать новый пароль
+                    </button>
+                    <button *ngIf="showNewPasswordInput" type="submit" class="btn btn-secondary mb-2" style="float: right;" (click)="onNewPassword()">Сохранить</button>
+                    <input  *ngIf="showNewPasswordInput" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="newPassword">
+                    <div *ngIf="showNewPasswordSuccess" class="valid-feedback" style="display: block">
+                        Успешно сохранен
+                    </div>
+                    <div *ngIf="showNewPasswordFailure" class="invalid-feedback" style="display: block">
+                        {{newPasswordFailureMessage}}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <button type="submit" class="btn btn-primary" (click)="submit(form)">Сохранить</button>
 
 </form>
