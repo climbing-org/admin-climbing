@@ -92,6 +92,29 @@
             </li>
         </div>
 
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('user')">
+                <i class="fa fa-plus"></i>&nbsp;
+                <span>Пользователь</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'user'">
+                <ul class="submenu">
+                    <li>
+                        <a routerLink="/admin/user-table">
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>Таблица пользователей</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/admin/new-user">
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>Новые пользователи</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
 
 
 

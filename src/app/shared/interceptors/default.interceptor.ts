@@ -38,7 +38,11 @@ export class DefaultInterceptor implements HttpInterceptor {
         event => {
           if (event instanceof HttpResponse) {
             // Обновляем сессию, если сервер выдал новый JWT
-            this.updateSession(event);
+              if (event && event.body && (event.body.code === 403 || event.body.code === 401)) {
+                  this.ss.logout();
+                  this.router.navigateByUrl('/login');
+              }
+            // this.updateSession(event);
           }
         },
         // Если сервер вернул ошибку
@@ -46,7 +50,8 @@ export class DefaultInterceptor implements HttpInterceptor {
           if (error instanceof HttpErrorResponse) {
 
             // Обновляем сессию, если сервер выдал новый JWT
-            this.updateSession(error);
+              console.log('2222222222222222222');
+            // this.updateSession(error);
           }
         }
       )
