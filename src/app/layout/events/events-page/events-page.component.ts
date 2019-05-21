@@ -3,6 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UploadService } from '../../../shared/services/upload.service';
 import { EventService } from '../../../shared/services/event.service';
 import Event from '../../../shared/classes/event';
+import User from '../../../shared/classes/user';
+import { GeneralHelper } from '../../../shared/helpers/general.helper';
+import { UsersService } from '../../../shared/services/user.service';
 
 @Component({
   selector: 'app-events-page',
@@ -17,9 +20,16 @@ export class EventsPageComponent implements OnInit, AfterViewInit {
     file: File;
     loading = false;
 
+    sportsmen: User[];
+    judges: User[];
+    selectedSportsmen: User[] = [];
+    selectedJudges: User[] = [];
+    dropdownSettings = {};
+
   constructor(private eventsService: EventService,
               private route: ActivatedRoute,
               private uploadService: UploadService,
+              private usersService: UsersService,
               private router: Router) { }
 
   ngOnInit() {
@@ -28,8 +38,38 @@ export class EventsPageComponent implements OnInit, AfterViewInit {
           this.eventsService.get(this.slug).subscribe((res: {data: Event}) => {
               console.log(res);
               this.event = res.data;
+              this.selectedSportsmen = this.event.sportsmans;
+              this.selectedSportsmen.forEach((s) => {
+                  if (s['pk']) {
+                      s.id = s['pk'];
+                  }
+              });
+              this.selectedJudges = this.event.judges;
+              this.selectedJudges.forEach((s) => {
+                  if (s['pk']) {
+                      s.id = s['pk'];
+                  }
+              });
           });
       }
+      this.usersService.list('sportsman').subscribe((res: {data: User[]}) => {
+          this.sportsmen = GeneralHelper.isEmpty(res) ? [] : res.data;
+          console.log(this.sportsmen);
+      });
+      this.usersService.list('judge').subscribe((res: {data: User[]}) => {
+          this.judges = GeneralHelper.isEmpty(res) ? [] : res.data;
+          console.log(this.judges);
+      });
+
+      this.dropdownSettings = {
+          singleSelection: false,
+          idField: 'id',
+          textField: 'first_name',
+          selectAllText: 'Select All',
+          unSelectAllText: 'UnSelect All',
+          itemsShowLimit: 3,
+          allowSearchFilter: true
+      };
   }
 
   ngAfterViewInit(): void {
@@ -47,6 +87,14 @@ export class EventsPageComponent implements OnInit, AfterViewInit {
       });
   }
     submit() {
+        this.event.sportsmans = [];
+        this.selectedSportsmen.forEach((s) => {
+          this.event.sportsmans.push(s.id);
+        });
+        this.event.judges = [];
+        this.selectedJudges.forEach((s) => {
+            this.event.judges.push(s.id);
+        });
         if (this.slug) {
             this.eventsService.update(this.slug, this.event).subscribe((res) => {
                 this.router.navigateByUrl('/admin/events-table');
@@ -58,6 +106,14 @@ export class EventsPageComponent implements OnInit, AfterViewInit {
                 console.log(res);
             });
         }
+    }
+
+    onItemSelect(item: any) {
+        console.log(item);
+        console.log(this.selectedSportsmen);
+    }
+    onSelectAll(items: any) {
+        console.log(items);
     }
 
 }

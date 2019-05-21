@@ -11,8 +11,10 @@ export class UsersService {
         return this.http.get('https://androidios.kz:8000/api/v1/users/' + id + '/');
     }
 
-    list() {
-        return this.http.get('https://androidios.kz:8000/api/v1/users/');
+    list(role?: string) {
+        let url = 'https://androidios.kz:8000/api/v1/users/';
+        if (role) { url += `?role=${role}`; }
+        return this.http.get(url);
     }
 
     post(body) {

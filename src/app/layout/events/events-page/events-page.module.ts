@@ -8,17 +8,21 @@ import { UploadService } from '../../../shared/services/upload.service';
 import { PageHeaderModule } from '../../../shared/modules';
 import { FormsModule } from '@angular/forms';
 import { EditorModule } from '@tinymce/tinymce-angular';
+import { UsersService } from '../../../shared/services/user.service';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [EventsPageComponent],
   imports: [
     CommonModule,
     EventsPageRoutingModule,
-      PageHeaderModule, FormsModule, EditorModule
+      PageHeaderModule, FormsModule, EditorModule,
+      NgMultiSelectDropDownModule.forRoot()
   ],
     providers: [
         EventService,
-        UploadService
+        UploadService,
+        UsersService
     ]
 })
 export class EventsPageModule { }

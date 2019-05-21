@@ -1,3 +1,4 @@
+import User from './user';
 
 
 export default class Event {
@@ -11,4 +12,8 @@ export default class Event {
     created_at: Date;
     logo: string;
     results: string;
+    sportsmans: any;
+    judges: any;
+    requests: number[];
+    author: string;
 }

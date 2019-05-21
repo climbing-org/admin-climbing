@@ -35,6 +35,7 @@
     "font-awesome": "4.7.0",
     "jquery": "^3.4.1",
     "jwt-decode": "^2.2.0",
+    "ng-multiselect-dropdown": "^0.2.3",
     "ng2-charts": "1.6.0",
     "rxjs": "6.3.3",
     "yarn": "1.12.1",

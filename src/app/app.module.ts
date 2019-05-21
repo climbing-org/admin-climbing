@@ -11,6 +11,7 @@ import { AuthGuard } from './shared';
 import { NbThemeModule } from '@nebular/theme';
 import { SecurityService } from './shared/services/security.service';
 import { DefaultInterceptor } from './shared/interceptors/default.interceptor';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 export function customBootstrap(
     securityService: SecurityService

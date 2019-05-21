@@ -15,11 +15,6 @@
             <thead>
             <tr>
                 <th>Имя</th>
-                <th>Ссылка</th>
-                <th>SEO хэштег</th>
-                <th>SEO заголовок</th>
-                <th>SEO ключевые слова</th>
-                <th>SEO описание</th>
                 <th>Создана</th>
 
             </tr>
@@ -28,11 +23,6 @@
             <ng-container *ngFor="let s of events">
                 <tr (click)="select(s)">
                     <td>{{s.name}}</td>
-                    <td>{{s.slug}}</td>
-                    <td>{{s.seo_hashtag}}</td>
-                    <td>{{s.seo_title}}</td>
-                    <td>{{s.seo_keywords}}</td>
-                    <td>{{s.seo_description}}</td>
                     <td>{{s.created_at | date}}</td>
                 </tr>
             </ng-container>
