@@ -31,7 +31,7 @@ const routes: Routes = [
             { path: 'events-page/:id', loadChildren: './events/events-page/events-page.module#EventsPageModule' },
             { path: 'new-user', loadChildren: './user/new-user/new-user.module#NewUserModule' },
             { path: 'user-table', loadChildren: './user/user-table/user-table.module#UserTableModule' },
-            { path: 'user/:id', loadChildren: './user/user-page/user-page.module#UserPageModule' },
+            { path: 'profile-sportsman/:id', loadChildren: './profile/profile-sportsman/profile-sportsman.module#ProfileSportsmanModule' },
         ]
     }
 ];

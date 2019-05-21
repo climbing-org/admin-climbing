@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import User from '../classes/user';
 
 @Injectable()
 export class UsersService {
@@ -18,8 +19,8 @@ export class UsersService {
         return this.http.post('https://androidios.kz:8000/api/v1/users/', body);
     }
 
-    update(id: number, body: any) {
-        return this.http.put('https://androidios.kz:8000/api/v1/users/' + id + '/', body);
+    update(body: User) {
+        return this.http.put('https://androidios.kz:8000/api/v1/users/' + body.id + '/', body);
     }
 
     partial_update(id: number, body: any) {
