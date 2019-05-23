@@ -8,30 +8,35 @@
         </ol>
     </div>
 </div>
-<div class="card mb-3">
-    <div class="card-header">Пользователи</div>
-    <div class="card-body table-responsive">
-        <table class="table table-hover table-striped">
-            <thead>
-            <tr>
-                <th>Пользователь</th>
-                <th>Роль</th>
-                <th>Миниатюра</th>
-                <th>Дата создания</th>
-            </tr>
-            </thead>
-            <tbody>
-            <ng-container *ngFor="let s of users">
-                <tr (click)="select(s)">
-                    <td>{{s.last_name}}</td>
-                    <td>{{s.role}}</td>
-                    <td>
-                        <img [src]="'https://androidios.kz:8000' + s.avatar" alt="...">
-                    </td>
-                    <td>{{s.created_at | date}}</td>
-                </tr>
-            </ng-container>
-            </tbody>
-        </table>
-    </div>
-</div>
+<!--<div class="card mb-3">-->
+<!--    <div class="card-header">Пользователи</div>-->
+<!--    <div class="card-body table-responsive">-->
+<!--        <table class="table table-hover table-striped">-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th>Пользователь</th>-->
+<!--                <th>Роль</th>-->
+<!--                <th>Миниатюра</th>-->
+<!--                <th>Дата создания</th>-->
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <ng-container *ngFor="let s of users">-->
+<!--                <tr (click)="select(s)">-->
+<!--                    <td>{{s.last_name}}</td>-->
+<!--                    <td>{{s.role}}</td>-->
+<!--                    <td>-->
+<!--                        <img [src]="'https://androidios.kz:8000' + s.avatar" alt="...">-->
+<!--                    </td>-->
+<!--                    <td>{{s.created_at | date}}</td>-->
+<!--                </tr>-->
+<!--            </ng-container>-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--    </div>-->
+<!--</div>-->
+
+<ng2-smart-table [settings]="settings" [source]="source"
+                 (userRowSelect)="select($event)"
+                 (deleteConfirm)="onDeleteConfirm($event)"
+></ng2-smart-table>

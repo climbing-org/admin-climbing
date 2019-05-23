@@ -38,13 +38,13 @@ export class EventsPageComponent implements OnInit, AfterViewInit {
           this.eventsService.get(this.slug).subscribe((res: {data: Event}) => {
               console.log(res);
               this.event = res.data;
-              this.selectedSportsmen = this.event.sportsmans;
+              this.selectedSportsmen = this.event.sportsmans ? this.event.sportsmans : [];
               this.selectedSportsmen.forEach((s) => {
                   if (s['pk']) {
                       s.id = s['pk'];
                   }
               });
-              this.selectedJudges = this.event.judges;
+              this.selectedJudges = this.event.judges ? this.event.judges : [];
               this.selectedJudges.forEach((s) => {
                   if (s['pk']) {
                       s.id = s['pk'];

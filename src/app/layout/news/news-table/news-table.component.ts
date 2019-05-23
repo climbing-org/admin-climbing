@@ -58,6 +58,12 @@ export class NewsTableComponent implements OnInit {
                         }
                         return '';
                     },
+                    filterFunction: (date, str) => {
+                        if (date) {
+                            return this.datePipe.transform(new Date(date), 'dd MMM yyyy').includes(str);
+                        }
+                        return false;
+                    }
                 }
             }
         };

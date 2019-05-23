@@ -8,5 +8,6 @@ export default class StaticPage {
     seo_keywords: string;
     seo_description: string;
     content: string;
+    author: string;
     created_at: Date;
 }

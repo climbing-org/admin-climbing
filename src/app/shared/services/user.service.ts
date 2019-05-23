@@ -40,7 +40,7 @@ export class UsersService {
         return this.http.post('https://androidios.kz:8000/api/v1/users/' + id + '/set_password/', body);
     }
 
-    delete(id: string) {
+    delete(id: number) {
         return this.http.delete('https://androidios.kz:8000/api/v1/users' + id + '/');
     }
 }

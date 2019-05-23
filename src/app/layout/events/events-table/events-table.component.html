@@ -8,27 +8,35 @@
         </ol>
     </div>
 </div>
-<div class="card mb-3">
-    <div class="card-header">Мероприятия</div>
-    <div class="card-body table-responsive">
-        <table class="table table-hover table-striped">
-            <thead>
-            <tr>
-                <th>Имя</th>
-                <th>Автор</th>
-                <th>Создана</th>
 
-            </tr>
-            </thead>
-            <tbody>
-            <ng-container *ngFor="let s of events">
-                <tr (click)="select(s)">
-                    <td>{{s.name}}</td>
-                    <td>{{s.author}}</td>
-                    <td>{{s.created_at | date}}</td>
-                </tr>
-            </ng-container>
-            </tbody>
-        </table>
-    </div>
-</div>
+
+<!--<div class="card mb-3">-->
+<!--    <div class="card-header">Мероприятия</div>-->
+<!--    <div class="card-body table-responsive">-->
+<!--        <table class="table table-hover table-striped">-->
+<!--            <thead>-->
+<!--            <tr>-->
+<!--                <th>Имя</th>-->
+<!--                <th>Автор</th>-->
+<!--                <th>Создана</th>-->
+
+<!--            </tr>-->
+<!--            </thead>-->
+<!--            <tbody>-->
+<!--            <ng-container *ngFor="let s of events">-->
+<!--                <tr (click)="select(s)">-->
+<!--                    <td>{{s.name}}</td>-->
+<!--                    <td>{{s.author}}</td>-->
+<!--                    <td>{{s.created_at | date}}</td>-->
+<!--                </tr>-->
+<!--            </ng-container>-->
+<!--            </tbody>-->
+<!--        </table>-->
+<!--    </div>-->
+<!--</div>-->
+
+
+<ng2-smart-table [settings]="settings" [source]="source"
+                 (userRowSelect)="select($event)"
+                 (deleteConfirm)="onDeleteConfirm($event)"
+></ng2-smart-table>
