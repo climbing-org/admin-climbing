@@ -1,20 +1,23 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 
 import { NewsTableRoutingModule } from './news-table-routing.module';
 import { NewsTableComponent } from './news-table.component';
 import { NewsService } from '../../../shared/services/news.service';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
 
 @NgModule({
     imports: [
         CommonModule,
-        NewsTableRoutingModule
+        NewsTableRoutingModule,
+        Ng2SmartTableModule
     ],
       declarations: [
           NewsTableComponent
       ],
     providers: [
-        NewsService
+        NewsService,
+        DatePipe,
     ],
 })
 export class NewsTableModule { }

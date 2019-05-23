@@ -15,6 +15,7 @@
             <thead>
             <tr>
                 <th>Имя</th>
+                <th>Автор</th>
                 <th>Создана</th>
 
             </tr>
@@ -23,6 +24,7 @@
             <ng-container *ngFor="let s of events">
                 <tr (click)="select(s)">
                     <td>{{s.name}}</td>
+                    <td>{{s.author}}</td>
                     <td>{{s.created_at | date}}</td>
                 </tr>
             </ng-container>

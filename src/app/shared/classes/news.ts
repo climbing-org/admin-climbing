@@ -8,6 +8,7 @@ export default class News {
     seo_keywords: string;
     seo_description: string;
     content: string;
+    author: string;
     created_at: Date;
     logo: string;
 }
