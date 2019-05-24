@@ -235,53 +235,25 @@
                 <div class="col-md-9">
                     <div class="card-body">
                         <h5 class="card-title"><b>{{n.name}}</b></h5>
-                        <p class="card-text">{{n.content}}</p>
+                        <div class="card-text" [innerHTML]="n?.content"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+  </div>
 
   <div class="col-md-4 my events">
     <div class="event-content">
       <h2>Анонс мероприятий</h2>
-      <article>
-        <div class="event-description"><b>Молодежный кубок РК. г. Алматы</b></div>
-        <div><span class="event-location">31 января - 3 февраля</span></div>
+      <article *ngFor="let e of events">
+        <div class="event-description"><b>{{e.name}}</b></div>
+        <div><span class="event-location">{{e.date_from | date:'d MMM'}} - {{e.date_to | date:'d MMM'}}</span></div>
       </article>
-      <article>
-        <div class="event-description"><b>Молодежный кубок РК. г. Алматы</b></div>
-        <div><span class="event-location">31 января - 3 февраля</span></div>
-      </article>
-      <article>
-        <div class="event-description"><b>Молодежный кубок РК. г. Алматы</b></div>
-        <div><span class="event-location">31 января - 3 февраля</span></div>
-      </article>
-      <article>
-        <div class="event-description"><b>Молодежный кубок РК. г. Алматы</b></div>
-        <div><span class="event-location">31 января - 3 февраля</span></div>
-      </article>
-      <article>
-        <div class="event-description"><b>Молодежный кубок РК. г. Алматы</b></div>
-        <div><span class="event-location">31 января - 3 февраля</span></div>
-      </article>
-      <article>
-        <div class="event-description"><b>Молодежный кубок РК. г. Алматы</b></div>
-        <div><span class="event-location">31 января - 3 февраля</span></div>
-      </article>
-      <article>
-        <div class="event-description"><b>Молодежный кубок РК. г. Алматы</b></div>
-        <div><span class="event-location">31 января - 3 февраля</span></div>
-      </article>
-      <article>
-        <div class="event-description"><b>Молодежный кубок РК. г. Алматы</b></div>
-        <div><span class="event-location">31 января - 3 февраля</span></div>
-      </article>
-      <article>
-        <div class="event-description"><b>Молодежный кубок РК. г. Алматы</b></div>
-        <div><span class="event-location">31 января - 3 февраля</span></div>
-      </article>
+<!--      <article>-->
+<!--        <div class="event-description"><b>Молодежный кубок РК. г. Алматы</b></div>-->
+<!--        <div><span class="event-location">31 января - 3 февраля</span></div>-->
+<!--      </article>-->
     </div>
   </div>
 </div>

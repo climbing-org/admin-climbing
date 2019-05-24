@@ -4,6 +4,7 @@ import { NewsService } from '../../shared/services/news.service';
 import News from '../../shared/classes/news';
 import { EventService } from '../../shared/services/event.service';
 import { GeneralHelper } from '../../shared/helpers/general.helper';
+import Event from '../../shared/classes/event';
 
 @Component({
   selector: 'ngx-landing-page',
@@ -32,9 +33,9 @@ export class LandingPageComponent implements OnInit {
     this.newsService.list().subscribe((res: {data: News[]}) => {
         this.news = GeneralHelper.isEmpty(res) ? [] : res.data;
     });
-      this.eventService.list().subscribe((res: {data: Event[]}) => {
-          this.events = GeneralHelper.isEmpty(res) ? [] : res.data;
-      });
+    this.eventService.list().subscribe((res: {data: Event[]}) => {
+      this.events = GeneralHelper.isEmpty(res) ? [] : res.data;
+    });
   }
 
 }
