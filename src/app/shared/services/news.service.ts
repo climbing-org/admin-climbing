@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import StaticPage from '../classes/static-page';
 
 @Injectable()
 export class NewsService {
