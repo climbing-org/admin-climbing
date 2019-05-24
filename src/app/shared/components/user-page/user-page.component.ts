@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../../services/user.service';
@@ -11,6 +11,9 @@ import { UploadService } from '../../services/upload.service';
   styleUrls: ['./user-page.component.scss']
 })
 export class UserPageComponent implements OnInit, AfterViewInit {
+
+    @Input() myProfile = false;
+
     @ViewChild('inputFile') inputFile: ElementRef;
 
     form: FormGroup;
@@ -25,6 +28,7 @@ export class UserPageComponent implements OnInit, AfterViewInit {
 
     showNewPasswordInput = false;
     newPassword: string;
+    oldPassword: string;
     showNewPasswordSuccess = false;
     showNewPasswordFailure = false;
     newPasswordFailureMessage: string;
@@ -49,6 +53,13 @@ export class UserPageComponent implements OnInit, AfterViewInit {
           this.usersService.get(this.id).subscribe((res: {data: User}) => {
               console.log(res);
               this.user = res.data;
+              this.form.patchValue(this.user);
+          });
+      } else if (this.myProfile) {
+          this.usersService.getMyProfile().subscribe((res: {data: User}) => {
+              console.log(res);
+              this.user = res.data;
+              this.id = this.user.id;
               this.form.patchValue(this.user);
           });
       }
@@ -85,14 +96,31 @@ export class UserPageComponent implements OnInit, AfterViewInit {
     onNewPassword() {
       this.usersService.set_password(this.id, this.newPassword).subscribe((res) => {
           if (res['code'] === 1) {
+              this.showNewPasswordSuccess = false;
               this.showNewPasswordFailure = true;
               this.newPasswordFailureMessage = res['message'];
           } else {
               this.showNewPasswordSuccess = true;
+              this.showNewPasswordFailure = false;
           }
           this.showNewPasswordInput = false;
           console.log(res);
       });
+    }
+
+    onChangePassword() {
+        this.usersService.change_password(this.id, this.oldPassword, this.newPassword).subscribe((res) => {
+            if (res['code'] === 1) {
+                this.showNewPasswordSuccess = false;
+                this.showNewPasswordFailure = true;
+                this.newPasswordFailureMessage = res['message'];
+            } else {
+                this.showNewPasswordSuccess = true;
+                this.showNewPasswordFailure = false;
+            }
+            this.showNewPasswordInput = false;
+            console.log(res);
+        });
     }
 
 }

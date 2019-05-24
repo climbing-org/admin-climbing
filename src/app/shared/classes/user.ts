@@ -10,5 +10,6 @@ export default class User {
     avatar: string;
     role: string;
     email: string;
+    has_password: boolean;
     created_at: Date;
 }

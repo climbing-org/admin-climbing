@@ -11,6 +11,10 @@ export class UsersService {
         return this.http.get('https://androidios.kz:8000/api/v1/users/' + id + '/');
     }
 
+    getMyProfile() {
+        return this.http.get('https://androidios.kz:8000/api/v1/users/me/');
+    }
+
     list(role?: string) {
         let url = 'https://androidios.kz:8000/api/v1/users/';
         if (role) { url += `?role=${role}`; }
@@ -29,7 +33,11 @@ export class UsersService {
         return this.http.patch('https://androidios.kz:8000/api/v1/users/' + id + '/', body);
     }
 
-    change_password(id: number, body: any) {
+    change_password(id: number, oldPassword: string, newPassword: string) {
+        const body = {
+            old_password: oldPassword,
+            new_password: newPassword
+        };
         return this.http.post('https://androidios.kz:8000/api/v1/users/' + id + '/change_password/', body);
     }
 

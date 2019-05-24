@@ -16,4 +16,6 @@ export default class Event {
     judges: any;
     requests: number[];
     author: string;
+    date_from: Date;
+    date_to: Date;
 }
