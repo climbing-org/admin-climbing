@@ -26,6 +26,9 @@ export class EventsPageComponent implements OnInit, AfterViewInit {
     selectedJudges: User[] = [];
     dropdownSettings = {};
 
+    date_from: {year: number, month: number, day: number};
+    date_to: {year: number, month: number, day: number};
+
   constructor(private eventsService: EventService,
               private route: ActivatedRoute,
               private uploadService: UploadService,
@@ -95,6 +98,12 @@ export class EventsPageComponent implements OnInit, AfterViewInit {
         this.selectedJudges.forEach((s) => {
             this.event.judges.push(s.id);
         });
+        if (this.date_from) {
+            this.event.date_from = new Date(this.date_from.year, this.date_from.month - 1, this.date_from.day);
+        }
+        if (this.date_to) {
+            this.event.date_to = new Date(this.date_to.year, this.date_to.month - 1, this.date_to.day);
+        }
         if (this.slug) {
             this.eventsService.update(this.slug, this.event).subscribe((res) => {
                 this.router.navigateByUrl('/admin/events-table');

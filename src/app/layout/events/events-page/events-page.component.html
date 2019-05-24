@@ -66,6 +66,32 @@
     </div>
     <div class="col-md-6">
         <fieldset class="form-group">
+            <label>Дата начала</label>
+            <div class="input-group datepicker-input">
+                <input class="form-control" placeholder="yyyy-mm-dd"
+                       name="dp" [(ngModel)]="date_from" ngbDatepicker #d1="ngbDatepicker">
+                <button class="input-group-addon" (click)="d1.toggle()" type="button">
+                    <!-- <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/> -->
+                    <span class="fa fa-calendar"></span>
+                </button>
+            </div>
+        </fieldset>
+    </div>
+    <div class="col-md-6">
+        <fieldset class="form-group">
+            <label>Дата конца</label>
+            <div class="input-group datepicker-input">
+                <input class="form-control" placeholder="yyyy-mm-dd"
+                       name="dp" [(ngModel)]="date_to" ngbDatepicker #d2="ngbDatepicker">
+                <button class="input-group-addon" (click)="d2.toggle()" type="button">
+                    <!-- <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/> -->
+                    <span class="fa fa-calendar"></span>
+                </button>
+            </div>
+        </fieldset>
+    </div>
+    <div class="col-md-6">
+        <fieldset class="form-group">
             <label>Спортсмены</label>
             <br/>
             <ng-multiselect-dropdown

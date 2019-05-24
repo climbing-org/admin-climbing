@@ -10,14 +10,18 @@ import { FormsModule } from '@angular/forms';
 import { EditorModule } from '@tinymce/tinymce-angular';
 import { UsersService } from '../../../shared/services/user.service';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [EventsPageComponent],
   imports: [
     CommonModule,
     EventsPageRoutingModule,
-      PageHeaderModule, FormsModule, EditorModule,
-      NgMultiSelectDropDownModule.forRoot()
+    NgbModule,
+    PageHeaderModule,
+    FormsModule,
+    EditorModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
     providers: [
         EventService,
