@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { JWTHelper } from '../../../shared/helpers/jwt.helper';
 
 @Component({
     selector: 'app-header',
@@ -43,7 +44,10 @@ export class HeaderComponent implements OnInit {
     }
 
     onLoggedout() {
-        localStorage.removeItem('isLoggedin');
+        JWTHelper.removeToken();
+        const redirectURL = '/login';
+
+        this.router.navigateByUrl(redirectURL);
     }
 
     changeLang(language: string) {

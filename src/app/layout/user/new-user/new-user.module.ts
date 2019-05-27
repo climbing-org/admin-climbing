@@ -5,6 +5,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewUserRoutingModule } from './new-user-routing.module';
 import { NewUserComponent } from './new-user.component';
 import { UsersService } from '../../../shared/services/user.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { DefaultInterceptor } from '../../../shared/interceptors/default.interceptor';
 
 @NgModule({
   declarations: [NewUserComponent],
@@ -15,7 +17,12 @@ import { UsersService } from '../../../shared/services/user.service';
       ReactiveFormsModule
   ],
     providers: [
-        UsersService
+        UsersService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: DefaultInterceptor,
+            multi: true
+        },
     ]
 })
 export class NewUserModule { }

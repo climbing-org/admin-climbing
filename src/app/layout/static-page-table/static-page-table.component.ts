@@ -6,6 +6,7 @@ import { GeneralHelper } from '../../shared/helpers/general.helper';
 import { LocalDataSource } from 'ng2-smart-table';
 import { DatePipe } from '@angular/common';
 import { Deferred } from 'ng2-smart-table/lib/helpers';
+import Response from '../../shared/classes/response';
 
 @Component({
   selector: 'app-static-page-table',
@@ -30,8 +31,9 @@ export class StaticPageTableComponent implements OnInit {
       });
 
       this.settings = {
-          actions: {add: false, edit: false, delete: true},
+          actions: {columnTitle: '', add: false, edit: false, delete: true},
           delete: {
+              deleteButtonContent: 'Удалить',
               confirmDelete: true,
           },
           add: {
@@ -63,6 +65,9 @@ export class StaticPageTableComponent implements OnInit {
                       return false;
                   }
               }
+          },
+          attr: {
+              class: 'table table-hover table-striped'
           }
       };
   }
@@ -73,10 +78,17 @@ export class StaticPageTableComponent implements OnInit {
   }
 
     onDeleteConfirm(event: {confirm: Deferred, data: StaticPage}) {
-        console.log(event);
-        this.staticPageService.delete(event.data.slug).subscribe((res) => {
+        this.staticPageService.delete(event.data.slug).subscribe((res: Response) => {
             console.log(res);
-            event.confirm.resolve();
+            if (!res) {
+                event.confirm.resolve();
+                return;
+            }
+            if (res && res.code === 0) {
+                event.confirm.resolve();
+                return;
+            }
+            event.confirm.reject();
         }, () => {
             event.confirm.reject();
         });

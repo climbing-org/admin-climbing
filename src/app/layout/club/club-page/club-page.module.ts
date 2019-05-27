@@ -10,6 +10,8 @@ import { UploadService } from '../../../shared/services/upload.service';
 import { ClubService } from '../../../shared/services/club.service';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UsersService } from '../../../shared/services/user.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { DefaultInterceptor } from '../../../shared/interceptors/default.interceptor';
 
 @NgModule({
   declarations: [ClubPageComponent],
@@ -24,7 +26,12 @@ import { UsersService } from '../../../shared/services/user.service';
   providers: [
     UploadService,
     ClubService,
-    UsersService
+    UsersService,
+      {
+          provide: HTTP_INTERCEPTORS,
+          useClass: DefaultInterceptor,
+          multi: true
+      },
   ]
 })
 export class ClubPageModule { }

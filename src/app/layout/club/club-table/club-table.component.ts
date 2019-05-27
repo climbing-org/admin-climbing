@@ -30,8 +30,11 @@ export class ClubTableComponent implements OnInit {
       });
 
       this.settings = {
-          actions: {add: false, edit: false, delete: true},
+          actions: {
+              columnTitle: '', add: false, edit: false, delete: true
+          },
           delete: {
+              deleteButtonContent: 'Удалить',
               confirmDelete: true,
           },
           add: {
@@ -53,6 +56,9 @@ export class ClubTableComponent implements OnInit {
               address: {
                   title: 'Адрес'
               }
+          },
+          attr: {
+              class: 'table table-hover table-striped'
           }
       };
   }

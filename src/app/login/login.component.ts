@@ -23,6 +23,11 @@ export class LoginComponent implements OnInit {
             // const session = this.ss.getSession();
             // if (!session) { return; }
 
+            if (res && res.code !== 0) {
+                this.showerror = true;
+                return;
+            }
+
             if (!res && !res.data) { return; }
             JWTHelper.setToken(res.data.token);
 

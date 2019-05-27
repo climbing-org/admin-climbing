@@ -32,8 +32,9 @@ export class UserTableComponent implements OnInit {
       });
 
       this.settings = {
-          actions: {add: false, edit: false, delete: true},
+          actions: {columnTitle: '', add: false, edit: false, delete: true},
           delete: {
+              deleteButtonContent: 'Удалить',
               confirmDelete: true,
           },
           add: {
@@ -76,6 +77,9 @@ export class UserTableComponent implements OnInit {
                       return false;
                   }
               }
+          },
+          attr: {
+              class: 'table table-hover table-striped'
           }
       };
   }

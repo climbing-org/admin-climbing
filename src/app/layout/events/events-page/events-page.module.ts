@@ -11,6 +11,8 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { UsersService } from '../../../shared/services/user.service';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { DefaultInterceptor } from '../../../shared/interceptors/default.interceptor';
 
 @NgModule({
   declarations: [EventsPageComponent],
@@ -26,7 +28,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     providers: [
         EventService,
         UploadService,
-        UsersService
+        UsersService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: DefaultInterceptor,
+            multi: true
+        },
     ]
 })
 export class EventsPageModule { }

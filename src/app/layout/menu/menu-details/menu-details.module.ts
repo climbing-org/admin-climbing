@@ -6,6 +6,9 @@ import { MenuDetailsComponent } from './menu-details.component';
 import { FormsModule } from '@angular/forms';
 import { MenuService } from '../../../shared/services/menu.service';
 import { StaticPageService } from '../../../shared/services/static-page.service';
+import { UsersService } from '../../../shared/services/user.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { DefaultInterceptor } from '../../../shared/interceptors/default.interceptor';
 
 @NgModule({
   declarations: [MenuDetailsComponent],
@@ -16,7 +19,12 @@ import { StaticPageService } from '../../../shared/services/static-page.service'
   ],
     providers: [
         MenuService,
-        StaticPageService
+        StaticPageService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: DefaultInterceptor,
+            multi: true
+        },
     ]
 })
 export class MenuDetailsModule { }

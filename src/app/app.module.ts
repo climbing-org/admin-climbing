@@ -12,6 +12,7 @@ import { NbThemeModule } from '@nebular/theme';
 import { SecurityService } from './shared/services/security.service';
 import { DefaultInterceptor } from './shared/interceptors/default.interceptor';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { ToastrModule } from 'ngx-toastr';
 
 export function customBootstrap(
     securityService: SecurityService
@@ -32,7 +33,9 @@ export function customBootstrap(
         HttpClientModule,
         LanguageTranslationModule,
         AppRoutingModule,
-        NbThemeModule.forRoot()
+        NbThemeModule.forRoot(),
+        BrowserAnimationsModule, // required animations module
+        ToastrModule.forRoot() // ToastrModule added
     ],
     declarations: [AppComponent],
     providers: [

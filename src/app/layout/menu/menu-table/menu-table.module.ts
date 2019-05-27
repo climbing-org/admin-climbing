@@ -6,6 +6,9 @@ import { MenuTableComponent } from './menu-table.component';
 import { FormsModule } from '@angular/forms';
 import { MenuService } from '../../../shared/services/menu.service';
 import { PageHeaderModule } from '../../../shared/modules';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { DefaultInterceptor } from '../../../shared/interceptors/default.interceptor';
 
 @NgModule({
   declarations: [MenuTableComponent],
@@ -13,10 +16,16 @@ import { PageHeaderModule } from '../../../shared/modules';
     CommonModule,
     MenuTableRoutingModule,
       FormsModule,
-      PageHeaderModule
+      PageHeaderModule,
+      DragDropModule
   ],
     providers: [
-        MenuService
+        MenuService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: DefaultInterceptor,
+            multi: true
+        },
     ]
 })
 export class MenuTableModule { }

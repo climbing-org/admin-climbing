@@ -40,10 +40,13 @@
 </div>
 <div class="form-group">
     <label>Страница</label>
-    <select class="form-control" [(ngModel)]="menu.static_page">
+    <select class="form-control" [ngClass]="{'is-invalid': !menu.static_page}" [(ngModel)]="menu.static_page">
         <option></option>
         <option [value]="sp.slug" *ngFor="let sp of staticPage">{{sp.name}}</option>
     </select>
+    <div class="invalid-feedback" *ngIf="!menu.static_page">
+        Не может быть пустым
+    </div>
 </div>
 
 <button *ngIf="!slug" type="submit" class="btn btn-secondary" (click)="submit()">Сохранить</button>

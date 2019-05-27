@@ -5,6 +5,9 @@ import { StaticPageTableRoutingModule } from './static-page-table-routing.module
 import { StaticPageTableComponent } from './static-page-table.component';
 import { StaticPageService } from '../../shared/services/static-page.service';
 import { Ng2SmartTableModule } from 'ng2-smart-table';
+import { UsersService } from '../../shared/services/user.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { DefaultInterceptor } from '../../shared/interceptors/default.interceptor';
 
 @NgModule({
     imports: [
@@ -17,7 +20,12 @@ import { Ng2SmartTableModule } from 'ng2-smart-table';
       ],
     providers: [
         StaticPageService,
-        DatePipe
+        DatePipe,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: DefaultInterceptor,
+            multi: true
+        },
     ],
 })
 export class StaticPageTableModule { }

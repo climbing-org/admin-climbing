@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuService } from '../../../shared/services/menu.service';
 import Menu from '../../../shared/classes/menu';
 import { Router } from '@angular/router';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-menu-table',
@@ -29,5 +30,17 @@ export class MenuTableComponent implements OnInit {
       this.router.navigateByUrl('/admin/menu/' + m.id);
       console.log(m);
   }
+
+    drop(event: CdkDragDrop<Menu[]>) {
+      console.log(event);
+        if (event.previousContainer === event.container) {
+            moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+        } else {
+            transferArrayItem(event.previousContainer.data,
+                event.container.data,
+                event.previousIndex,
+                event.currentIndex);
+        }
+    }
 
 }

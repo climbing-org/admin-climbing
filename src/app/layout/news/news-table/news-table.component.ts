@@ -6,6 +6,8 @@ import { GeneralHelper } from '../../../shared/helpers/general.helper';
 import { LocalDataSource } from 'ng2-smart-table';
 import { Deferred } from 'ng2-smart-table/lib/helpers';
 import { DatePipe } from '@angular/common';
+import Response from '../../../shared/classes/response';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-news-table',
@@ -21,6 +23,7 @@ export class NewsTableComponent implements OnInit {
 
     constructor(private newsService: NewsService,
                 private datePipe: DatePipe,
+                private toastr: ToastrService,
                 private router: Router) {
     }
 
@@ -32,8 +35,9 @@ export class NewsTableComponent implements OnInit {
         });
 
         this.settings = {
-            actions: {add: false, edit: false, delete: true},
+            actions: {columnTitle: '', add: false, edit: false, delete: true},
             delete: {
+                deleteButtonContent: 'Удалить',
                 confirmDelete: true,
             },
             add: {
@@ -65,6 +69,9 @@ export class NewsTableComponent implements OnInit {
                         return false;
                     }
                 }
+            },
+            attr: {
+                class: 'table table-hover table-striped'
             }
         };
     }
@@ -76,9 +83,17 @@ export class NewsTableComponent implements OnInit {
 
     onDeleteConfirm(event: {confirm: Deferred, data: News}) {
         console.log(event);
-        this.newsService.delete(event.data.slug).subscribe((res) => {
+        this.newsService.delete(event.data.slug).subscribe((res: Response) => {
             console.log(res);
-            event.confirm.resolve();
+            if (!res) {
+                event.confirm.resolve();
+                return;
+            }
+            if (res && res.code === 0) {
+                event.confirm.resolve();
+                return;
+            }
+            event.confirm.reject();
         }, () => {
             event.confirm.reject();
         });

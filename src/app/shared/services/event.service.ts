@@ -23,6 +23,6 @@ export class EventService {
     }
 
     delete(id: string) {
-        return this.http.delete('https://androidios.kz:8000/api/v1/events' + id + '/');
+        return this.http.delete('https://androidios.kz:8000/api/v1/events/' + id + '/');
     }
 }

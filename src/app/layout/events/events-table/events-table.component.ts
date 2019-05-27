@@ -6,7 +6,7 @@ import { GeneralHelper } from '../../../shared/helpers/general.helper';
 import { LocalDataSource } from 'ng2-smart-table';
 import { DatePipe } from '@angular/common';
 import { Deferred } from 'ng2-smart-table/lib/helpers';
-import News from '../../../shared/classes/news';
+import Response from '../../../shared/classes/response';
 
 @Component({
   selector: 'app-events-table',
@@ -31,8 +31,9 @@ export class EventsTableComponent implements OnInit {
       });
 
       this.settings = {
-          actions: {add: false, edit: false, delete: true},
+          actions: {columnTitle: '', add: false, edit: false, delete: true},
           delete: {
+              deleteButtonContent: 'Удалить',
               confirmDelete: true,
           },
           add: {
@@ -64,6 +65,9 @@ export class EventsTableComponent implements OnInit {
                       return false;
                   }
               }
+          },
+          attr: {
+              class: 'table table-hover table-striped'
           }
       };
   }
@@ -74,8 +78,17 @@ export class EventsTableComponent implements OnInit {
     }
 
     onDeleteConfirm(event: {confirm: Deferred, data: Event}) {
-        this.eventService.delete(event.data.slug).subscribe((res) => {
-            event.confirm.resolve();
+        this.eventService.delete(event.data.slug).subscribe((res: Response) => {
+            console.log(res);
+            if (!res) {
+                event.confirm.resolve();
+                return;
+            }
+            if (res && res.code === 0) {
+                event.confirm.resolve();
+                return;
+            }
+            event.confirm.reject();
         }, () => {
             event.confirm.reject();
         });

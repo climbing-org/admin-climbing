@@ -49,6 +49,6 @@ export class UsersService {
     }
 
     delete(id: number) {
-        return this.http.delete('https://androidios.kz:8000/api/v1/users' + id + '/');
+        return this.http.delete('https://androidios.kz:8000/api/v1/users/' + id + '/');
     }
 }
