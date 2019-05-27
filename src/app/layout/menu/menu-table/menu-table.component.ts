@@ -3,6 +3,7 @@ import { MenuService } from '../../../shared/services/menu.service';
 import Menu from '../../../shared/classes/menu';
 import { Router } from '@angular/router';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import Response from '../../../shared/classes/response';
 
 @Component({
   selector: 'app-menu-table',
@@ -21,6 +22,10 @@ export class MenuTableComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
+      this.initMenu();
+  }
+
+  initMenu() {
       this.menuService.list().subscribe((res: {data: Menu[]}) => {
           this.menu = res.data;
       });
@@ -30,6 +35,13 @@ export class MenuTableComponent implements OnInit {
       this.router.navigateByUrl('/admin/menu/' + m.id);
       console.log(m);
   }
+
+    delete(m: Menu) {
+        this.menuService.delete(m.id).subscribe((res: Response) => {
+            console.log(res);
+            this.initMenu();
+        });
+    }
 
     drop(event: CdkDragDrop<Menu[]>) {
       console.log(event);
