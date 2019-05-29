@@ -29,7 +29,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.images = ['/assets/home/carousel-pic.png', '/assets/home/rick-and-morty.jpg', '/assets/home/carousel-pic4.jpg'];
+    this.images = ['/assets/home/carousel-new.png', '/assets/home/carousel-pic.png', '/assets/home/carousel-pic4.jpg'];
     this.newsService.list().subscribe((res: {data: News[]}) => {
         this.news = GeneralHelper.isEmpty(res) ? [] : res.data;
     });

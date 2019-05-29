@@ -1,27 +1,29 @@
+<div class="bg-white">
+<div class="container">
 <div class="row">
-  <div class="col-md-8 my">
+  <div class="col-md-8 my carousel">
 
     <ngb-carousel *ngIf="images">
       <ng-template ngbSlide>
         <img [src]="images[0]" alt="Random first slide">
-        <div class="carousel-caption">
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </div>
+<!--        <div class="carousel-caption">-->
+<!--          <h3>First slide label</h3>-->
+<!--          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>-->
+<!--        </div>-->
       </ng-template>
       <ng-template ngbSlide>
         <img [src]="images[1]" alt="Random second slide">
-        <div class="carousel-caption">
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div>
+<!--        <div class="carousel-caption">-->
+<!--          <h3>Second slide label</h3>-->
+<!--          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>-->
+<!--        </div>-->
       </ng-template>
       <ng-template ngbSlide>
         <img [src]="images[2]" alt="Random third slide">
-        <div class="carousel-caption">
-          <h3>Third slide label</h3>
-          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-        </div>
+<!--        <div class="carousel-caption">-->
+<!--          <h3>Third slide label</h3>-->
+<!--          <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>-->
+<!--        </div>-->
       </ng-template>
     </ngb-carousel>
 
@@ -35,8 +37,11 @@
       <nb-calendar [(date)]="date" [boundingMonth]="true"></nb-calendar>
     </div>
   </div>
+  </div>
+</div>
 </div>
 
+<div class="container">
 <div class="row">
   <div class="col-md-8 my ratings">
     <h2>Рейтинги</h2>
@@ -150,32 +155,32 @@
 
   <div class="col-md-4 my events">
     <div class="event-content">
-      <h2>&nbsp;События</h2>
+      <h2>События</h2>
       <div>
         <article>
           <div class="dates"><span class="blue">15/04/2019 - 25/04/2019</span></div>
-          <div class="event-description"><b>Молодежный кубок РК.</b></div>
+          <div class="event-description">Молодежный кубок РК.</div>
           <div><span class="event-location">г. Алматы</span></div>
         </article>
       </div>
       <div>
         <article>
           <div class="dates"><span class="blue">15/04/2019 - 25/04/2019</span></div>
-          <div class="event-description"><b>Молодежный кубок РК.</b></div>
+          <div class="event-description">Молодежный кубок РК.</div>
           <div><span class="event-location">г. Алматы</span></div>
         </article>
       </div>
       <div>
         <article>
           <div class="dates"><span class="blue">15/04/2019 - 25/04/2019</span></div>
-          <div class="event-description"><b>Молодежный кубок РК.</b></div>
+          <div class="event-description">Молодежный кубок РК.</div>
           <div><span class="event-location">г. Алматы</span></div>
         </article>
       </div>
       <div>
         <article>
           <div class="dates"><span class="blue">15/04/2019 - 25/04/2019</span></div>
-          <div class="event-description"><b>Молодежный кубок РК.</b></div>
+          <div class="event-description">Молодежный кубок РК.</div>
           <div><span class="event-location">г. Алматы</span></div>
         </article>
       </div>
@@ -185,7 +190,7 @@
 </div>
 
 <div class="row news-event">
-  <div class="col-md-8 my">
+  <div class="col-md-8 my news-block">
     <div class="news">
       <h2>Новости</h2>
 <!--      <div class="card mb-3">-->
@@ -234,7 +239,7 @@
                 </div>
                 <div class="col-md-9">
                     <div class="card-body">
-                        <h5 class="card-title"><b>{{n.name}}</b></h5>
+                        <h5 class="card-title">{{n.name}}</h5>
                         <div class="card-text" [innerHTML]="n?.content"></div>
                     </div>
                 </div>
@@ -243,11 +248,11 @@
     </div>
   </div>
 
-  <div class="col-md-4 my events">
-    <div class="event-content">
+  <div class="col-md-4 my">
+    <div class="associates-content">
       <h2>Анонс мероприятий</h2>
       <article *ngFor="let e of events">
-        <div class="event-description"><b>{{e.name}}</b></div>
+        <div class="event-description">{{e.name}}</div>
         <div><span class="event-location">{{e.date_from | date:'d MMM'}} - {{e.date_to | date:'d MMM'}}</span></div>
       </article>
 <!--      <article>-->
@@ -256,4 +261,5 @@
 <!--      </article>-->
     </div>
   </div>
+</div>
 </div>

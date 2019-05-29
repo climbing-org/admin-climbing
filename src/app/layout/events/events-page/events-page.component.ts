@@ -83,7 +83,7 @@ export class EventsPageComponent implements OnInit, AfterViewInit {
               return;
           }
           this.uploadService.post(inputFile).subscribe((res: {location: string}) => {
-              this.loading = true;
+              this.loading = false;
               this.file = inputFile;
               this.event.logo = res.location;
           });

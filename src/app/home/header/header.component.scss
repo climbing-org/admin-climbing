@@ -7,9 +7,16 @@
 }
 
 .vertical-line {
-  border-left: 1px solid;
-  border-color: #1c327a;
+  //border-left: 1px solid;
+  //border-color: #1c327a;
   display: inline-block;
+  color: #1d327a;
+}
+
+.search {
+    color: #1d327a !important;
+    font-size: 1.1em;
+    margin-right: 40px;
 }
 
 .ins {
@@ -41,5 +48,5 @@
 }
 
 .social-media {
-  margin-top: 43px;
+  margin-top: 30px;
 }

@@ -45,39 +45,41 @@ export class DefaultInterceptor implements HttpInterceptor {
                   this.ss.logout();
                   this.router.navigateByUrl('/login');
               }
-              if (req.method === 'DELETE') {
-                  if (event && ((event.body && event.body.code === 0) || event.status === 204)) {
-                      this.toastr.success('Успешно удалено', 'Успешно удалено!');
-                  } else {
-                      let message = 'Возникли ошибки при удалении';
-                      if (event && event.body && event.body) {
-                          message = event.body.message;
+              if (event.url !== 'https://androidios.kz:8000/api/v1/tinymce-upload/') {
+                  if (req.method === 'DELETE') {
+                      if (event && ((event.body && event.body.code === 0) || event.status === 204)) {
+                          this.toastr.success('Успешно удалено', 'Успешно удалено!');
+                      } else {
+                          let message = 'Возникли ошибки при удалении';
+                          if (event && event.body && event.body) {
+                              message = event.body.message;
+                          }
+                          this.toastr.error('Возникли ошибки', message);
                       }
-                      this.toastr.error('Возникли ошибки', message);
                   }
-              }
-              if (req.method === 'POST') {
-                  if (event && ((event.body && event.body.code === 0) || event.status === 204)) {
-                      if (event.url !== 'https://androidios.kz:8000/api/v1/login/') {
+                  if (req.method === 'POST') {
+                      if (event && ((event.body && event.body.code === 0) || event.status === 204)) {
+                          if (event.url !== 'https://androidios.kz:8000/api/v1/login/') {
+                              this.toastr.success('Запрос прошел успешно', 'Успешно!');
+                          }
+                      } else {
+                          let message = 'Возникли ошибки';
+                          if (event && event.body && event.body) {
+                              message = event.body.message;
+                          }
+                          this.toastr.error('Возникли ошибки', message);
+                      }
+                  }
+                  if (req.method === 'PUT' || req.method === 'PATCH') {
+                      if (event && ((event.body && event.body.code === 0) || event.status === 204)) {
                           this.toastr.success('Запрос прошел успешно', 'Успешно!');
+                      } else {
+                          let message = 'Возникли ошибки';
+                          if (event && event.body && event.body) {
+                              message = event.body.message;
+                          }
+                          this.toastr.error('Возникли ошибки', message);
                       }
-                  } else {
-                      let message = 'Возникли ошибки';
-                      if (event && event.body && event.body) {
-                          message = event.body.message;
-                      }
-                      this.toastr.error('Возникли ошибки', message);
-                  }
-              }
-              if (req.method === 'PUT' || req.method === 'PATCH') {
-                  if (event && ((event.body && event.body.code === 0) || event.status === 204)) {
-                      this.toastr.success('Запрос прошел успешно', 'Успешно!');
-                  } else {
-                      let message = 'Возникли ошибки';
-                      if (event && event.body && event.body) {
-                          message = event.body.message;
-                      }
-                      this.toastr.error('Возникли ошибки', message);
                   }
               }
             // this.updateSession(event);

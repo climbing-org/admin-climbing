@@ -37,12 +37,13 @@ export class NewsPageComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
       $(this.inputFile.nativeElement).on('change', event => {
           this.loading = true;
+          console.log('loading');
           const inputFile = event.target.files[0];
           if (!inputFile || !inputFile.name) {
               return;
           }
           this.uploadService.post(inputFile).subscribe((res: {location: string}) => {
-              this.loading = true;
+              this.loading = false;
               this.file = inputFile;
               this.news.logo = res.location;
           });

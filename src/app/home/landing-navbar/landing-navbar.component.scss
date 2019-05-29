@@ -1,3 +1,7 @@
+.main {
+    background-color: #3391cf;
+}
+
 nav {
   margin-bottom: 15px;
 }
@@ -16,6 +20,7 @@ nav {
 .dropdown-menu {
   margin-top: 0;
   border-radius: 0;
+    font-size: 1em;
 }
 .dropdown-menu .dropdown-toggle::after {
   vertical-align: middle;
@@ -57,8 +62,9 @@ nav {
   text-transform: uppercase;
   font-size: 14px;
   margin-right: 20px;
+  margin-left: 20px;
   .nav-link {
-    color: #7886b8;
+    color: white;
     font-family: 'Open Sans', sans-serif;
     font-weight: 600;
   }

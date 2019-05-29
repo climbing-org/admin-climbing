@@ -83,7 +83,7 @@ export class ClubPageComponent implements OnInit, AfterViewInit {
                 return;
             }
             this.uploadService.post(inputFile).subscribe((res: {location: string}) => {
-                this.loading = true;
+                this.loading = false;
                 this.file = inputFile;
                 this.club.logo = res.location;
             });

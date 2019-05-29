@@ -28,18 +28,18 @@
   max-width: 38.33333333%;
 }
 
-
+.col-md-4.my.events {
+    padding-left: 22px;
+}
 
 
 
 .carousel {
-  img {
-    max-height: 550px;
-    min-width: auto;
-  }
+  padding-left: 0;
+    padding-right: 0;
 }
 :host ::ng-deep .carousel-item {
-  border-radius: 0 0 50px;
+  //border-radius: 0 0 50px;
   overflow: hidden;
 }
 
@@ -250,7 +250,7 @@ nb-calendar-year-picker .year-cell:not(.empty):not(.disabled) {
 
 
 .row {
-  margin-top: 25px;
+  //margin-top: 25px;
 }
 
 .row:first-child {
@@ -259,11 +259,17 @@ nb-calendar-year-picker .year-cell:not(.empty):not(.disabled) {
 
 .ratings {
   text-transform: uppercase;
-  margin-top:30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top: 35px;
+    padding-bottom: 25px;
+    background-color: white;
+    padding-left: 30px;
   h2 {
     font-size: 26px;
     color: #1c3279;
     margin-bottom: 20px;
+      font-weight: 300;
   }
   .circular--landscape {
     display: inline-block;
@@ -284,6 +290,7 @@ nb-calendar-year-picker .year-cell:not(.empty):not(.disabled) {
     margin-left: 11px;
     color: #6c7293;
     font-size: 12px;
+      font-weight: 600;
   }
   .blue, .level, .rank {
     font-size: 13px;
@@ -297,57 +304,106 @@ nb-calendar-year-picker .year-cell:not(.empty):not(.disabled) {
 }
 
 .events {
-  border-radius: 50px 0 0 50px;
-  background: white;
+  //border-radius: 50px 0 0 50px;
+    margin-bottom: 60px;
 }
 .event-content {
-  margin-left: 22px;
-  margin-top: 33px;
+  padding-left: 30px;
+    padding-right: 30px;
+  margin-top: 30px;
   margin-bottom: 30px;
+  padding-top: 35px;
+  padding-bottom: 25px;
+  background-color: #1d337a;
+  color: white;
+    height: 100%;
   h2 {
     text-transform: uppercase;
     font-size: 26px;
-    color: #1c3279;
     margin-bottom: 20px;
+      font-weight: 300;
   }
   .dates {
     margin-bottom: 6px;
     font-size: 13px;
+      font-weight: 300;
   }
   .event-description {
     font-size: 13px;
-    font-family: 'Open Sans Semibold', 'Open Sans';
-    color: #6c7293;
+      font-weight: 600;
+    color: #bec5dd;
   }
   .event-location {
     font-size: 12px;
-    color: #6c7293;
+    color: #bec5dd;
+      font-weight: 300;
   }
   article {
     margin-bottom: 17px;
   }
 }
 
+.news-block {
+    background-color: #1d337a;
+}
+
 
 .news {
-  h2 {
-    text-transform: uppercase;
-    font-size: 26px;
-    color: #1c3279;
-    margin-bottom: 20px;
-  }
+    margin-left: 30px;
+    padding-top: 35px;
+    color: white;
+    h2 {
+        text-transform: uppercase;
+        font-size: 26px;
+        margin-bottom: 20px;
+        font-weight: 300;
+    }
   .card-body {
     .card-title {
-      font-size: 18px;
-      color: #6c7293;
+      font-size: 16px;
+        font-weight: 600;
     }
     .card-text {
       font-size: 12px;
-      color: #9f9f9f;
+        color: #bec5dd;
     }
   }
 }
 
 .news-event {
-  margin-bottom: 145px;
+  margin-bottom: 75px;
+    margin-top: -10px;
+}
+
+.associates-content {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 35px;
+    padding-bottom: 25px;
+    background-color: white;
+    color: #6c7293;
+    height: 100%;
+    h2 {
+        text-transform: uppercase;
+        font-size: 26px;
+        margin-bottom: 20px;
+        font-weight: 300;
+        color: #1c3279;
+    }
+    .dates {
+        margin-bottom: 6px;
+        font-size: 13px;
+        font-weight: 300;
+    }
+    .event-description {
+        font-size: 13px;
+        font-weight: 600;
+    }
+    .event-location {
+        font-size: 12px;
+        font-weight: 300;
+    }
+    article {
+        margin-bottom: 17px;
+    }
 }
