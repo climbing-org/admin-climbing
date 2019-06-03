@@ -12,6 +12,7 @@ declare const $;
 export class LandingNavbarComponent implements OnInit, AfterViewInit {
 
     menu: Menu[];
+    isCollapsed = true;
 
   constructor(private menuService: MenuService) { }
 

@@ -18,14 +18,50 @@
 //  }
 //}
 
-.col-md-8.my {
-  flex: 0 0 61.66666667%;
-  max-width: 61.66666667%;
+@media (min-width: 768px){
+    .col-md-8.my {
+        flex: 0 0 61.66666667%;
+        max-width: 61.66666667%;
+    }
+
+    .col-md-4.my {
+        flex: 0 0 38.33333333%;
+        max-width: 38.33333333%;
+    }
 }
 
-.col-md-4.my {
-  flex: 0 0 38.33333333%;
-  max-width: 38.33333333%;
+@media (max-width: 500px){
+    :host ::ng-deep nb-card {
+        margin-top: 20px !important;
+    }
+    .ratings {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        .head {
+            margin-left: 10px !important;
+        }
+        table {
+            //table-layout: fixed;
+        }
+    }
+    .col-md-4.my.events {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-bottom: 40px !important;
+        .event-content {
+            margin-top: 0 !important;
+        }
+    }
+    .news-block {
+        margin-bottom: 30px !important;
+    }
+    .col-md-4.my.associates {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .news-event {
+        margin-bottom: 25px !important;
+    }
 }
 
 .col-md-4.my.events {
