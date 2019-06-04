@@ -17,9 +17,24 @@
                     {{m.name}}
                 </a>
                 <ul class="dropdown-menu first" aria-labelledby="navbarDropdown">
-                    <li *ngFor="let m2 of m.childs">
-                        <a class="dropdown-item" [routerLink]="'/home/static-page/' + m2.static_page">{{m2.name}}</a>
-                    </li>
+                    <ng-container *ngFor="let m2 of m.childs">
+                        <li *ngIf="!m2.childs?.length">
+                            <a class="dropdown-item" [routerLink]="'/home/static-page/' + m2.static_page">{{m2.name}}</a>
+                        </li>
+                        <li class="nav-item dropdown second" *ngIf="m2.childs?.length">
+                            <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false" [routerLink]="'/home/static-page/' + m2.static_page">
+                                {{m2.name}}
+                            </a>
+                            <ul class="dropdown-menu second" aria-labelledby="navbarDropdown1">
+                                <ng-container *ngFor="let m3 of m2.childs">
+                                    <li>
+                                        <a class="dropdown-item" [routerLink]="'/home/static-page/' + m3.static_page">{{m3.name}}</a>
+                                    </li>
+                                </ng-container>
+                            </ul>
+                        </li>
+                    </ng-container>
                 </ul>
              </li>
         </ng-container>
