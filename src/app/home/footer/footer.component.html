@@ -26,57 +26,49 @@
       <hr class="w-100 clearfix d-md-none">
 
       <!-- Grid column -->
-        <ng-container *ngIf="1; let index">
-            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+            <ng-container *ngIf="1; let index">
                 <ng-container *ngIf="menu?.length && menu[index]">
-                    <ng-container *ngIf="1; let index">
-                        <ng-container *ngIf="menu?.length && menu[index]">
-                            <h6 *ngIf="menu[index].static_page" [routerLink]="'/home/static-page/' + menu[index].static_page" class="text-uppercase mb-4 font-weight-bold heading">{{menu[index].name}}</h6>
-                            <h6 *ngIf="!menu[index].static_page" class="text-uppercase mb-4 font-weight-bold heading">{{menu[index].name}}</h6>
-                            <p class="p-subheading" *ngFor="let m of menu[index].childs">
-                                <a [routerLink]="'/home/static-page/' + m.static_page" class="subheading">{{m.name}}</a>
-                            </p>
-                        </ng-container>
-                    </ng-container>
-                    <ng-container *ngIf="2; let index">
-                        <ng-container *ngIf="menu?.length && menu[index]">
-                            <h6 *ngIf="menu[index].static_page" [routerLink]="'/home/static-page/' + menu[index].static_page" class="text-uppercase mb-4 font-weight-bold heading">{{menu[index].name}}</h6>
-                            <h6 *ngIf="!menu[index].static_page" class="text-uppercase mb-4 font-weight-bold heading">{{menu[index].name}}</h6>
-                            <p class="p-subheading" *ngFor="let m of menu[index].childs">
-                                <a [routerLink]="'/home/static-page/' + m.static_page" class="subheading">{{m.name}}</a>
-                            </p>
-                        </ng-container>
-                    </ng-container>
+                    <h6 *ngIf="menu[index].static_page" [routerLink]="'/home/static-page/' + menu[index].static_page" class="text-uppercase mb-4 font-weight-bold heading">{{menu[index].name}}</h6>
+                    <h6 *ngIf="!menu[index].static_page" class="text-uppercase mb-4 font-weight-bold heading">{{menu[index].name}}</h6>
+                    <p class="p-subheading" *ngFor="let m of menu[index].childs">
+                        <a [routerLink]="'/home/static-page/' + m.static_page" class="subheading">{{m.name}}</a>
+                    </p>
                 </ng-container>
-            </div>
-        </ng-container>
+            </ng-container>
+            <ng-container *ngIf="2; let index">
+                <ng-container *ngIf="menu?.length && menu[index]">
+                    <h6 *ngIf="menu[index].static_page" [routerLink]="'/home/static-page/' + menu[index].static_page" class="text-uppercase mb-4 font-weight-bold heading">{{menu[index].name}}</h6>
+                    <h6 *ngIf="!menu[index].static_page" class="text-uppercase mb-4 font-weight-bold heading">{{menu[index].name}}</h6>
+                    <p class="p-subheading" *ngFor="let m of menu[index].childs">
+                        <a [routerLink]="'/home/static-page/' + m.static_page" class="subheading">{{m.name}}</a>
+                    </p>
+                </ng-container>
+            </ng-container>
+        </div>
 
         <hr class="w-100 clearfix d-md-none">
 
-        <ng-container *ngIf="3; let index">
-            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 vertical-line">
+        <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3 vertical-line">
+            <ng-container *ngIf="3; let index">
                 <ng-container *ngIf="menu?.length && menu[index]">
-                    <ng-container *ngIf="1; let index">
-                        <ng-container *ngIf="menu?.length && menu[index]">
-                            <h6 *ngIf="menu[index].static_page" [routerLink]="'/home/static-page/' + menu[index].static_page" class="text-uppercase mb-4 font-weight-bold heading">{{menu[index].name}}</h6>
-                            <h6 *ngIf="!menu[index].static_page" class="text-uppercase mb-4 font-weight-bold heading">{{menu[index].name}}</h6>
-                            <p class="p-subheading" *ngFor="let m of menu[index].childs">
-                                <a [routerLink]="'/home/static-page/' + m.static_page" class="subheading">{{m.name}}</a>
-                            </p>
-                        </ng-container>
-                    </ng-container>
-                    <ng-container *ngIf="4; let index">
-                        <ng-container *ngIf="menu?.length && menu[index]">
-                            <h6 *ngIf="menu[index].static_page" [routerLink]="'/home/static-page/' + menu[index].static_page" class="text-uppercase mb-4 font-weight-bold heading">{{menu[index].name}}</h6>
-                            <h6 *ngIf="!menu[index].static_page" class="text-uppercase mb-4 font-weight-bold heading">{{menu[index].name}}</h6>
-                            <p class="p-subheading-last" *ngFor="let m of menu[index].childs">
-                                <a [routerLink]="'/home/static-page/' + m.static_page" class="subheading">{{m.name}}</a>
-                            </p>
-                        </ng-container>
-                    </ng-container>
+                    <h6 *ngIf="menu[index].static_page" [routerLink]="'/home/static-page/' + menu[index].static_page" class="text-uppercase mb-4 font-weight-bold heading">{{menu[index].name}}</h6>
+                    <h6 *ngIf="!menu[index].static_page" class="text-uppercase mb-4 font-weight-bold heading">{{menu[index].name}}</h6>
+                    <p class="p-subheading" *ngFor="let m of menu[index].childs">
+                        <a [routerLink]="'/home/static-page/' + m.static_page" class="subheading">{{m.name}}</a>
+                    </p>
                 </ng-container>
-            </div>
-        </ng-container>
+            </ng-container>
+            <ng-container *ngIf="4; let index">
+                <ng-container *ngIf="menu?.length && menu[index]">
+                    <h6 *ngIf="menu[index].static_page" [routerLink]="'/home/static-page/' + menu[index].static_page" class="text-uppercase mb-4 font-weight-bold heading">{{menu[index].name}}</h6>
+                    <h6 *ngIf="!menu[index].static_page" class="text-uppercase mb-4 font-weight-bold heading">{{menu[index].name}}</h6>
+                    <p class="p-subheading-last" *ngFor="let m of menu[index].childs">
+                        <a [routerLink]="'/home/static-page/' + m.static_page" class="subheading">{{m.name}}</a>
+                    </p>
+                </ng-container>
+            </ng-container>
+        </div>
 
       <!-- Grid column -->
       <hr class="w-100 clearfix d-md-none">
