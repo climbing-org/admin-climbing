@@ -14,7 +14,8 @@ const routes: Routes = [{
   }, {
       path: 'static-page/:id',
       component: StaticPageComponent,
-  }],
+  }, { path: 'sportsman-rating', loadChildren: './sportsman-rating-page/sportsman-rating-page.module#SportsmanRatingPageModule' }
+  ],
 }];
 
 @NgModule({
