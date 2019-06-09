@@ -377,6 +377,9 @@ nb-calendar-year-picker .year-cell:not(.empty):not(.disabled) {
     .direction {
         width: 20px;
     }
+    .table-hover tbody tr:hover {
+        cursor: pointer;
+    }
 }
 
 .events {

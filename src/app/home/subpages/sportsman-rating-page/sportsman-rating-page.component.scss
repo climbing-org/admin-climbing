@@ -96,6 +96,10 @@
     tbody tr td:last-child {
         padding-right: 4rem;
     }
+    .table-hover tbody tr:hover {
+        background-color: rgba(0, 0, 0, 0.075);
+        cursor: pointer;
+    }
 }
 
 :host ::ng-deep .page-item.active .page-link {
