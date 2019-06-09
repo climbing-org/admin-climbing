@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SportsmanRatingPageComponent implements OnInit {
 
+    page = 1;
+    pageSize = 7
+
 
   constructor() { }
 
