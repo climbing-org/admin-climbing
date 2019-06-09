@@ -4,34 +4,6 @@
     color: white;
 }
 
-.title {
-    background-color: white;
-    text-transform: uppercase;
-    padding-bottom: 0.5rem;
-    .breadcrumb {
-        margin-bottom: 0;
-        padding: 1rem 0 0;
-        background-color: transparent;
-        border: none;
-        color: #696969;
-        font-size: 12px;
-        a {
-            color: #696969;
-            text-decoration: underline;
-        }
-        .breadcrumb-item.active {
-            color: #696969;
-        }
-    }
-    .head {
-        h2 {
-            font-size: 37px;
-            color: #1c3279;
-            font-weight: 300;
-        }
-    }
-}
-
 .ratings {
     text-transform: uppercase;
     margin-top: 30px;
@@ -123,17 +95,6 @@
     thead tr th:last-child,
     tbody tr td:last-child {
         padding-right: 4rem;
-    }
-
-    ngb-pagination li {
-        &:first-child a {
-            span {
-                display: none;
-            }
-            &:before {
-                /* provide your content here */
-            }
-        }
     }
 }
 

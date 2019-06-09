@@ -13,37 +13,42 @@ import { AssociatesComponent } from './associates/associates.component';
 import { FormsModule } from '@angular/forms';
 import { MenuService } from '../shared/services/menu.service';
 import { StaticPageService } from '../shared/services/static-page.service';
-import { StaticPageComponent } from './static-page/static-page.component';
+import { StaticPageComponent } from './subpages/static-page/static-page.component';
 import { NewsService } from '../shared/services/news.service';
 import { EventService } from '../shared/services/event.service';
+import { PageTitleComponent } from './subpages/page-title/page-title.component';
 
 const ADMIN_COMPONENTS = [
   HomeComponent,
 ];
 
 @NgModule({
-  imports: [
-    HomeRoutingModule,
-    CommonModule,
-    NbCalendarModule,
-    NgbModule,
-    FormsModule,
-  ],
-  declarations: [
-    ...ADMIN_COMPONENTS,
-    LandingPageComponent,
-    LandingNavbarComponent,
-    HeaderComponent,
-    FooterComponent,
-    AssociatesComponent,
-    StaticPageComponent,
-  ],
-  providers   : [
-      MenuService,
-      StaticPageService,
-      NewsService,
-      EventService
-  ],
+    imports: [
+        HomeRoutingModule,
+        CommonModule,
+        NbCalendarModule,
+        NgbModule,
+        FormsModule,
+    ],
+    declarations: [
+        ...ADMIN_COMPONENTS,
+        LandingPageComponent,
+        LandingNavbarComponent,
+        HeaderComponent,
+        FooterComponent,
+        AssociatesComponent,
+        StaticPageComponent,
+        PageTitleComponent,
+    ],
+    providers: [
+        MenuService,
+        StaticPageService,
+        NewsService,
+        EventService
+    ],
+    exports: [
+        PageTitleComponent
+    ]
 })
 export class HomeModule {
 }

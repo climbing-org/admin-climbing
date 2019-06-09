@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { StaticPageService } from '../../shared/services/static-page.service';
-import StaticPage from '../../shared/classes/static-page';
+import { StaticPageService } from '../../../shared/services/static-page.service';
+import StaticPage from '../../../shared/classes/static-page';
 
 @Component({
   selector: 'app-static-page',
