@@ -19,7 +19,9 @@ const routes: Routes = [{
         path: 'rubric/:id',
         component: RubricPageComponent,
     }, {path: 'sportsman-rating', loadChildren: './subpages/sportsman-rating-page/sportsman-rating-page.module#SportsmanRatingPageModule'},
-        {path: 'biography', loadChildren: './subpages/biography/biography.module#BiographyModule'}
+        {path: 'biography', loadChildren: './subpages/biography/biography.module#BiographyModule'},
+        {path: 'news', loadChildren: './subpages/news-page/news-page.module#NewsPageModule'},
+        {path: 'events', loadChildren: './subpages/events-page/events-page.module#EventsPageModule'}
     ],
 }];
 

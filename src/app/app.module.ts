@@ -13,6 +13,11 @@ import { SecurityService } from './shared/services/security.service';
 import { DefaultInterceptor } from './shared/interceptors/default.interceptor';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { ToastrModule } from 'ngx-toastr';
+import { registerLocaleData } from '@angular/common';
+import localeRu from '@angular/common/locales/ru';
+import { LOCALE_ID } from '@angular/core';
+
+registerLocaleData(localeRu, 'ru');
 
 export function customBootstrap(
     securityService: SecurityService
@@ -54,6 +59,7 @@ export function customBootstrap(
             useClass: DefaultInterceptor,
             multi: true
         },
+        { provide: LOCALE_ID, useValue: 'ru' }
     ],
     bootstrap: [AppComponent]
 })

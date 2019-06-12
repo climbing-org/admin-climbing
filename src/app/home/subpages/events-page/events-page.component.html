@@ -1,0 +1,15 @@
+<div class="main">
+
+    <app-page-title activeLinkTitle="События" title="Все события"></app-page-title>
+    <div class="container">
+
+        <div *ngFor="let e of events">
+            <article>
+                <div class="dates"><span class="dates-in blue">{{e.date_from | date:'dd/MM/yyyy'}} - {{e.date_to | date:'dd/MM/yyyy'}}</span></div>
+                <div class="event-name">{{e.name}}</div>
+                <div class="event-description" [innerHTML]="e.content"></div>
+            </article>
+        </div>
+
+    </div>
+</div>
