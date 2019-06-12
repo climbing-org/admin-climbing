@@ -1,3 +1,22 @@
-<p>
-  news-page works!
-</p>
+<div class="main">
+
+    <app-page-title activeLinkTitle="Новости" title="Архив новостей"></app-page-title>
+    <div class="container">
+
+        <div class="card mb-3" *ngFor="let n of news">
+            <div class="row no-gutters">
+                <div class="col-md-3">
+                    <img [src]="'https://androidios.kz:8000' + n.logo" class="card-img" alt="...">
+                </div>
+                <div class="col-md-9">
+                    <div class="card-body">
+                        <h5 class="card-title">{{n.created_at | date:'d MMM'}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{n.name}}</h5>
+                        <!--                        <div class="card-text" [innerHTML]="n?.content"></div>-->
+                        <div class="card-text">{{n.short_description}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

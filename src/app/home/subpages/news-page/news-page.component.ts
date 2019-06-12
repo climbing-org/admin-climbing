@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import News from '../../../shared/classes/news';
+import { GeneralHelper } from '../../../shared/helpers/general.helper';
+import { NewsService } from '../../../shared/services/news.service';
 
 @Component({
   selector: 'app-news-page',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewsPageComponent implements OnInit {
 
-  constructor() { }
+    news: News[];
+
+  constructor(private newsService: NewsService) { }
 
   ngOnInit() {
+      this.newsService.list().subscribe((res: {data: News[]}) => {
+          this.news = GeneralHelper.isEmpty(res) ? [] : res.data;
+      });
   }
 
 }
