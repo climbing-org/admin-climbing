@@ -17,6 +17,8 @@ import { StaticPageComponent } from './subpages/static-page/static-page.componen
 import { NewsService } from '../shared/services/news.service';
 import { EventService } from '../shared/services/event.service';
 import { PageTitleComponent } from './subpages/page-title/page-title.component';
+import { RubricPageComponent } from './subpages/rubric-page/rubric-page.component';
+import { RubricService } from '../shared/services/rubric.service';
 
 const ADMIN_COMPONENTS = [
   HomeComponent,
@@ -39,12 +41,14 @@ const ADMIN_COMPONENTS = [
         AssociatesComponent,
         StaticPageComponent,
         PageTitleComponent,
+        RubricPageComponent,
     ],
     providers: [
         MenuService,
         StaticPageService,
         NewsService,
-        EventService
+        EventService,
+        RubricService
     ],
     exports: [
         PageTitleComponent

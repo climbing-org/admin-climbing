@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from './home.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { StaticPageComponent } from './subpages/static-page/static-page.component';
+import { RubricPageComponent } from './subpages/rubric-page/rubric-page.component';
 
 const routes: Routes = [{
     path: '',
@@ -14,6 +15,9 @@ const routes: Routes = [{
     }, {
         path: 'static-page/:id',
         component: StaticPageComponent,
+    }, {
+        path: 'rubric/:id',
+        component: RubricPageComponent,
     }, {path: 'sportsman-rating', loadChildren: './subpages/sportsman-rating-page/sportsman-rating-page.module#SportsmanRatingPageModule'},
         {path: 'biography', loadChildren: './subpages/biography/biography.module#BiographyModule'}
     ],

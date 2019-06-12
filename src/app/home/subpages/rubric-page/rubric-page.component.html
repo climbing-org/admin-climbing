@@ -1,0 +1,18 @@
+<div class="main">
+
+    <app-page-title activeLinkTitle="Рубрика {{rubric?.name}}" title="Рубрика {{rubric?.name}}"></app-page-title>
+    <div class="container">
+
+        <div class="page-content">
+            <h1>{{rubric?.name}} </h1>
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            <!--<h2>Content: {{staticPage?.content}}</h2>-->
+            <div [innerHTML]="rubric?.content"></div>
+        </div>
+    </div>
+</div>
