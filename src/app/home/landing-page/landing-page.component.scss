@@ -91,10 +91,12 @@
   overflow: hidden;
 }
 
-.my.calendar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+@media (min-width: 992px) {
+    .my.calendar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 :host ::ng-deep nb-card {
@@ -307,6 +309,17 @@ nb-calendar-year-picker .year-cell:not(.empty):not(.disabled) {
 
 .row:first-child {
   margin-top: 0;
+}
+
+.nebular-calendar {
+    h4 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        color: #1c3279;
+        font-weight: 600;
+    }
 }
 
 .ratings {

@@ -25,4 +25,8 @@ export class MenuService {
     delete(id: number) {
         return this.http.delete('https://androidios.kz:8000/api/v1/menu/' + id + '/');
     }
+
+    setPriority(body) {
+        return this.http.post('https://androidios.kz:8000/api/v1/menu/set_priority/', body);
+    }
 }

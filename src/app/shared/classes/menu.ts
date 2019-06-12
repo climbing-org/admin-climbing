@@ -7,6 +7,7 @@ export default class Menu {
     footer: boolean;
     parent: number;
     static_page: string;
+    rubric: string;
     created_at: Date;
     childs: Menu[];
 }

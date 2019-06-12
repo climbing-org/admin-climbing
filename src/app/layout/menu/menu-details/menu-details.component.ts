@@ -13,6 +13,8 @@ import StaticPage from '../../../shared/classes/static-page';
 export class MenuDetailsComponent implements OnInit {
 
     menu: Menu = new Menu();
+    nameError: string;
+    errorMessage: string;
     slug: string;
     menuIds: {name: string, id: number}[] = [];
     staticPage: StaticPage[] = [];
@@ -70,14 +72,30 @@ export class MenuDetailsComponent implements OnInit {
         if (this.slug) {
             this.menuService.update(this.slug, this.menu).subscribe((res) => {
                 console.log(res);
-                this.router.navigateByUrl('/admin/menu-table');
-
+                if (res['code'] === 0) {
+                    this.router.navigateByUrl('/admin/menu-table');
+                } else if (res['data'] && res['data']['name'] && res['data']['name'].length) {
+                    this.nameError = res['data']['name'][0];
+                } else {
+                    this.errorMessage = 'Что то пошло не так';
+                }
             });
         } else {
             this.menuService.post(this.menu).subscribe((res) => {
                 console.log(res);
-                this.router.navigateByUrl('/admin/menu-table');
+                if (res['code'] === 0) {
+                    this.router.navigateByUrl('/admin/menu-table');
+                } else if (res['data'] && res['data']['name'] && res['data']['name'].length) {
+                    console.log(res);
+                    this.nameError = res['data']['name'][0];
+                } else {
+                    this.errorMessage = 'Что то пошло не так';
+                }
             });
         }
+    }
+
+    close() {
+      this.errorMessage = '';
     }
 }
