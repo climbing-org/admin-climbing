@@ -2,13 +2,13 @@
     .social-media {
         display: none;
     }
-    .col-md-2, .col-md-5 {
+    .col-md-4 {
         height: 100%;
         width: 100%;
         max-width: 100%;
         flex: 0 0 100%;
     }
-    .col-md-5 {
+    .col-md-4.text-md-right {
         margin-bottom: 10px !important;
     }
     .header {
@@ -22,7 +22,7 @@
             float: right;
         }
     }
-    .col-md-2 {
+    .col-md-4.center {
         height: 126px !important;
         background-image: url('/assets/home/layer-1.png');
         background-position: center;

@@ -1,0 +1,19 @@
+<div class="main">
+
+    <app-page-title activeLinkTitle="Новости" title="{{news.name}}"></app-page-title>
+    <div class="container">
+
+        <div class="row first">
+            <div class="col-md-8">
+                <div class="img">
+                    <img [src]="'https://androidios.kz:8000' + news.logo" class="card-img" alt="...">
+                </div>
+                <div class="card-text" [innerHTML]="news.content"></div>
+            </div>
+            <div class="col-md-4">
+                <app-calendar></app-calendar>
+            </div>
+        </div>
+
+    </div>
+</div>

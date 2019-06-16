@@ -27,7 +27,7 @@
 <!--      <h2>-->
 <!--        Selected date: {{ date | date }}-->
 <!--      </h2>-->
-      <nb-calendar [(date)]="date" [boundingMonth]="true"></nb-calendar>
+      <app-calendar [date]="date"></app-calendar>
         <br>
         <h4 routerLink="/home/events" style="cursor: pointer">Все события &nbsp;&nbsp;&nbsp;&nbsp;></h4>
     </div>
@@ -238,7 +238,7 @@
 <!--          </div>-->
 <!--        </div>-->
 <!--      </div>-->
-        <div class="card mb-3" *ngFor="let n of news">
+        <div class="card mb-3" [routerLink]="'/home/news-page/' + n.slug" *ngFor="let n of news">
             <div class="row no-gutters">
                 <div class="col-md-3">
                     <img [src]="'https://androidios.kz:8000' + n.logo" class="card-img" alt="...">

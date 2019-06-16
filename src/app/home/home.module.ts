@@ -19,6 +19,7 @@ import { EventService } from '../shared/services/event.service';
 import { PageTitleComponent } from './subpages/page-title/page-title.component';
 import { RubricPageComponent } from './subpages/rubric-page/rubric-page.component';
 import { RubricService } from '../shared/services/rubric.service';
+import { CalendarComponent } from './calendar/calendar.component';
 
 const ADMIN_COMPONENTS = [
   HomeComponent,
@@ -42,6 +43,7 @@ const ADMIN_COMPONENTS = [
         StaticPageComponent,
         PageTitleComponent,
         RubricPageComponent,
+        CalendarComponent,
     ],
     providers: [
         MenuService,
@@ -51,7 +53,8 @@ const ADMIN_COMPONENTS = [
         RubricService
     ],
     exports: [
-        PageTitleComponent
+        PageTitleComponent,
+        CalendarComponent
     ]
 })
 export class HomeModule {

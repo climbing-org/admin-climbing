@@ -21,6 +21,7 @@ const routes: Routes = [{
     }, {path: 'sportsman-rating', loadChildren: './subpages/sportsman-rating-page/sportsman-rating-page.module#SportsmanRatingPageModule'},
         {path: 'biography', loadChildren: './subpages/biography/biography.module#BiographyModule'},
         {path: 'news', loadChildren: './subpages/news-page/news-page.module#NewsPageModule'},
+        {path: 'news-page/:id', loadChildren: './subpages/one-news-page/one-news-page.module#OneNewsPageModule'},
         {path: 'events', loadChildren: './subpages/events-page/events-page.module#EventsPageModule'}
     ],
 }];
