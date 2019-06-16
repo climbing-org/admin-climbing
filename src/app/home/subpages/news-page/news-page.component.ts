@@ -11,6 +11,8 @@ import { NewsService } from '../../../shared/services/news.service';
 export class NewsPageComponent implements OnInit {
 
     news: News[];
+    page = 1;
+    pageSize = 7;
 
   constructor(private newsService: NewsService) { }
 

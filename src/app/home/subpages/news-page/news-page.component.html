@@ -3,6 +3,7 @@
     <app-page-title activeLinkTitle="Новости" title="Архив новостей"></app-page-title>
     <div class="container">
 
+        <!--                <tr *ngFor="let item of items | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">-->
         <div class="card mb-3" *ngFor="let n of news">
             <div class="row no-gutters">
                 <div class="col-md-3">
@@ -17,6 +18,17 @@
                 </div>
             </div>
         </div>
+
+        <!--            TODO: items.length-->
+        <ngb-pagination
+            class="d-flex justify-content-center"
+            [(page)]="page"
+            [pageSize]="pageSize"
+            [maxSize]="5"
+            [rotate]="true"
+            [boundaryLinks]="true"
+            collectionSize="20"
+        ></ngb-pagination>
 
     </div>
 </div>
