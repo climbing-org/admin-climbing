@@ -47,7 +47,7 @@
                         <img [src]="'https://androidios.kz:8000' + user.avatar" class="mr-3" alt="...">
                     </div>
                 </div>
-                <div class="vertical-line" *ngIf="!user">
+                <div class="vertical-line" *ngIf="!user" routerLink="/login" style="cursor: pointer">
                     Логин
                 </div>
                 <!--      <nb-action class="control-item">-->

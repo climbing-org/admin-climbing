@@ -215,8 +215,8 @@
     margin-bottom: 60px;
 }
 .event-content {
-  padding-left: 30px;
-    padding-right: 30px;
+  //padding-left: 30px;
+  //  padding-right: 30px;
   margin-top: 30px;
   //margin-bottom: 30px;
   padding-top: 35px;
@@ -229,6 +229,8 @@
     font-size: 26px;
     margin-bottom: 20px;
       font-weight: 300;
+      padding-left: 30px;
+      padding-right: 30px;
   }
   .dates {
     margin-bottom: 6px;
@@ -251,7 +253,14 @@
   }
   article {
     margin-bottom: 17px;
+      padding-left: 30px;
+      padding-right: 30px;
   }
+    article:hover {
+        padding-left: 40px;
+        background-color: #203988;
+        cursor: pointer;
+    }
 }
 
 .news-block {
@@ -307,8 +316,8 @@
 }
 
 .associates-content {
-    padding-left: 30px;
-    padding-right: 30px;
+    //padding-left: 30px;
+    //padding-right: 30px;
     padding-top: 35px;
     padding-bottom: 25px;
     background-color: white;
@@ -320,6 +329,8 @@
         margin-bottom: 20px;
         font-weight: 300;
         color: #1c3279;
+        padding-left: 30px;
+        padding-right: 30px;
     }
     .dates {
         margin-bottom: 6px;
@@ -335,6 +346,16 @@
         font-weight: 300;
     }
     article {
-        margin-bottom: 17px;
+        //margin-bottom: 17px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        padding-left: 25px;
+        padding-right: 30px;
+        border-left: thick solid transparent;
+    }
+    article:hover {
+        cursor: pointer;
+        border-left: thick solid #3391cf;
+        background-color: #f8f8f8;
     }
 }
