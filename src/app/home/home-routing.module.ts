@@ -22,7 +22,9 @@ const routes: Routes = [{
         {path: 'biography', loadChildren: './subpages/biography/biography.module#BiographyModule'},
         {path: 'news', loadChildren: './subpages/news-page/news-page.module#NewsPageModule'},
         {path: 'news-page/:id', loadChildren: './subpages/one-news-page/one-news-page.module#OneNewsPageModule'},
-        {path: 'events', loadChildren: './subpages/events-page/events-page.module#EventsPageModule'}
+        {path: 'events', loadChildren: './subpages/events-page/events-page.module#EventsPageModule'},
+        {path: 'profile', loadChildren: './subpages/profile/profile.module#ProfileModule'},
+        {path: 'profile/:id', loadChildren: './subpages/profile/profile.module#ProfileModule'}
     ],
 }];
 

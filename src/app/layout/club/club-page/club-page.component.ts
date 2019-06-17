@@ -62,7 +62,7 @@ export class ClubPageComponent implements OnInit, AfterViewInit {
       this.usersService.list('trainer').subscribe((res: {data: User[]}) => {
           this.trainers = GeneralHelper.isEmpty(res) ? [] : res.data;
           this.trainers.forEach((t) => {
-          })
+          });
       });
 
       this.dropdownSettings = {

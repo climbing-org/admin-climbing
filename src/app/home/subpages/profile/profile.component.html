@@ -1,0 +1,176 @@
+<div class="main">
+
+    <app-page-title activeLinkTitle="Профиль" [title]="user.last_name + ' ' + user.first_name"></app-page-title>
+    <div class="container">
+
+        <form role="form" [formGroup]="form">
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label class="col-md-3 col-form-label">
+                                        Биография
+                                    </label>
+                                    <div class="col-md-9">
+                                        <textarea class="form-control" formControlName="biography" rows="3"></textarea>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label class="col-md-3 col-form-label">
+                                        Разряд
+                                    </label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" formControlName="level">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label class="col-md-3 col-form-label">
+                                        Имя
+                                    </label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" formControlName="first_name">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label class="col-md-3 col-form-label">
+                                        Фамилия
+                                    </label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" formControlName="last_name">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label class="col-md-3 col-form-label">
+                                        Отчество
+                                    </label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" formControlName="second_name">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label class="col-md-3 col-form-label">
+                                        Аватар
+                                    </label>
+                                    <div class="col-md-9">
+                                        <div class="circular--landscape">
+                                            <img [src]="'https://androidios.kz:8000' + user.avatar" class="mr-3" alt="...">
+                                        </div>
+                                        <button type="button" class="upload-file blue-button" (click)="inputFile.click()">
+                                            <i class="fa fa-paperclip"></i> Загрузить изображение
+                                        </button>
+                                        <!--                                <a (click)="inputFile.click()" style="cursor: pointer; color: #007bff; margin-right: 10px;">-->
+                                        <!--                                    <i class="fa fa-paperclip"></i>-->
+                                        <!--                                    Прикрепить картинку-->
+                                        <!--                                </a>-->
+                                        <br>
+                                        <div *ngIf="loading" style="width: 50px;height: 50px;">
+                                            <div class="loader">Loading...</div>
+                                        </div>
+                                        <span *ngIf="file">
+                                        <i class="fa green fa-check" style="color: green"></i>
+                                            {{file.name}}
+                                            <!--    <i class="fa fa-remove" style="color: red"></i>-->
+                                        </span>
+                                        <input #inputFile type="file" style="display: none">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+<!--                        <div class="col-md-4">-->
+<!--                            <img *ngIf="user?.avatar" [src]="'https://androidios.kz:8000' + user.avatar" class="card-img" alt="...">-->
+<!--                        </div>-->
+                        <div class="col-md-12" *ngIf="!user?.has_password">
+                            <div class="row">
+                                <label class="col-md-3 semibold col-form-label">Новый пароль</label>
+                                <div class="col-md-9">
+                                    <button *ngIf="!showNewPasswordInput" (click)="showNewPasswordInput=true" type="submit" class="blue-button">
+                                        Создать пароль
+                                    </button>
+                                    <button *ngIf="showNewPasswordInput" type="submit" class="blue-button" style="float: right;" (click)="onNewPassword()">Сохранить</button>
+                                </div>
+                            </div>
+                            <input  *ngIf="showNewPasswordInput" [ngModelOptions]="{standalone: true}" class="form-control font13" [(ngModel)]="newPassword">
+                            <div *ngIf="showNewPasswordSuccess" class="valid-feedback" style="display: block">
+                                Успешно сохранен
+                            </div>
+                            <div *ngIf="showNewPasswordFailure" class="invalid-feedback" style="display: block">
+                                {{newPasswordFailureMessage}}
+                            </div>
+                        </div>
+                        <div class="col-md-12" *ngIf="user?.has_password">
+                            <div class="row">
+                                <label class="col-md-3 semibold col-form-label">Новый пароль</label>
+                                <div class="col-md-9">
+                                    <button *ngIf="!showNewPasswordInput" (click)="showNewPasswordInput=true" type="submit" class="blue-button">
+                                        Изменить пароль
+                                    </button>
+                                    <button *ngIf="showNewPasswordInput" type="submit" class="blue-button" style="float: right;" (click)="onChangePassword()">Сохранить</button>
+                                </div>
+                            </div>
+                            <ng-container *ngIf="showNewPasswordInput">
+                                <fieldset class="form-group">
+                                    <div class="row">
+                                        <label class="col-md-3 col-form-label">
+                                            Старый пароль
+                                        </label>
+                                        <div class="col-md-9">
+                                            <input [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="oldPassword">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <div class="row">
+                                        <label class="col-md-3 col-form-label">
+                                            Новый пароль
+                                        </label>
+                                        <div class="col-md-9">
+                                            <input [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="newPassword">
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </ng-container>
+                            <div *ngIf="showNewPasswordSuccess" class="valid-feedback" style="display: block">
+                                Успешно сохранен
+                            </div>
+                            <div *ngIf="showNewPasswordFailure" class="invalid-feedback" style="display: block">
+                                {{newPasswordFailureMessage}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="blue-button glav" (click)="submit(form)">Сохранить</button>
+
+        </form>
+
+    </div>
+</div>
