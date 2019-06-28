@@ -9,9 +9,15 @@ import { DefaultInterceptor } from '../../../shared/interceptors/default.interce
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UploadService } from '../../../shared/services/upload.service';
 import { UsersService } from '../../../shared/services/user.service';
+import { EventBlockComponent } from './event-block/event-block.component';
+import { AchievementBlockComponent } from './achievement-block/achievement-block.component';
+import { RouteBlockComponent } from './route-block/route-block.component';
+import { ClubBlockComponent } from './club-block/club-block.component';
+import { TrainersBlockComponent } from './trainers-block/trainers-block.component';
+import { PaymentBlockComponent } from './payment-block/payment-block.component';
 
 @NgModule({
-  declarations: [ProfileComponent],
+  declarations: [ProfileComponent, EventBlockComponent, AchievementBlockComponent, RouteBlockComponent, ClubBlockComponent, TrainersBlockComponent, PaymentBlockComponent],
   imports: [
     CommonModule,
     ProfileRoutingModule,
