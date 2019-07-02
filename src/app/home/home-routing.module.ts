@@ -24,7 +24,9 @@ const routes: Routes = [{
         {path: 'news-page/:id', loadChildren: './subpages/one-news-page/one-news-page.module#OneNewsPageModule'},
         {path: 'events', loadChildren: './subpages/events-page/events-page.module#EventsPageModule'},
         {path: 'profile', loadChildren: './subpages/profile/profile.module#ProfileModule'},
-        {path: 'profile/:id', loadChildren: './subpages/profile/profile.module#ProfileModule'}
+        {path: 'profile/:id', loadChildren: './subpages/profile/profile.module#ProfileModule'},
+        {path: 'trainer-profile', loadChildren: './subpages/trainer-profile/trainer-profile.module#TrainerProfileModule'},
+        {path: 'trainer-profile/:id', loadChildren: './subpages/trainer-profile/trainer-profile.module#TrainerProfileModule'}
     ],
 }];
 

@@ -29,7 +29,7 @@
 <!--      </h2>-->
       <app-calendar [date]="date"></app-calendar>
         <br>
-        <h4 routerLink="/home/events" style="cursor: pointer">Все события &nbsp;&nbsp;&nbsp;&nbsp;></h4>
+        <h4 routerLink="/home/events" style="cursor: pointer">Все результаты &nbsp;&nbsp;&nbsp;&nbsp;></h4>
     </div>
   </div>
   </div>
@@ -158,7 +158,7 @@
 
   <div class="col-md-4 my events">
     <div class="event-content">
-      <h2>События</h2>
+      <h2>Результаты</h2>
       <div>
         <article>
             <div class="dates"><span class="dates-in blue">15/04/2019 - 25/04/2019</span></div>
@@ -257,7 +257,7 @@
 
   <div class="col-md-4 my associates">
     <div class="associates-content">
-      <h2>Анонс мероприятий</h2>
+      <h2>Анонсы</h2>
       <article *ngFor="let e of events">
         <div class="event-description">{{e.name}}</div>
         <div><span class="event-location">{{e.date_from | date:'d MMM'}} - {{e.date_to | date:'d MMM'}}</span></div>

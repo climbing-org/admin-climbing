@@ -13,7 +13,7 @@ import { EventBlockComponent } from './event-block/event-block.component';
 import { AchievementBlockComponent } from './achievement-block/achievement-block.component';
 import { RouteBlockComponent } from './route-block/route-block.component';
 import { ClubBlockComponent } from './club-block/club-block.component';
-import { TrainersBlockComponent } from './trainers-block/trainers-block.component';
+import { TrainersBlockComponent } from '../trainers-block/trainers-block.component';
 import { PaymentBlockComponent } from './payment-block/payment-block.component';
 import { NgbDatepickerModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -27,7 +27,6 @@ import { NgbDatepickerModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstr
       ReactiveFormsModule,
       NgbDatepickerModule,
       NgbDropdownModule,
-
   ],
     providers: [
         UploadService,

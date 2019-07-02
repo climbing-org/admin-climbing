@@ -1,0 +1,33 @@
+.container {
+    margin-top: 50px;
+    font-size: 13px;
+    margin-bottom: 50px;
+}
+
+img {
+    width: 100%;
+}
+
+fieldset label {
+    font-weight: 600;
+}
+
+button.blue-button {
+    vertical-align: top;
+    margin-top: 7px;
+    background-color: #3391cf;
+    text-transform: uppercase;
+    color: white;
+    padding: 3px 14px 3px 15px;
+}
+
+button.blue-button.glav {
+    font-size: 19px;
+    padding: 7px 40px 7px 40px;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+h2 {
+    font-size: 25px;
+}
