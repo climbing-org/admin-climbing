@@ -1,0 +1,14 @@
+<agm-map #agmMap>
+    <ng-container *ngFor="let place of places">
+        <agm-marker *ngIf="place.lat || place.lon"
+            [latitude]="place.lat || 0"
+            [longitude]="place.lon || 0"
+        >
+            <agm-info-window [isOpen]="true">
+                <div>
+                    {{place.name}}
+                </div>
+            </agm-info-window>
+        </agm-marker>
+    </ng-container>
+</agm-map>

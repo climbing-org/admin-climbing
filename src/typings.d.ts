@@ -5,3 +5,15 @@ interface NodeModule {
 }
 
 declare const $: any;
+
+declare const google: {
+    maps: {
+        event: any;
+        places: {
+            AutocompleteService: any;
+            PlacesServiceStatus: any;
+        }
+        LatLngBounds: any;
+        LatLng: any;
+    }
+};

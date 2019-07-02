@@ -26,7 +26,9 @@ const routes: Routes = [{
         {path: 'profile', loadChildren: './subpages/profile/profile.module#ProfileModule'},
         {path: 'profile/:id', loadChildren: './subpages/profile/profile.module#ProfileModule'},
         {path: 'trainer-profile', loadChildren: './subpages/trainer-profile/trainer-profile.module#TrainerProfileModule'},
-        {path: 'trainer-profile/:id', loadChildren: './subpages/trainer-profile/trainer-profile.module#TrainerProfileModule'}
+        {path: 'trainer-profile/:id', loadChildren: './subpages/trainer-profile/trainer-profile.module#TrainerProfileModule'},
+        {path: 'teams', loadChildren: './subpages/teams/teams.module#TeamsModule'},
+        {path: 'teams/:id', loadChildren: './subpages/teams/teams.module#TeamsModule'}
     ],
 }];
 

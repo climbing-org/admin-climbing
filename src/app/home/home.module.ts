@@ -20,6 +20,10 @@ import { PageTitleComponent } from './subpages/page-title/page-title.component';
 import { RubricPageComponent } from './subpages/rubric-page/rubric-page.component';
 import { RubricService } from '../shared/services/rubric.service';
 import { CalendarComponent } from './calendar/calendar.component';
+import { GoogleMapComponent } from './subpages/google-map/google-map.component';
+import { AgmCoreModule } from '@agm/core';
+import { environment } from '../../environments/environment';
+import { GoogleService } from '../shared/services/google.service';
 
 const ADMIN_COMPONENTS = [
   HomeComponent,
@@ -32,6 +36,11 @@ const ADMIN_COMPONENTS = [
         NbCalendarModule,
         NgbModule,
         FormsModule,
+        AgmCoreModule.forRoot({
+            apiKey: environment.googleApiKey,
+            libraries: [ 'places' ],
+            language: 'ru'
+        }),
     ],
     declarations: [
         ...ADMIN_COMPONENTS,
@@ -44,17 +53,20 @@ const ADMIN_COMPONENTS = [
         PageTitleComponent,
         RubricPageComponent,
         CalendarComponent,
+        GoogleMapComponent,
     ],
     providers: [
         MenuService,
         StaticPageService,
         NewsService,
         EventService,
-        RubricService
+        RubricService,
+        GoogleService
     ],
     exports: [
         PageTitleComponent,
-        CalendarComponent
+        CalendarComponent,
+        GoogleMapComponent
     ]
 })
 export class HomeModule {

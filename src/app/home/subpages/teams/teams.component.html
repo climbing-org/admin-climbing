@@ -1,0 +1,7 @@
+<div class="main">
+
+    <app-page-title activeLinkTitle="Команды" title="Команды"></app-page-title>
+    <div class="container">
+        <app-google-map *ngIf="teams.length" [places]="teams"></app-google-map>
+    </div>
+</div>

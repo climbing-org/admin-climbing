@@ -22,7 +22,7 @@ export class TeamService {
         return this.http.put('https://androidios.kz:8000/api/v1/clubs/' + slug + '/', body);
     }
 
-    partial_update(id: number, body: any) {
+    partial_update(id: string, body: any) {
         return this.http.patch('https://androidios.kz:8000/api/v1/clubs/' + id + '/', body);
     }
 
