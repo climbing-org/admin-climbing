@@ -1,7 +1,59 @@
 <div class="main">
 
-    <app-page-title activeLinkTitle="Команды" title="Команды"></app-page-title>
+    <app-page-title *ngIf="!id" activeLinkTitle="Команды" title="Команды"></app-page-title>
+    <app-page-title *ngIf="id" activeLinkTitle="Команда" [title]="teams[0]?.name"></app-page-title>
     <div class="container">
-        <app-google-map *ngIf="teams.length" [places]="teams"></app-google-map>
+        <ng-container *ngIf="id && teams.length">
+            <div class="row">
+                <div class="col-md-4 border">
+                    <fieldset class="form-group">
+                        <div class="row">
+                            <label class="col-md-3 col-form-label">
+                                Адрес:
+                            </label>
+                            <div class="col-md-9 col-form-label">
+                                {{team.address}}
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <div class="row">
+                            <label class="col-md-3 col-form-label">
+                                Instagram:
+                            </label>
+                            <div class="col-md-9 col-form-label">
+                                {{team.instagram}}
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <div class="row">
+                            <label class="col-md-3 col-form-label">
+                                FB:
+                            </label>
+                            <div class="col-md-9 col-form-label">
+                                {{team.facebook}}
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <div class="row">
+                            <label class="col-md-3 col-form-label">
+                                VK:
+                            </label>
+                            <div class="col-md-9 col-form-label">
+                                {{team.vk}}
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col-md-8 google-map">
+                    <app-google-map *ngIf="team" [places]="teams"></app-google-map>
+                </div>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="!id && teams.length">
+            <app-google-map *ngIf="teams.length" [places]="teams"></app-google-map>
+        </ng-container>
     </div>
 </div>

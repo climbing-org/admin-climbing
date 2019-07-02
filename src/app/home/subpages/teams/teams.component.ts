@@ -13,6 +13,7 @@ import { GoogleService } from '../../../shared/services/google.service';
 export class TeamsComponent implements OnInit {
 
     teams: Team[] = [];
+    team: Team = new Team();
     id: string;
 
   constructor(private route: ActivatedRoute,
@@ -25,6 +26,7 @@ export class TeamsComponent implements OnInit {
           this.teamService.get(this.id).subscribe((res: {data: Team}) => {
               console.log(res);
               this.teams.push(res.data);
+              this.team = res.data;
           });
       } else {
           this.teamService.list().subscribe((res: {data: Team[]}) => {
