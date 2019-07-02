@@ -202,6 +202,29 @@
             </li>
         </div>
 
+        <div class="nested-menu">
+            <a class="list-group-item" (click)="addExpandClass('team')">
+                <i class="fa fa-plus"></i>&nbsp;
+                <span>Команды</span>
+            </a>
+            <li class="nested" [class.expand]="showMenu === 'team'">
+                <ul class="submenu">
+                    <li>
+                        <a routerLink="/admin/team-table">
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>Все команды</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a routerLink="/admin/team-page">
+                            <i class="fa fa-monument"></i>&nbsp;
+                            <span>Добавить новую</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </div>
+
 
 
 
