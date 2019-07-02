@@ -1,3 +1,39 @@
-<p>
-  trainers-block works!
-</p>
+<div class="ratings table-responsive">
+    <table class="table table-striped table-borderless table-hover">
+        <thead>
+        <tr>
+            <th><input type="checkbox"></th>
+            <th scope="col">Тренер</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--                <tr *ngFor="let item of items | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">-->
+        <tr>
+            <td>
+                <input type="checkbox">
+            </td>
+            <td>
+                Загитов А.И.
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+<form role="form">
+    <div class="row">
+        <div class="col-md-2 vertical-align-center">
+            <button class="blue-button">
+                Добавить новое
+            </button>
+        </div>
+        <div class="col-md-4">
+            <input class="form-control">
+        </div>
+    </div>
+
+    <button type="submit" class="blue-button glav">Сохранить</button>
+
+</form>

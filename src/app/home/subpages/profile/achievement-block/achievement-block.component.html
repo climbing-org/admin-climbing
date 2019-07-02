@@ -26,28 +26,57 @@
 
 </div>
 
-<div class="row">
-    <div class="col-md-5">
-        <fieldset class="form-group">
-            <div class="row">
-                <div class="col-md-6 vertical-align-center">
-                        <button class="blue-button">
-                            Добавить новое
-                        </button>
-                </div>
-                <div class="col-md-6">
-                    <div class="input-group">
-                        <input class="form-control" placeholder="гггг-мм-дд"
-                               name="dp" ngbDatepicker #d="ngbDatepicker">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
-                        </div>
-                    </div>
+<form role="form">
+    <div class="row">
+<!--        <div class="col-md-5">-->
+<!--            <fieldset class="form-group">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-md-6 vertical-align-center">-->
+<!--                            <button class="blue-button">-->
+<!--                                Добавить новое-->
+<!--                            </button>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-6">-->
+<!--                        <div class="input-group">-->
+<!--                            <input class="form-control" placeholder="гггг-мм-дд"-->
+<!--                                   name="dp" ngbDatepicker #d="ngbDatepicker">-->
+<!--                            <div class="input-group-append">-->
+<!--                                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </fieldset>-->
+<!--        </div>-->
+        <div class="col-md-2 vertical-align-center">
+            <button class="blue-button">
+                Добавить новое
+            </button>
+        </div>
+        <div class="col-md-3">
+            <div class="input-group">
+                <input class="form-control" placeholder="гггг-мм-дд"
+                       name="dp" ngbDatepicker #d="ngbDatepicker">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
                 </div>
             </div>
-        </fieldset>
+        </div>
+        <div class="col-md-4">
+            <input class="form-control">
+        </div>
+        <div class="col-md-1">
+            <div ngbDropdown class="d-inline-block">
+                <button class="btn btn-outline-primary my-dropdown" id="dropdownBasic2" ngbDropdownToggle>3</button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem>Action - 1</button>
+                    <button ngbDropdownItem>Another Action</button>
+                    <button ngbDropdownItem>Something else is here</button>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col-md-4">
-        <input class="form-control">
-    </div>
-</div>
+
+    <button type="submit" class="blue-button glav">Сохранить</button>
+
+</form>
