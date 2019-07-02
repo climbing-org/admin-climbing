@@ -15,6 +15,7 @@ import { RouteBlockComponent } from './route-block/route-block.component';
 import { ClubBlockComponent } from './club-block/club-block.component';
 import { TrainersBlockComponent } from './trainers-block/trainers-block.component';
 import { PaymentBlockComponent } from './payment-block/payment-block.component';
+import { NgbDatepickerModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [ProfileComponent, EventBlockComponent, AchievementBlockComponent, RouteBlockComponent, ClubBlockComponent, TrainersBlockComponent, PaymentBlockComponent],
@@ -23,7 +24,10 @@ import { PaymentBlockComponent } from './payment-block/payment-block.component';
     ProfileRoutingModule,
       HomeModule,
       FormsModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      NgbDatepickerModule,
+      NgbDropdownModule,
+
   ],
     providers: [
         UploadService,

@@ -1,3 +1,53 @@
-<p>
-  achievement-block works!
-</p>
+<div class="ratings table-responsive">
+    <table class="table table-striped table-borderless table-hover">
+        <thead>
+        <tr>
+            <th><input type="checkbox"></th>
+            <th scope="col">Дата</th>
+            <th scope="col">Маршрут</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--                <tr *ngFor="let item of items | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">-->
+        <tr>
+            <td>
+                <input type="checkbox">
+            </td>
+            <td>
+                12/04/2018
+            </td>
+            <td>
+                Чемпионат РК 15/06/2019
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+<div class="row">
+    <div class="col-md-5">
+        <fieldset class="form-group">
+            <div class="row">
+                <div class="col-md-6 vertical-align-center">
+                        <button class="blue-button">
+                            Добавить новое
+                        </button>
+                </div>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <input class="form-control" placeholder="гггг-мм-дд"
+                               name="dp" ngbDatepicker #d="ngbDatepicker">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+    <div class="col-md-4">
+        <input class="form-control">
+    </div>
+</div>
