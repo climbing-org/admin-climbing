@@ -9,38 +9,55 @@
     <ul class="navbar-nav justify-content-center">
         <ng-container *ngFor="let m of menu">
             <li class="nav-item" *ngIf="!m.childs?.length">
-                <a class="nav-link" *ngIf="m.static_page" [routerLink]="'/home/static-page/' + m.static_page">{{m.name}}</a>
-                <a class="nav-link" *ngIf="!m.static_page && m.rubric" [routerLink]="'/home/rubric/' + m.rubric">{{m.name}}</a>
+                <a class="nav-link" *ngIf="m.link" [target]="m.new_page ? '_blank' : ''" [routerLink]="'/home/' + m.link">{{m.name}}</a>
+                <ng-container *ngIf="!m.link">
+                    <a class="nav-link" [target]="m.new_page ? '_blank' : ''" *ngIf="m.static_page" [routerLink]="'/home/static-page/' + m.static_page">{{m.name}}</a>
+                    <a class="nav-link" [target]="m.new_page ? '_blank' : ''" *ngIf="!m.static_page && m.rubric" [routerLink]="'/home/rubric/' + m.rubric">{{m.name}}</a>
+                </ng-container>
               </li>
             <li class="nav-item dropdown first" *ngIf="m.childs?.length">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false" *ngIf="m.static_page" [routerLink]="'/home/static-page/' + m.static_page">
-                    {{m.name}}
-                </a>
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                   aria-haspopup="true" aria-expanded="false" *ngIf="!m.static_page && m.rubric" [routerLink]="'/home/rubric/' + m.rubric">
-                    {{m.name}}
-                </a>
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" [target]="m.new_page ? '_blank' : ''"
+                   aria-haspopup="true" aria-expanded="false" *ngIf="m.link" [routerLink]="'/home/' + m.link">{{m.name}}</a>
+                <ng-container *ngIf="!m.link">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" [target]="m.new_page ? '_blank' : ''"
+                       aria-haspopup="true" aria-expanded="false" *ngIf="m.static_page" [routerLink]="'/home/static-page/' + m.static_page">
+                        {{m.name}}
+                    </a>
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" [target]="m.new_page ? '_blank' : ''"
+                       aria-haspopup="true" aria-expanded="false" *ngIf="!m.static_page && m.rubric" [routerLink]="'/home/rubric/' + m.rubric">
+                        {{m.name}}
+                    </a>
+                </ng-container>
                 <ul class="dropdown-menu first" aria-labelledby="navbarDropdown">
                     <ng-container *ngFor="let m2 of m.childs">
                         <li *ngIf="!m2.childs?.length">
-                            <a class="dropdown-item" *ngIf="m2.static_page" [routerLink]="'/home/static-page/' + m2.static_page">{{m2.name}}</a>
-                            <a class="dropdown-item" *ngIf="!m2.static_page && m2.rubric" [routerLink]="'/home/rubric/' + m2.rubric">{{m2.name}}</a>
+                            <a class="dropdown-item" [target]="m2.new_page ? '_blank' : ''" *ngIf="m2.link" [routerLink]="'/home/' + m2.link">{{m2.name}}</a>
+                            <ng-container *ngIf="!m2.link">
+                                <a class="dropdown-item" *ngIf="m2.static_page" [target]="m2.new_page ? '_blank' : ''" [routerLink]="'/home/static-page/' + m2.static_page">{{m2.name}}</a>
+                                <a class="dropdown-item" *ngIf="!m2.static_page && m2.rubric" [target]="m2.new_page ? '_blank' : ''" [routerLink]="'/home/rubric/' + m2.rubric">{{m2.name}}</a>
+                            </ng-container>
                         </li>
                         <li class="nav-item dropdown second" *ngIf="m2.childs?.length">
-                            <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false" *ngIf="m2.static_page" [routerLink]="'/home/static-page/' + m2.static_page">
-                                {{m2.name}}
-                            </a>
-                            <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown"
-                               aria-haspopup="true" aria-expanded="false" *ngIf="!m2.static_page && m2.rubric" [routerLink]="'/home/rubric/' + m2.rubric">
-                                {{m2.name}}
-                            </a>
+                            <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" [target]="m2.new_page ? '_blank' : ''"
+                               aria-haspopup="true" aria-expanded="false" *ngIf="m2.link" [routerLink]="'/home/' + m2.link">{{m2.name}}</a>
+                            <ng-container *ngIf="!m2.link">
+                                <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" [target]="m2.new_page ? '_blank' : ''"
+                                   aria-haspopup="true" aria-expanded="false" *ngIf="m2.static_page" [routerLink]="'/home/static-page/' + m2.static_page">
+                                    {{m2.name}}
+                                </a>
+                                <a class="dropdown-item dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" [target]="m2.new_page ? '_blank' : ''"
+                                   aria-haspopup="true" aria-expanded="false" *ngIf="!m2.static_page && m2.rubric" [routerLink]="'/home/rubric/' + m2.rubric">
+                                    {{m2.name}}
+                                </a>
+                            </ng-container>
                             <ul class="dropdown-menu second" aria-labelledby="navbarDropdown1">
                                 <ng-container *ngFor="let m3 of m2.childs">
                                     <li>
-                                        <a class="dropdown-item" *ngIf="m3.static_page" [routerLink]="'/home/static-page/' + m3.static_page">{{m3.name}}</a>
-                                        <a class="dropdown-item" *ngIf="!m3.static_page && m3.rubric" [routerLink]="'/home/rubric/' + m3.rubric">{{m3.name}}</a>
+                                        <a class="dropdown-item" *ngIf="m3.link" [target]="m3.new_page ? '_blank' : ''" [routerLink]="'/home/' + m3.link">{{m3.name}}</a>
+                                        <ng-container *ngIf="!m3.link">
+                                            <a class="dropdown-item" *ngIf="m3.static_page" [target]="m3.new_page ? '_blank' : ''" [routerLink]="'/home/static-page/' + m3.static_page">{{m3.name}}</a>
+                                            <a class="dropdown-item" *ngIf="!m3.static_page && m3.rubric" [target]="m3.new_page ? '_blank' : ''" [routerLink]="'/home/rubric/' + m3.rubric">{{m3.name}}</a>
+                                        </ng-container>
                                     </li>
                                 </ng-container>
                             </ul>

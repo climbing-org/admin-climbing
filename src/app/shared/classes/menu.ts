@@ -8,6 +8,8 @@ export default class Menu {
     parent: number;
     static_page: string;
     rubric: string;
+    link: string;
+    new_page: boolean;
     created_at: Date;
     childs: Menu[];
 }

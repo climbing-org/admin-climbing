@@ -24,7 +24,7 @@
     }
     .col-md-4.center {
         height: 126px !important;
-        background-image: url('/assets/home/layer-1.png');
+        background-image: url('/assets/home/logo.png');
         background-position: center;
         background-repeat: no-repeat;
         margin-bottom: 0 !important;
@@ -35,7 +35,8 @@
 
 .header {
   height: 159px;
-  background-image: url('/assets/home/layer-1.png');
+  background-image: url('/assets/home/logo.png');
+    background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   padding: 15px;

@@ -21,6 +21,7 @@ export class MenuDetailsComponent implements OnInit {
     menuIds: {name: string, id: number}[] = [];
     staticPage: StaticPage[] = [];
     rubrics: Rubric[] = [];
+    pages: {name: string, link: string}[] = [];
 
     // @ViewChild('staticPage') staticPage: ElementRef;
 
@@ -73,6 +74,11 @@ export class MenuDetailsComponent implements OnInit {
       this.rubricService.list().subscribe((res: {data: Rubric[]}) => {
           this.rubrics = res.data;
       });
+      // TODO: проверить календарь мероприятий
+      this.pages.push({name: 'Новости', link: 'news'});
+      this.pages.push({name: 'Рейтинги', link: 'sportsman-rating'});
+      this.pages.push({name: 'Анонсы', link: 'events'});
+      this.pages.push({name: 'Календарь мероприятий', link: 'events-calendar'});
   }
 
     submit() {

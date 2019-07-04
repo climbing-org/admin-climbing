@@ -1,15 +1,35 @@
 <div class="main">
 
-    <app-page-title activeLinkTitle="События" title="Все события"></app-page-title>
+    <app-page-title activeLinkTitle="Анонсы" title="Все анонсы"></app-page-title>
     <div class="container">
 
-        <div *ngFor="let e of events">
-            <article>
-                <div class="dates"><span class="dates-in blue">{{e.date_from | date:'dd/MM/yyyy'}} - {{e.date_to | date:'dd/MM/yyyy'}}</span></div>
-                <div class="event-name">{{e.name}}</div>
-                <div class="event-description" [innerHTML]="e.content"></div>
-            </article>
+        <div *ngFor="let e of events | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize; let last = last;">
+            <div class="row">
+                <div class="col-md-3">
+                    <img [src]="'https://androidios.kz:8000' + e.logo" class="card-img" alt="...">
+                </div>
+                <div class="col-md-9">
+                    <article>
+                        <div class="dates"><span class="dates-in blue">{{e.date_from | date:'dd/MM/yyyy'}} - {{e.date_to | date:'dd/MM/yyyy'}}</span></div>
+                        <div class="event-name">{{e.name}}</div>
+                        <div class="event-description" [innerHTML]="e.content"></div>
+                    </article>
+                    <h4 routerLink="/home" style="cursor: pointer">Подробнее &nbsp;&nbsp;&nbsp;&nbsp;></h4>
+                </div>
+<!--                TODO: ссылку поменяй -->
+            </div>
+            <hr *ngIf="!last">
         </div>
+
+        <ngb-pagination
+            class="d-flex justify-content-center"
+            [(page)]="page"
+            [pageSize]="pageSize"
+            [maxSize]="5"
+            [rotate]="true"
+            [boundaryLinks]="true"
+            [collectionSize]="events?.length"
+        ></ngb-pagination>
 
     </div>
 </div>

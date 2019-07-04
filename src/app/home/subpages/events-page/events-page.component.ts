@@ -11,6 +11,8 @@ import { EventService } from '../../../shared/services/event.service';
 export class EventsPageComponent implements OnInit {
 
     events: Event[];
+    page = 1;
+    pageSize = 7;
 
   constructor(private eventService: EventService) { }
 

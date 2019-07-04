@@ -42,7 +42,7 @@
     </select>
 </div>
 <div class="form-group">
-    <label>Страница</label>
+    <label>Статичная страница</label>
     <select class="form-control" [(ngModel)]="menu.static_page">
         <option></option>
         <option [value]="sp.slug" *ngFor="let sp of staticPage">{{sp.name}}</option>
@@ -54,6 +54,21 @@
         <option></option>
         <option [value]="r.slug" *ngFor="let r of rubrics">{{r.name}}</option>
     </select>
+</div>
+<div class="form-group">
+    <label>Существующая страница</label>
+    <select class="form-control" [(ngModel)]="menu.link">
+        <option></option>
+        <option [value]="r.link" *ngFor="let r of pages">{{r.name}}</option>
+    </select>
+</div>
+<div class="form-group">
+    <label>Открывать в новой вкладке</label>
+    <div class="checkbox">
+        <label>
+            <input type="checkbox" value="" [(ngModel)]="menu.new_page">
+        </label>
+    </div>
 </div>
 
 <ngb-alert *ngIf="errorMessage" type="danger" (close)="close()">{{ errorMessage }}</ngb-alert>

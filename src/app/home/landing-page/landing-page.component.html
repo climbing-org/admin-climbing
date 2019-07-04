@@ -257,8 +257,8 @@
 
   <div class="col-md-4 my associates">
     <div class="associates-content">
-      <h2>Анонсы</h2>
-      <article *ngFor="let e of events">
+        <h2>Анонсы</h2>
+        <article *ngFor="let e of events">
         <div class="event-description">{{e.name}}</div>
         <div><span class="event-location">{{e.date_from | date:'d MMM'}} - {{e.date_to | date:'d MMM'}}</span></div>
       </article>
