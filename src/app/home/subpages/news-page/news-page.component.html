@@ -4,7 +4,7 @@
     <div class="container">
 
         <!--                <tr *ngFor="let item of items | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">-->
-        <div class="card mb-3" *ngFor="let n of news">
+        <div class="card mb-3" *ngFor="let n of news | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
             <div class="row no-gutters">
                 <div class="col-md-3">
                     <img [src]="'https://androidios.kz:8000' + n.logo" class="card-img" alt="...">
@@ -27,7 +27,7 @@
             [maxSize]="5"
             [rotate]="true"
             [boundaryLinks]="true"
-            collectionSize="20"
+            [collectionSize]="news?.length"
         ></ngb-pagination>
 
     </div>

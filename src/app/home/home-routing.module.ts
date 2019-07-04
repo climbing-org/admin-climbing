@@ -23,6 +23,7 @@ const routes: Routes = [{
         {path: 'news', loadChildren: './subpages/news-page/news-page.module#NewsPageModule'},
         {path: 'news-page/:id', loadChildren: './subpages/one-news-page/one-news-page.module#OneNewsPageModule'},
         {path: 'events', loadChildren: './subpages/events-page/events-page.module#EventsPageModule'},
+        {path: 'events-calendar', loadChildren: './subpages/events-calendar-page/events-calendar-page.module#EventsCalendarPageModule'},
         {path: 'profile', loadChildren: './subpages/profile/profile.module#ProfileModule'},
         {path: 'profile/:id', loadChildren: './subpages/profile/profile.module#ProfileModule'},
         {path: 'trainer-profile', loadChildren: './subpages/trainer-profile/trainer-profile.module#TrainerProfileModule'},
