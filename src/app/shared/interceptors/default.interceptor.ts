@@ -59,7 +59,7 @@ export class DefaultInterceptor implements HttpInterceptor {
                   }
                   if (req.method === 'POST') {
                       if (event && ((event.body && event.body.code === 0) || event.status === 204)) {
-                          if (event.url !== 'https://androidios.kz:8000/api/v1/login/') {
+                          if (event.url !== 'https://androidios.kz:8000/api/v1/login/' && event.url !== 'https://androidios.kz:8000/api/v1/rating/single/') {
                               this.toastr.success('Запрос прошел успешно', 'Успешно!');
                           }
                       } else {

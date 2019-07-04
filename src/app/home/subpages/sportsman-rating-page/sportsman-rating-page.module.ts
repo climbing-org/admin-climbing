@@ -6,6 +6,7 @@ import { SportsmanRatingPageComponent } from './sportsman-rating-page.component'
 import { UsersService } from '../../../shared/services/user.service';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeModule } from '../../home.module';
+import { RatingService } from '../../../shared/services/rating.service';
 
 @NgModule({
   declarations: [SportsmanRatingPageComponent],
@@ -17,6 +18,7 @@ import { HomeModule } from '../../home.module';
     ],
   providers: [
       UsersService,
+      RatingService
   ]
 })
 export class SportsmanRatingPageModule { }

@@ -1,7 +1,26 @@
+.container {
+    margin-top: 50px;
+}
+
 .blue {
     background-color: #3391cf;
     padding: 3px;
     color: white;
+}
+
+a {
+    color: #007bff !important;
+    //text-decoration: underline !important;
+    cursor: pointer;
+}
+
+.age {
+    margin-bottom: 20px;
+}
+
+.section-gender {
+    display: flex;
+    justify-content: space-between;
 }
 
 .ratings {
