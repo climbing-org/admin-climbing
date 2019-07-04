@@ -95,20 +95,20 @@
         <div class="nested-menu">
             <a class="list-group-item" (click)="addExpandClass('events')">
                 <i class="fa fa-plus"></i>&nbsp;
-                <span>Мероприятия</span>
+                <span>Анонсы</span>
             </a>
             <li class="nested" [class.expand]="showMenu === 'events'">
                 <ul class="submenu">
                     <li>
                         <a routerLink="/admin/events-table">
                             <i class="fa fa-monument"></i>&nbsp;
-                            <span>Таблица мероприятий</span>
+                            <span>Все анонсы</span>
                         </a>
                     </li>
                     <li>
                         <a routerLink="/admin/events-page">
                             <i class="fa fa-monument"></i>&nbsp;
-                            <span>Новые мериприятии</span>
+                            <span>Добавить новый</span>
                         </a>
                     </li>
                 </ul>

@@ -14,7 +14,7 @@
                         <div class="event-name">{{e.name}}</div>
                         <div class="event-description" [innerHTML]="e.content"></div>
                     </article>
-                    <h4 routerLink="/home" style="cursor: pointer">Подробнее &nbsp;&nbsp;&nbsp;&nbsp;></h4>
+                    <h4 [routerLink]="'/home/events/' + e.slug" style="cursor: pointer">Подробнее &nbsp;&nbsp;&nbsp;&nbsp;></h4>
                 </div>
 <!--                TODO: ссылку поменяй -->
             </div>

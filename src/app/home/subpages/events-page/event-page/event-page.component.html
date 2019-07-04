@@ -1,0 +1,10 @@
+<div class="main">
+
+    <app-page-title activeLinkTitle="Анонс" [title]="event.name"></app-page-title>
+    <div class="container">
+        <img [src]="'https://androidios.kz:8000' + event.logo" class="mr-3" alt="...">
+        <br>
+        <br>
+        <div class="card-text" [innerHTML]="event?.content"></div>
+    </div>
+</div>

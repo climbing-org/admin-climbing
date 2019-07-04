@@ -258,10 +258,10 @@
   <div class="col-md-4 my associates">
     <div class="associates-content">
         <h2>Анонсы</h2>
-        <article *ngFor="let e of events">
-        <div class="event-description">{{e.name}}</div>
-        <div><span class="event-location">{{e.date_from | date:'d MMM'}} - {{e.date_to | date:'d MMM'}}</span></div>
-      </article>
+        <article *ngFor="let e of events" [routerLink]="'/home/events/' + e.slug">
+            <div class="event-description">{{e.name}}</div>
+            <div><span class="event-location">{{e.date_from | date:'d MMM'}} - {{e.date_to | date:'d MMM'}}</span></div>
+        </article>
 <!--      <article>-->
 <!--        <div class="event-description"><b>Молодежный кубок РК. г. Алматы</b></div>-->
 <!--        <div><span class="event-location">31 января - 3 февраля</span></div>-->

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EventsCalendarService } from '../../../shared/services/events-calendar.service';
 import EventsCalendar from '../../../shared/classes/events-calendar';
 import { GeneralHelper } from '../../../shared/helpers/general.helper';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-events-calendar-page',
@@ -15,12 +16,19 @@ export class EventsCalendarPageComponent implements OnInit {
     pageSize = 7;
     date = new Date();
 
-  constructor(private eventsCalendarService: EventsCalendarService) { }
+  constructor(private eventsCalendarService: EventsCalendarService,
+              private route: Router) { }
 
   ngOnInit() {
       this.eventsCalendarService.list().subscribe((res: {data: EventsCalendar[]}) => {
           this.items = GeneralHelper.isEmpty(res) ? [] : res.data;
       });
+  }
+
+  navigate(e: EventsCalendar) {
+      if (e.type === 'event') {
+          // this.route.navigateByUrl('/home/events/' + e.)
+      }
   }
 
 }
