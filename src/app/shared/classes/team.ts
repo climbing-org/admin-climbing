@@ -21,4 +21,7 @@ export default class Team {
     instagram: string;
     facebook: string;
     vk: string;
+    phone: string;
+    email: string;
+    site: string;
 }

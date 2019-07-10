@@ -116,29 +116,6 @@
         </div>
 
         <div class="nested-menu">
-            <a class="list-group-item" (click)="addExpandClass('club')">
-                <i class="fa fa-plus"></i>&nbsp;
-                <span>Клубы</span>
-            </a>
-            <li class="nested" [class.expand]="showMenu === 'club'">
-                <ul class="submenu">
-                    <li>
-                        <a routerLink="/admin/club-table">
-                            <i class="fa fa-monument"></i>&nbsp;
-                            <span>Все клубы</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a routerLink="/admin/club-page">
-                            <i class="fa fa-monument"></i>&nbsp;
-                            <span>Добавить новый</span>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-        </div>
-
-        <div class="nested-menu">
             <a class="list-group-item" (click)="addExpandClass('user')">
                 <i class="fa fa-plus"></i>&nbsp;
                 <span>Пользователь</span>

@@ -16,6 +16,7 @@ import { ClubBlockComponent } from './club-block/club-block.component';
 import { TrainersBlockComponent } from '../trainers-block/trainers-block.component';
 import { PaymentBlockComponent } from './payment-block/payment-block.component';
 import { NgbDatepickerModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { ClubService } from '../../../shared/services/club.service';
 
 @NgModule({
   declarations: [ProfileComponent, EventBlockComponent, AchievementBlockComponent, RouteBlockComponent, ClubBlockComponent, TrainersBlockComponent, PaymentBlockComponent],
@@ -31,6 +32,7 @@ import { NgbDatepickerModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstr
     providers: [
         UploadService,
         UsersService,
+        ClubService,
         {
             provide: HTTP_INTERCEPTORS,
             useClass: DefaultInterceptor,
