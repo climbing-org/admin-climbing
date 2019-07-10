@@ -27,7 +27,9 @@ export class EventsCalendarPageComponent implements OnInit {
 
   navigate(e: EventsCalendar) {
       if (e.type === 'event') {
-          // this.route.navigateByUrl('/home/events/' + e.)
+          this.route.navigateByUrl('/home/events/' + e.slug);
+      } if (e.type === 'news') {
+          this.route.navigateByUrl('/home/news-page/' + e.slug);
       }
   }
 

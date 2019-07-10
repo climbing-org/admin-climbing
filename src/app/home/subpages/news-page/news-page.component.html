@@ -15,6 +15,7 @@
                         <!--                        <div class="card-text" [innerHTML]="n?.content"></div>-->
                         <div class="card-text">{{n.short_description}}</div>
                     </div>
+                    <h4 [routerLink]="'/home/news-page/' + n.slug" style="cursor: pointer">Подробнее &nbsp;&nbsp;&nbsp;&nbsp;></h4>
                 </div>
             </div>
         </div>

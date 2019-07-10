@@ -44,30 +44,6 @@
 <div class="row">
     <div class="col-md-6">
         <fieldset class="form-group">
-            <label>SEO хэштег</label>
-            <input class="form-control" [(ngModel)]="team.seo_hashtag">
-        </fieldset>
-    </div>
-    <div class="col-md-6">
-        <fieldset class="form-group">
-            <label>SEO заголовок</label>
-            <input class="form-control" [(ngModel)]="team.seo_title">
-        </fieldset>
-    </div>
-    <div class="col-md-6">
-        <fieldset class="form-group">
-            <label>SEO ключевые слова</label>
-            <input class="form-control" [(ngModel)]="team.seo_keywords">
-        </fieldset>
-    </div>
-    <div class="col-md-6">
-        <fieldset class="form-group">
-            <label>SEO описание</label>
-            <input class="form-control" [(ngModel)]="team.seo_description">
-        </fieldset>
-    </div>
-    <div class="col-md-6">
-        <fieldset class="form-group">
             <label>Спортсмены</label>
             <br/>
             <ng-multiselect-dropdown
@@ -142,6 +118,30 @@
         <fieldset class="form-group">
             <label>Вконтаке</label>
             <input class="form-control" [(ngModel)]="team.vk">
+        </fieldset>
+    </div>
+    <div class="col-md-3">
+        <fieldset class="form-group">
+            <label>SEO хэштег</label>
+            <input class="form-control" [(ngModel)]="team.seo_hashtag">
+        </fieldset>
+    </div>
+    <div class="col-md-3">
+        <fieldset class="form-group">
+            <label>SEO заголовок</label>
+            <input class="form-control" [(ngModel)]="team.seo_title">
+        </fieldset>
+    </div>
+    <div class="col-md-3">
+        <fieldset class="form-group">
+            <label>SEO ключевые слова</label>
+            <input class="form-control" [(ngModel)]="team.seo_keywords">
+        </fieldset>
+    </div>
+    <div class="col-md-3">
+        <fieldset class="form-group">
+            <label>SEO описание</label>
+            <input class="form-control" [(ngModel)]="team.seo_description">
         </fieldset>
     </div>
 </div>

@@ -86,13 +86,13 @@
                             <label>
                                 Старый пароль
                             </label>
-                            <input [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="oldPassword">
+                            <input type="password" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="oldPassword">
                         </fieldset>
                         <fieldset class="form-group">
                             <label>
                                 Новый пароль
                             </label>
-                            <input [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="newPassword">
+                            <input type="password" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="newPassword">
                         </fieldset>
                     </ng-container>
                     <div *ngIf="showNewPasswordSuccess" class="valid-feedback" style="display: block">

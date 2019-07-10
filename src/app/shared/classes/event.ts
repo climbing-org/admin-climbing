@@ -18,4 +18,5 @@ export default class Event {
     author: string;
     date_from: Date;
     date_to: Date;
+    short_description: string;
 }

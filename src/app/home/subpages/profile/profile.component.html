@@ -142,7 +142,7 @@
                                             Старый пароль
                                         </label>
                                         <div class="col-md-9">
-                                            <input [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="oldPassword">
+                                            <input type="password" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="oldPassword">
                                         </div>
                                     </div>
                                 </fieldset>
@@ -152,7 +152,7 @@
                                             Новый пароль
                                         </label>
                                         <div class="col-md-9">
-                                            <input [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="newPassword">
+                                            <input type="password" [ngModelOptions]="{standalone: true}" class="form-control" [(ngModel)]="newPassword">
                                         </div>
                                     </div>
                                 </fieldset>
@@ -174,10 +174,10 @@
 
     </div>
 
-<!--    <app-page-title title="Мероприятия"></app-page-title>-->
-<!--    <div class="container">-->
-<!--        <app-event-block></app-event-block>-->
-<!--    </div>-->
+    <app-page-title title="Мероприятия"></app-page-title>
+    <div class="container">
+        <app-event-block></app-event-block>
+    </div>
 
 <!--    <app-page-title title="Достижения, Награды"></app-page-title>-->
 <!--    <div class="container">-->

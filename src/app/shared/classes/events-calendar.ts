@@ -5,4 +5,5 @@ export default class EventsCalendar {
     content: string;
     created_at: Date;
     logo: string;
+    slug: string;
 }
