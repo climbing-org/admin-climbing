@@ -32,6 +32,42 @@
                                 </div>
                             </fieldset>
                         </div>
+                        <div class="col-md-12">
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label class="col-md-3 col-form-label">
+                                        Instagram
+                                    </label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" formControlName="instagram">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label class="col-md-3 col-form-label">
+                                        VK
+                                    </label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" formControlName="vk">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label class="col-md-3 col-form-label">
+                                        Facebook
+                                    </label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" formControlName="facebook">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
                         <div class="col-md-12" formArrayName="youtube_links">
                             <fieldset class="form-group" *ngFor="let item of form.controls.youtube_links.controls; let i = index">
                                 <div class="row">
@@ -224,42 +260,6 @@
                             <div *ngIf="showNewPasswordFailure" class="invalid-feedback" style="display: block">
                                 {{newPasswordFailureMessage}}
                             </div>
-                        </div>
-                        <div class="col-md-12">
-                            <fieldset class="form-group">
-                                <div class="row">
-                                    <label class="col-md-3 col-form-label">
-                                        Instagram
-                                    </label>
-                                    <div class="col-md-9">
-                                        <input class="form-control" formControlName="instagram">
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="col-md-12">
-                            <fieldset class="form-group">
-                                <div class="row">
-                                    <label class="col-md-3 col-form-label">
-                                        VK
-                                    </label>
-                                    <div class="col-md-9">
-                                        <input class="form-control" formControlName="vk">
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="col-md-12">
-                            <fieldset class="form-group">
-                                <div class="row">
-                                    <label class="col-md-3 col-form-label">
-                                        Facebook
-                                    </label>
-                                    <div class="col-md-9">
-                                        <input class="form-control" formControlName="facebook">
-                                    </div>
-                                </div>
-                            </fieldset>
                         </div>
                     </div>
                 </div>

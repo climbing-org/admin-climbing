@@ -5,6 +5,8 @@ import News from '../../shared/classes/news';
 import { EventService } from '../../shared/services/event.service';
 import { GeneralHelper } from '../../shared/helpers/general.helper';
 import Event from '../../shared/classes/event';
+import { UsersService } from '../../shared/services/user.service';
+import User from '../../shared/classes/user';
 
 @Component({
   selector: 'ngx-landing-page',
@@ -17,10 +19,12 @@ export class LandingPageComponent implements OnInit {
   images;
   news: News[];
   events: Event[];
+  users: User[];
 
   constructor(config: NgbCarouselConfig,
               private eventService: EventService,
-              private newsService: NewsService ) {
+              private newsService: NewsService,
+              private usersService: UsersService) {
     // customize default values of carousels used by this component tree
     config.interval = 100000000;
     config.wrap = false;
@@ -35,6 +39,9 @@ export class LandingPageComponent implements OnInit {
     });
     this.eventService.list().subscribe((res: {data: Event[]}) => {
       this.events = GeneralHelper.isEmpty(res) ? [] : res.data;
+    });
+    this.usersService.list().subscribe((res: {data: User[]}) => {
+        this.users = GeneralHelper.isEmpty(res) ? [] : res.data;
     });
   }
 

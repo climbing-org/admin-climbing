@@ -24,6 +24,7 @@ import { GoogleMapComponent } from './subpages/google-map/google-map.component';
 import { AgmCoreModule } from '@agm/core';
 import { environment } from '../../environments/environment';
 import { GoogleService } from '../shared/services/google.service';
+import { UsersService } from '../shared/services/user.service';
 
 const ADMIN_COMPONENTS = [
   HomeComponent,
@@ -61,7 +62,8 @@ const ADMIN_COMPONENTS = [
         NewsService,
         EventService,
         RubricService,
-        GoogleService
+        GoogleService,
+        UsersService,
     ],
     exports: [
         PageTitleComponent,

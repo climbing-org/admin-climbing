@@ -45,108 +45,25 @@
       </div>
     <table class="table table-striped table-borderless table-hover">
       <tbody>
-      <tr routerLink="/home/biography">
+      <tr *ngFor="let u of users" [routerLink]="'/home/trainer-profile/' + u.id">
         <td>
           <div class="media">
             <div class="circular--landscape">
-              <img src="/assets/test/art1.jpg" class="mr-3" alt="...">
+<!--              <img src="/assets/test/art1.jpg" class="mr-3" alt="...">-->
+                <img [src]="'https://androidios.kz:8000' + u.avatar" class="mr-3" alt="...">
             </div>
           <div class="media-body">
             <b>
-            Алишер <br/>
-            Жумахмет
+            {{u.first_name}} <br/>
+            {{u.last_name}}
             </b>
           </div>
         </div>
         </td>
         <td class="place">
-          <span class="blue">Скала</span>
+          <span class="blue" *ngFor="let c of u.clubs">{{c.name}}</span>
         </td>
-        <td class="level">КМС</td>
-        <td class="rank">1050</td>
-          <td class="direction"><</td>
-      </tr>
-      <tr routerLink="/home/biography">
-        <td>
-          <div class="media">
-            <div class="circular--landscape">
-              <img src="/assets/test/art1.jpg" class="mr-3" alt="...">
-            </div>
-            <div class="media-body">
-              <b>
-                Алишер <br/>
-                Жумахмет
-              </b>
-            </div>
-          </div>
-        </td>
-        <td class="place">
-          <span class="blue">Скала</span>
-        </td>
-        <td class="level">КМС</td>
-        <td class="rank">1050</td>
-          <td class="direction"><</td>
-      </tr>
-      <tr routerLink="/home/biography">
-        <td>
-          <div class="media">
-            <div class="circular--landscape">
-              <img src="/assets/test/art1.jpg" class="mr-3" alt="...">
-            </div>
-            <div class="media-body">
-              <b>
-                Алишер <br/>
-                Жумахмет
-              </b>
-            </div>
-          </div>
-        </td>
-        <td class="place">
-          <span class="blue">Скала</span>
-        </td>
-        <td class="level">КМС</td>
-        <td class="rank">1050</td>
-          <td class="direction"><</td>
-      </tr>
-      <tr routerLink="/home/biography">
-        <td>
-          <div class="media">
-            <div class="circular--landscape">
-              <img src="/assets/test/art1.jpg" class="mr-3" alt="...">
-            </div>
-            <div class="media-body">
-              <b>
-                Алишер <br/>
-                Жумахмет
-              </b>
-            </div>
-          </div>
-        </td>
-        <td class="place">
-          <span class="blue">Скала</span>
-        </td>
-        <td class="level">КМС</td>
-        <td class="rank">1050</td>
-          <td class="direction"><</td>
-      </tr>
-      <tr routerLink="/home/biography">
-        <td>
-          <div class="media">
-            <div class="circular--landscape">
-              <img src="/assets/test/art1.jpg" class="mr-3" alt="...">
-            </div>
-            <div class="media-body">
-              <b>
-                Алишер <br/>
-                Жумахмет
-              </b>
-            </div>
-          </div>
-        </td>
-        <td class="place">
-          <span class="blue">Скала</span>
-        </td>
-        <td class="level">КМС</td>
+        <td class="level">{{u.level}}</td>
         <td class="rank">1050</td>
           <td class="direction"><</td>
       </tr>

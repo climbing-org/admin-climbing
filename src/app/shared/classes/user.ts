@@ -6,6 +6,7 @@ export default class User {
     instagram: string;
     facebook: string;
     vk: string;
+    date_of_birth: string;
     first_name: string;
     second_name: string;
     last_name: string;

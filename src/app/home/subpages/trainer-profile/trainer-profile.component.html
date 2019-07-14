@@ -17,7 +17,7 @@
                                         Дата Рождения:
                                     </label>
                                     <div class="col-md-9 col-form-label">
-                                        21.02.2002
+                                        {{user.date_of_birth}}
                                     </div>
                                 </div>
                             </fieldset>
@@ -29,7 +29,7 @@
                                         Звания:
                                     </label>
                                     <div class="col-md-9 col-form-label">
-                                        3ТРК, Директор SKALA
+                                        {{user.level}}
                                     </div>
                                 </div>
                             </fieldset>
@@ -41,8 +41,10 @@
                                         Команды:
                                     </label>
                                     <div class="col-md-9 col-form-label">
-                                        <a href="https://www.thesitewizard.com/" target="_blank">СЦ "SKALA"</a> <br/>
-                                        <a href="https://www.thesitewizard.com/" target="_blank">СДЮШОр #17</a>
+                                        <a href="" target="_blank" *ngFor="let c of user.clubs">
+                                            {{c.name}}
+                                        </a>
+                                        <br/>
                                     </div>
                                 </div>
                             </fieldset>
@@ -54,7 +56,7 @@
                                         Instagram:
                                     </label>
                                     <div class="col-md-9 col-form-label">
-                                        <a href="https://www.instagram.com/nigmatulin/" target="_blank">@nigmatulin</a>
+                                        <a [href]="user.instagram" target="_blank">{{user.instagram}}</a>
                                     </div>
                                 </div>
                             </fieldset>
@@ -66,7 +68,7 @@
                                         VK:
                                     </label>
                                     <div class="col-md-9 col-form-label">
-                                        <a href="https://vk.com/nigmatulin/" target="_blank">vk.com/nigmatulin</a>
+                                        <a [href]="user.vk" target="_blank">{{user.vk}}</a>
                                     </div>
                                 </div>
                             </fieldset>
@@ -78,27 +80,56 @@
                                         FB:
                                     </label>
                                     <div class="col-md-9 col-form-label">
-                                        <a href="https://www.facebook.com/nigmatulin/" target="_blank">facebook.com/nigmatulin</a>
+                                        <a [href]="user.facebook" target="_blank">{{user.facebook}}</a>
                                     </div>
                                 </div>
                             </fieldset>
                         </div>
                     </div>
 
-                    <button type="submit" class="blue-button glav">Спортсмены</button>
+                    {{user.biography}}
+                    <br/>
+                    <br/>
+                    <br/>
+
+<!--                    <button type="submit" class="blue-button glav">Спортсмены</button>-->
 
                     <h2>
-                        Топ 5 результатов спортсменов
+                        Топ 5
+                        <label *ngIf="user.top_students?.length">результатов:</label>
+                        <label *ngIf="!user.top_students?.length">результатов спортсменов:</label>
                     </h2>
 
-                    <div class="results">
-                        <a href="#">Алтынбеков Б.А.</a> 2 место на Чемпионате Азии 2015 год
-                        <br/>
-                        <a href="#">Алтынбеков Б.А.</a> 2 место на Чемпионате Азии 2015 год
-                        <br/>
-                        <a href="#">Алтынбеков Б.А.</a> 2 место на Чемпионате Азии 2015 год
-                        <br/>
-                        <a href="#">Алтынбеков Б.А.</a> 2 место на Чемпионате Азии 2015 год
+                    <div class="results" *ngIf="user.top_students?.length">
+                        <ng-container *ngFor="let s of user.top_students">
+                            <label>
+                                {{s.name}}
+                            </label>
+                            <br/>
+                        </ng-container>
+                    </div>
+
+                    <div class="results" *ngIf="!user.top_students?.length">
+                        <ng-container *ngFor="let s of user?.top_results">
+                            <label>
+                                {{s.name}}
+                            </label>
+                            <br/>
+                        </ng-container>
+                    </div>
+
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-4" *ngFor="let u of user.images">
+                            <img [src]="'https://androidios.kz:8000' + u" class="mr-3" alt="...">
+                        </div>
+                    </div>
+
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-6" *ngFor="let u of user.youtube_links">
+                            <iframe [src]="u"></iframe>
+                        </div>
                     </div>
                 </div>
 
