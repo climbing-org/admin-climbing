@@ -27,6 +27,11 @@ export class SportsmanRatingPageComponent implements OnInit {
   ngOnInit() {
       this.ratingService.options().subscribe((res: {data: Options}) => {
           this.options = res.data;
+          if (this.options) {
+              this.age = this.options.age[0].value;
+              this.section = this.options.section[0].value;
+              this.gender = this.options.gender[0].value;
+          }
       });
   }
 

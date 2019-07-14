@@ -48,6 +48,46 @@
 <div class="row">
     <div class="col-md-6">
         <fieldset class="form-group">
+            <label>Добавить положение</label>
+            <br/>
+            <a (click)="inputFile1.click()" style="cursor: pointer; color: #007bff; margin-right: 10px;">
+                <i class="fa fa-file-pdf-o"></i>
+                Загрузить
+            </a>
+            <br>
+            <div *ngIf="loading1" style="width: 50px;height: 50px;">
+                <div class="loader">Загрузка...</div>
+            </div>
+            <span *ngIf="file1">
+                <i class="fa green fa-check" style="color: green"></i>
+                        {{file1.name}}
+                            <!--    <i class="fa fa-remove" style="color: red"></i>-->
+            </span>
+            <input #inputFile1 type="file" style="display: none">
+        </fieldset>
+    </div>
+    <div class="col-md-6">
+        <fieldset class="form-group">
+            <label>Добавить регламент</label>
+            <br/>
+            <a (click)="inputFile2.click()" style="cursor: pointer; color: #007bff; margin-right: 10px;">
+                <i class="fa fa-file-pdf-o"></i>
+                Загрузить
+            </a>
+            <br>
+            <div *ngIf="loading2" style="width: 50px;height: 50px;">
+                <div class="loader">Загрузка...</div>
+            </div>
+            <span *ngIf="file2">
+                <i class="fa green fa-check" style="color: green"></i>
+                {{file2.name}}
+                <!--    <i class="fa fa-remove" style="color: red"></i>-->
+            </span>
+            <input #inputFile2 type="file" style="display: none">
+        </fieldset>
+    </div>
+    <div class="col-md-6">
+        <fieldset class="form-group">
             <label>Дата начала</label>
             <div class="input-group datepicker-input">
                 <input class="form-control" placeholder="yyyy-mm-dd"
@@ -115,11 +155,11 @@
 
 <a (click)="inputFile.click()" style="cursor: pointer; color: #007bff; margin-right: 10px;">
     <i class="fa fa-paperclip"></i>
-    Прикрепить картинку
+    Добавить миниатюру
 </a>
 <br>
 <div *ngIf="loading" style="width: 50px;height: 50px;">
-    <div class="loader">Loading...</div>
+    <div class="loader">Загрузка...</div>
 </div>
 <span *ngIf="file">
         <i class="fa green fa-check" style="color: green"></i>

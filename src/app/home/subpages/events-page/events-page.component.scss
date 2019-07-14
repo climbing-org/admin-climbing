@@ -37,6 +37,12 @@ hr {
     border-top: 1px dashed #6c7293;
 }
 
+.card-img {
+    width: 100%;
+    object-fit: cover;
+    height: 160px;
+}
+
 .card-title {
     color: #1c3279;
 }

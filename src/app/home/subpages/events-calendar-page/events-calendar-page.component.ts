@@ -11,10 +11,12 @@ import { Router } from '@angular/router';
 })
 export class EventsCalendarPageComponent implements OnInit {
 
-    items: EventsCalendar[];
+    items: EventsCalendar[] = [];
     page = 1;
     pageSize = 7;
     date = new Date();
+
+    showLoader = true;
 
   constructor(private eventsCalendarService: EventsCalendarService,
               private route: Router) { }
@@ -22,6 +24,7 @@ export class EventsCalendarPageComponent implements OnInit {
   ngOnInit() {
       this.eventsCalendarService.list().subscribe((res: {data: EventsCalendar[]}) => {
           this.items = GeneralHelper.isEmpty(res) ? [] : res.data;
+          this.showLoader = false;
       });
   }
 
@@ -32,5 +35,13 @@ export class EventsCalendarPageComponent implements OnInit {
           this.route.navigateByUrl('/home/news-page/' + e.slug);
       }
   }
+
+    dateChange(d: Date) {
+      this.showLoader = true;
+        this.eventsCalendarService.filter(d).subscribe((res: {data: EventsCalendar[]}) => {
+            this.items = GeneralHelper.isEmpty(res) ? [] : res.data;
+            this.showLoader = false;
+        });
+    }
 
 }

@@ -19,4 +19,6 @@ export default class Event {
     date_from: Date;
     date_to: Date;
     short_description: string;
+    placement: string;
+    regulation: string;
 }

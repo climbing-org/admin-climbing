@@ -11,4 +11,8 @@ export class EventsCalendarService {
         return this.http.get('https://androidios.kz:8000/api/v1/calendar/');
     }
 
+    filter(d: Date) {
+        return this.http.get('https://androidios.kz:8000/api/v1/calendar/?date=' + d.toISOString());
+    }
+
 }

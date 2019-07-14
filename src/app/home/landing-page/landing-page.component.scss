@@ -298,6 +298,13 @@
         background-color: #203988;
         cursor: pointer;
     }
+    .card-img {
+        width: 100%;
+        object-fit: cover;
+        height: 120px;
+        //border-radius: calc(.25rem - 1px);
+        margin-top: 18px;
+    }
   .card-body {
     .card-title {
       font-size: 16px;

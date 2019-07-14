@@ -38,6 +38,7 @@ const routes: Routes = [
             { path: 'profile-trainer', loadChildren: './profile/profile-trainer/profile-trainer.module#ProfileTrainerModule' },
             { path: 'my-profile', loadChildren: './profile/my-profile/my-profile.module#MyProfileModule' },
             { path: 'rubric-page', loadChildren: './rubric/rubric-page/rubric-page.module#RubricPageModule' },
+            { path: 'rubric-page/:id', loadChildren: './rubric/rubric-page/rubric-page.module#RubricPageModule' },
             { path: 'rubric-table', loadChildren: './rubric/rubric-table/rubric-table.module#RubricTableModule' },
             { path: 'team-table', loadChildren: './team/team-table/team-table.module#TeamTableModule' },
             { path: 'team-page', loadChildren: './team/team-page/team-page.module#TeamPageModule' },

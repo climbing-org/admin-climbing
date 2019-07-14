@@ -3,7 +3,7 @@
     <app-page-title activeLinkTitle="Календарь Мероприятий" title="Все мероприятия"></app-page-title>
     <div class="container">
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-md-8 main-block" style="background-color: white;">
                 <div *ngFor="let e of items | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize; let last = last;">
                     <div class="row">
                         <div class="col-md-3">
@@ -13,13 +13,24 @@
                             <article>
                                 <div class="dates"><span class="dates-in blue">{{e.created_at | date:'dd/MM/yyyy'}}</span></div>
                                 <div class="event-name">{{e.name}}</div>
-                                <div class="event-description" [innerHTML]="e.content"></div>
+<!--                                <div class="event-description" [innerHTML]="e.content"></div>-->
+                                <div class="event-description">{{e.short_description}}</div>
                             </article>
                             <h4 (click)="navigate(e)" style="cursor: pointer">Подробнее &nbsp;&nbsp;&nbsp;&nbsp;></h4>
                         </div>
                         <!--                TODO: ссылку поменяй -->
                     </div>
                     <hr *ngIf="!last">
+                    <div id="loader-wrapper" *ngIf="showLoader">
+                        <div id="loader"></div>
+                    </div>
+                </div>
+
+                <div class="card" *ngIf="!items?.length">
+                    <div class="card-body">
+                        <h5 class="card-title">По запросу ничего не найдено</h5>
+                        <p class="card-text">Попробуйте выбрать другую дату</p>
+                    </div>
                 </div>
 
                 <ngb-pagination
@@ -37,9 +48,8 @@
                     <!--      <h2>-->
                     <!--        Selected date: {{ date | date }}-->
                     <!--      </h2>-->
-                    <app-calendar [date]="date"></app-calendar>
+                    <app-calendar [date]="date" (newDate)="dateChange($event)"></app-calendar>
                     <br>
-                    <h4 routerLink="/home/events" style="cursor: pointer">Все результаты &nbsp;&nbsp;&nbsp;&nbsp;></h4>
                 </div>
 
                 <div class="my associates">

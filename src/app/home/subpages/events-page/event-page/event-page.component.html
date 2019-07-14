@@ -1,10 +1,28 @@
 <div class="main">
 
     <app-page-title activeLinkTitle="Анонс" [title]="event.name"></app-page-title>
-    <div class="container">
-        <img [src]="'https://androidios.kz:8000' + event.logo" class="mr-3" alt="...">
-        <br>
-        <br>
+    <div class="container" style="background-color: white; padding: 20px;">
+<!--        <img [src]="'https://androidios.kz:8000' + event.logo" class="mr-3" alt="...">-->
+<!--        <br>-->
+<!--        <br>-->
         <div class="card-text" [innerHTML]="event?.content"></div>
+        <div class="row" style="font-size: 1.5rem">
+            <div class="col-md-6">
+                <label>
+                    <a [href]="'https://androidios.kz:8000' + event.placement" target="_blank" class="mr-3" alt="..." style="color: #1d3279;">
+                        <i class="fa fa-file-pdf-o"></i>
+                        Положение
+                    </a>
+                </label>
+            </div>
+            <div class="col-md-6">
+                <label>
+                    <a [href]="'https://androidios.kz:8000' + event.regulation" target="_blank" class="mr-3" alt="..." style="color: #1d3279;">
+                        <i class="fa fa-file-pdf-o"></i>
+                        Регламент
+                    </a>
+                </label>
+            </div>
+        </div>
     </div>
 </div>

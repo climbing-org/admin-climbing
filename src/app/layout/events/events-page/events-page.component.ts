@@ -14,11 +14,17 @@ import { UsersService } from '../../../shared/services/user.service';
 })
 export class EventsPageComponent implements OnInit, AfterViewInit {
     @ViewChild('inputFile') inputFile: ElementRef;
+    @ViewChild('inputFile1') inputFile1: ElementRef;
+    @ViewChild('inputFile2') inputFile2: ElementRef;
 
     slug: string;
     event: Event = new Event();
     file: File;
+    file1: File;
+    file2: File;
     loading = false;
+    loading1 = false;
+    loading2 = false;
 
     sportsmen: User[];
     judges: User[];
@@ -86,6 +92,30 @@ export class EventsPageComponent implements OnInit, AfterViewInit {
               this.loading = false;
               this.file = inputFile;
               this.event.logo = res.location;
+          });
+      });
+      $(this.inputFile1.nativeElement).on('change', event => {
+          this.loading1 = true;
+          const inputFile1 = event.target.files[0];
+          if (!inputFile1 || !inputFile1.name) {
+              return;
+          }
+          this.uploadService.post(inputFile1).subscribe((res: {location: string}) => {
+              this.loading1 = false;
+              this.file1 = inputFile1;
+              this.event.placement = res.location;
+          });
+      });
+      $(this.inputFile2.nativeElement).on('change', event => {
+          this.loading2 = true;
+          const inputFile2 = event.target.files[0];
+          if (!inputFile2 || !inputFile2.name) {
+              return;
+          }
+          this.uploadService.post(inputFile2).subscribe((res: {location: string}) => {
+              this.loading2 = false;
+              this.file2 = inputFile2;
+              this.event.regulation = res.location;
           });
       });
   }
