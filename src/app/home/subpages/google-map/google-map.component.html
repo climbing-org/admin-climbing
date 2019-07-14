@@ -1,6 +1,6 @@
 <agm-map #agmMap>
     <ng-container *ngFor="let place of places">
-        <agm-marker *ngIf="place.lat || place.lon"
+        <agm-marker *ngIf="place.lat || place.lon" (markerClick)="select(place)"
             [latitude]="place.lat || 0"
             [longitude]="place.lon || 0"
         >

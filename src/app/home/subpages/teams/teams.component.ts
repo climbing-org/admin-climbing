@@ -36,4 +36,9 @@ export class TeamsComponent implements OnInit {
       }
   }
 
+    teamSelected(team: Team) {
+      this.id = team.slug;
+        this.team = team;
+    }
+
 }

@@ -75,12 +75,12 @@
                     </fieldset>
                 </div>
                 <div class="col-md-8 google-map">
-                    <app-google-map *ngIf="team" [places]="teams"></app-google-map>
+                    <app-google-map *ngIf="team" [places]="teams" (placeSelected)="teamSelected($event)"></app-google-map>
                 </div>
             </div>
         </ng-container>
         <ng-container *ngIf="!id && teams.length">
-            <app-google-map *ngIf="teams.length" [places]="teams"></app-google-map>
+            <app-google-map *ngIf="teams.length" [places]="teams" (placeSelected)="teamSelected($event)"></app-google-map>
         </ng-container>
     </div>
 </div>

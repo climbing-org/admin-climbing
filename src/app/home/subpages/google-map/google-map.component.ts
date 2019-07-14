@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { InfoWindow } from '@agm/core/services/google-maps-types';
 import { AgmMap } from '@agm/core';
 import { GoogleService } from '../../../shared/services/google.service';
@@ -12,6 +12,8 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
 
     @Input() places: {lat: number, lon: number, name: string}[];
 
+    @Output() placeSelected = new EventEmitter();
+
     lastOpenInfoWindow: InfoWindow;
 
     @ViewChild('agmMap') agmMap: AgmMap;
@@ -23,6 +25,10 @@ export class GoogleMapComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit(): void {
         this.googleService.showAllPlaces(this.agmMap, this.places);
+    }
+
+    select(p) {
+      this.placeSelected.emit(p);
     }
 
 }
