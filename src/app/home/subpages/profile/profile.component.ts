@@ -3,7 +3,7 @@ import User from '../../../shared/classes/user';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UploadService } from '../../../shared/services/upload.service';
 import { UsersService } from '../../../shared/services/user.service';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormArray, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -13,6 +13,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class ProfileComponent implements OnInit, AfterViewInit {
 
     @ViewChild('inputFile') inputFile: ElementRef;
+    @ViewChild('inputFile1') inputFile1: ElementRef;
 
     form: FormGroup;
     user: User = new User();
@@ -21,6 +22,8 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     // file
     file: File;
     loading = false;
+    file1: File[];
+    loading1 = false;
 
     showerror = false;
 
@@ -43,7 +46,14 @@ export class ProfileComponent implements OnInit, AfterViewInit {
           last_name: new FormControl(''),
           biography: new FormControl(''),
           level: new FormControl(''),
-          avatar: new FormControl('')
+          avatar: new FormControl(''),
+          images: new FormControl(''),
+          instagram: new FormControl(''),
+          facebook: new FormControl(''),
+          vk: new FormControl(''),
+          youtube_links: new FormArray([
+              new FormControl(null)
+          ]),
       });
 
       this.id = this.route.snapshot.params['id'];
@@ -59,6 +69,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
               this.user = res.data;
               this.id = this.user.id;
               this.form.patchValue(this.user);
+              console.log(this.form);
           });
       }
   }
@@ -75,6 +86,19 @@ export class ProfileComponent implements OnInit, AfterViewInit {
               this.file = inputFile;
               this.user.avatar = res.location;
               this.form.get('avatar').setValue(res.location);
+          });
+      });
+      $(this.inputFile1.nativeElement).on('change', event => {
+          this.loading1 = true;
+          const inputFile = event.target.files[0];
+          if (!inputFile || !inputFile.name) {
+              return;
+          }
+          this.uploadService.post(inputFile).subscribe((res: {location: string}) => {
+              this.loading1 = false;
+              // this.file = inputFile;
+              this.user.images.push(res.location);
+              this.form.get('images').setValue(this.user.images);
           });
       });
   }
@@ -118,6 +142,20 @@ export class ProfileComponent implements OnInit, AfterViewInit {
             this.showNewPasswordInput = false;
             console.log(res);
         });
+    }
+
+    deleteFile(i: number) {
+        this.user.images.splice(i, 1);
+    }
+
+    newVideo() {
+        const arr = this.form.get('youtube_links') as FormArray;
+        arr.push(new FormControl(''));
+    }
+
+    removeVideo(i: number) {
+        const arr = this.form.get('youtube_links') as FormArray;
+        arr.removeAt(i);
     }
 
 }

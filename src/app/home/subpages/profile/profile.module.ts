@@ -17,6 +17,7 @@ import { TrainersBlockComponent } from '../trainers-block/trainers-block.compone
 import { PaymentBlockComponent } from './payment-block/payment-block.component';
 import { NgbDatepickerModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClubService } from '../../../shared/services/club.service';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [ProfileComponent, EventBlockComponent, AchievementBlockComponent, RouteBlockComponent, ClubBlockComponent, TrainersBlockComponent, PaymentBlockComponent],
@@ -28,6 +29,7 @@ import { ClubService } from '../../../shared/services/club.service';
       ReactiveFormsModule,
       NgbDatepickerModule,
       NgbDropdownModule,
+      NgMultiSelectDropDownModule.forRoot()
   ],
     providers: [
         UploadService,

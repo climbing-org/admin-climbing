@@ -7,6 +7,16 @@ input, textarea {
     border-radius: 0;
 }
 
+.images {
+    display: inline-block;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    margin-bottom: -10px;
+    margin-right: 30px;
+}
+
 .circular--landscape {
     display: inline-block;
     position: relative;

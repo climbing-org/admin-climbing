@@ -32,6 +32,30 @@
                                 </div>
                             </fieldset>
                         </div>
+                        <div class="col-md-12" formArrayName="youtube_links">
+                            <fieldset class="form-group" *ngFor="let item of form.controls.youtube_links.controls; let i = index">
+                                <div class="row">
+                                    <label class="col-md-3 col-form-label">
+                                        Ссылка на видео
+                                    </label>
+                                    <div class="col-md-8">
+                                        <input class="form-control" formControlName="{{i}}">
+                                    </div>
+                                    <div class="col-md-1 col-form-label" (click)="removeVideo(i)" style="cursor: pointer;">
+                                        <i class="fa fa-trash"></i>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label class="col-md-3" style="cursor: pointer" (click)="newVideo()">
+                                        <i class="fa fa-plus-circle" style="font-size: 1.5rem"></i> &nbsp;&nbsp;&nbsp;Видео
+                                    </label>
+                                </div>
+                            </fieldset>
+                        </div>
                     </div>
                 </div>
 
@@ -104,6 +128,43 @@
                                 </div>
                             </fieldset>
                         </div>
+                        <div class="col-md-12">
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label class="col-md-3 col-form-label">
+                                        Загрузка изображений
+                                    </label>
+                                    <div class="col-md-9">
+                                        <button type="button" class="upload-file blue-button" (click)="inputFile1.click()">
+                                            <i class="fa fa-paperclip"></i> Загрузить изображение
+                                        </button>
+                                        <!--                                <a (click)="inputFile.click()" style="cursor: pointer; color: #007bff; margin-right: 10px;">-->
+                                        <!--                                    <i class="fa fa-paperclip"></i>-->
+                                        <!--                                    Прикрепить картинку-->
+                                        <!--                                </a>-->
+                                        <br>
+                                        <div *ngIf="loading1" style="width: 50px;height: 50px;">
+                                            <div class="loader">Загрузка...</div>
+                                        </div>
+                                        <input #inputFile1 type="file" style="display: none">
+                                        <br>
+
+                                        <ng-container *ngIf="user.images?.length">
+                                            <ng-container *ngFor="let i of user.images; let i = index;">
+                                                <div class="images">
+                                                    <img [src]="'https://androidios.kz:8000' + i" class="mr-3" alt="...">
+                                                </div>
+                                                <i class="fa fa-trash" (click)="deleteFile(i)" style="cursor: pointer"></i>
+<!--                                                <button type="button" class="upload-file" (click)="inputFile1.click()" style="background-color: red;">-->
+<!--                                                    Удалить-->
+<!--                                                </button>-->
+                                                <br/>
+                                            </ng-container>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
 <!--                        <div class="col-md-4">-->
 <!--                            <img *ngIf="user?.avatar" [src]="'https://androidios.kz:8000' + user.avatar" class="card-img" alt="...">-->
 <!--                        </div>-->
@@ -163,6 +224,42 @@
                             <div *ngIf="showNewPasswordFailure" class="invalid-feedback" style="display: block">
                                 {{newPasswordFailureMessage}}
                             </div>
+                        </div>
+                        <div class="col-md-12">
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label class="col-md-3 col-form-label">
+                                        Instagram
+                                    </label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" formControlName="instagram">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label class="col-md-3 col-form-label">
+                                        VK
+                                    </label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" formControlName="vk">
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                            <fieldset class="form-group">
+                                <div class="row">
+                                    <label class="col-md-3 col-form-label">
+                                        Facebook
+                                    </label>
+                                    <div class="col-md-9">
+                                        <input class="form-control" formControlName="facebook">
+                                    </div>
+                                </div>
+                            </fieldset>
                         </div>
                     </div>
                 </div>

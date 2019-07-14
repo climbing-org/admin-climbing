@@ -28,9 +28,11 @@ export class ClubBlockComponent implements OnInit, AfterViewInit {
       this.clubService.list().subscribe((res: {data: Team[]}) => {
           this.allClubs = GeneralHelper.isEmpty(res) ? [] : res.data;
           this.allClubs = this.allClubs.filter(club => {
-              for (let i = 0; i < this.clubs.length; i++) {
-                  if (this.clubs[i].slug === club.slug) {
-                      return false;
+              if (this.clubs && this.clubs.length) {
+                  for (let i = 0; i < this.clubs.length; i++) {
+                      if (this.clubs[i].slug === club.slug) {
+                          return false;
+                      }
                   }
               }
               return true;
