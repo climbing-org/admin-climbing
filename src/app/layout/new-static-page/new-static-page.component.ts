@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { StaticPageService } from '../../shared/services/static-page.service';
 import StaticPage from '../../shared/classes/static-page';
+import { StaticPage as StaticPageError } from '../../shared/classes/error/static-page';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -12,6 +13,7 @@ export class NewStaticPageComponent implements OnInit {
 
     slug: string;
     staticPage: StaticPage = new StaticPage();
+    staticPageError: StaticPageError = new StaticPageError();
     dataModel: any;
 
   constructor(private staticPageService: StaticPageService,
@@ -32,13 +34,19 @@ export class NewStaticPageComponent implements OnInit {
       console.log(this.dataModel);
       if (this.slug) {
           this.staticPageService.update(this.slug, this.staticPage).subscribe((res) => {
-              this.router.navigateByUrl('/admin/static-page-table');
-              console.log(res);
+              if (res['code'] === 0) {
+                  this.router.navigateByUrl('/admin/static-page-table');
+              } else if (res['data']) {
+                  this.staticPageError = res['data'];
+              }
           });
       } else {
           this.staticPageService.post(this.staticPage).subscribe((res) => {
-              this.router.navigateByUrl('/admin/static-page-table');
-              console.log(res);
+              if (res['code'] === 0) {
+                  this.router.navigateByUrl('/admin/static-page-table');
+              } else if (res['data']) {
+                  this.staticPageError = res['data'];
+              }
           });
       }
   }

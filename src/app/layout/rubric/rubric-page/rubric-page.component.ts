@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import News from '../../../shared/classes/news';
 import { ActivatedRoute, Router } from '@angular/router';
 import Rubric from '../../../shared/classes/rubric';
+import { Rubric as RubricError } from '../../../shared/classes/error/rubric';
 import { RubricService } from '../../../shared/services/rubric.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class RubricPageComponent implements OnInit, AfterViewInit {
 
     slug: string;
     rubric: Rubric = new Rubric();
+    rubricError: RubricError = new RubricError();
     nameError: string;
     errorMessage: string;
 
@@ -39,8 +41,8 @@ export class RubricPageComponent implements OnInit, AfterViewInit {
                 console.log(res);
                 if (res['code'] === 0) {
                     this.router.navigateByUrl('/admin/rubric-table');
-                } else if (res['data'] && res['data']['name'] && res['data']['name'].length) {
-                    this.nameError = res['data']['name'][0];
+                } else if (res['data']) {
+                    this.rubricError = res['data'];
                 } else {
                     this.errorMessage = 'Что то пошло не так';
                 }
@@ -49,9 +51,8 @@ export class RubricPageComponent implements OnInit, AfterViewInit {
             this.rubricService.post(this.rubric).subscribe((res) => {
                 if (res['code'] === 0) {
                     this.router.navigateByUrl('/admin/rubric-table');
-                } else if (res['data'] && res['data']['name'] && res['data']['name'].length) {
-                    console.log(res);
-                    this.nameError = res['data']['name'][0];
+                } else if (res['data']) {
+                    this.rubricError = res['data'];
                 } else {
                     this.errorMessage = 'Что то пошло не так';
                 }

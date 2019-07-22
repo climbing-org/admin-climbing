@@ -15,6 +15,8 @@ export class NewUserComponent implements OnInit {
     form: FormGroup;
 
     readonly Roles = Roles;
+    emailError = '';
+    roleError = '';
 
     showerror = false;
 
@@ -35,8 +37,18 @@ export class NewUserComponent implements OnInit {
             return;
         }
         this.usersService.post(value).subscribe((res) => {
-            console.log(res);
-            this.router.navigateByUrl('/admin/user-table');
+            if (res['code'] === 0) {
+                this.router.navigateByUrl('/admin/user-table');
+            } else if (res['data']) {
+                if (res['data']['email']) {
+                    this.emailError = res['data']['email'][0];
+                }
+                if (res['data']['role']) {
+                    this.roleError = res['data']['role'][0];
+                }
+            } else {
+                this.showerror = true;
+            }
         });
     }
 

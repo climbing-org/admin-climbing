@@ -2,6 +2,7 @@ import { AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '
 import { ActivatedRoute, Router } from '@angular/router';
 import { UploadService } from '../../../shared/services/upload.service';
 import News from '../../../shared/classes/news';
+import { News as NewsError } from '../../../shared/classes/error/news';
 import { NewsService } from '../../../shared/services/news.service';
 
 declare const $: any;
@@ -16,8 +17,10 @@ export class NewsPageComponent implements OnInit, AfterViewInit {
 
     slug: string;
     news: News = new News();
+    newsError: NewsError = new NewsError();
     file: File;
     loading = false;
+    errorMessage  = '';
 
   constructor(private newsService: NewsService,
               private route: ActivatedRoute,
@@ -53,13 +56,23 @@ export class NewsPageComponent implements OnInit, AfterViewInit {
   submit() {
       if (this.slug) {
           this.newsService.update(this.slug, this.news).subscribe((res) => {
-              this.router.navigateByUrl('/admin/news-table');
-              console.log(res);
+              if (res['code'] === 0) {
+                  this.router.navigateByUrl('/admin/news-table');
+              } else if (res['data']) {
+                  this.newsError = res['data'];
+              } else {
+                  this.errorMessage = 'Что то пошло не так';
+              }
           });
       } else {
           this.newsService.post(this.news).subscribe((res) => {
-              this.router.navigateByUrl('/admin/news-table');
-              console.log(res);
+              if (res['code'] === 0) {
+                  this.router.navigateByUrl('/admin/news-table');
+              } else if (res['data']) {
+                  this.newsError = res['data'];
+              } else {
+                  this.errorMessage = 'Что то пошло не так';
+              }
           });
       }
   }

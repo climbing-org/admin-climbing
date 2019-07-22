@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Menu from '../../../shared/classes/menu';
+import { Menu as MenuError } from '../../../shared/classes/error/menu';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MenuService } from '../../../shared/services/menu.service';
 import { StaticPageService } from '../../../shared/services/static-page.service';
@@ -15,6 +16,7 @@ import { RubricService } from '../../../shared/services/rubric.service';
 export class MenuDetailsComponent implements OnInit {
 
     menu: Menu = new Menu();
+    menuError: MenuError = new MenuError();
     nameError: string;
     errorMessage: string;
     slug: string;
@@ -84,23 +86,20 @@ export class MenuDetailsComponent implements OnInit {
     submit() {
         if (this.slug) {
             this.menuService.update(this.slug, this.menu).subscribe((res) => {
-                console.log(res);
                 if (res['code'] === 0) {
                     this.router.navigateByUrl('/admin/menu-table');
-                } else if (res['data'] && res['data']['name'] && res['data']['name'].length) {
-                    this.nameError = res['data']['name'][0];
+                } else if (res['data']) {
+                    this.menuError = res['data'];
                 } else {
                     this.errorMessage = 'Что то пошло не так';
                 }
             });
         } else {
             this.menuService.post(this.menu).subscribe((res) => {
-                console.log(res);
                 if (res['code'] === 0) {
                     this.router.navigateByUrl('/admin/menu-table');
-                } else if (res['data'] && res['data']['name'] && res['data']['name'].length) {
-                    console.log(res);
-                    this.nameError = res['data']['name'][0];
+                } else if (res['data']) {
+                    this.menuError = res['data'];
                 } else {
                     this.errorMessage = 'Что то пошло не так';
                 }

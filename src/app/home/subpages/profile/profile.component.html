@@ -69,7 +69,7 @@
                             </fieldset>
                         </div>
                         <div class="col-md-12" formArrayName="youtube_links">
-                            <fieldset class="form-group" *ngFor="let item of form.controls.youtube_links.controls; let i = index">
+                            <fieldset class="form-group" *ngFor="let item of form.controls.youtube_links['controls']; let i = index;">
                                 <div class="row">
                                     <label class="col-md-3 col-form-label">
                                         Ссылка на видео

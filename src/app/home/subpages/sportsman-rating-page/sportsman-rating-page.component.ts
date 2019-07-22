@@ -31,6 +31,9 @@ export class SportsmanRatingPageComponent implements OnInit {
               this.age = this.options.age[0].value;
               this.section = this.options.section[0].value;
               this.gender = this.options.gender[0].value;
+              this.ratingService.single({age: this.age, section: this.section, gender: this.gender}).subscribe((response: {data: Rating}) => {
+                  this.rating = response.data;
+              });
           }
       });
   }

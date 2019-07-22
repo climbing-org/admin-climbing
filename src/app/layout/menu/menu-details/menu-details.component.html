@@ -10,13 +10,15 @@
 </div>
 <fieldset class="form-group">
     <label>Название меню</label>
-    <input class="form-control" [ngClass]="{'is-invalid': !menu.name || nameError}" [(ngModel)]="menu.name">
+    <input class="form-control" [ngClass]="{'is-invalid': !menu.name || menuError.name}" [(ngModel)]="menu.name">
     <div class="invalid-feedback" *ngIf="!menu.name">
         Не может быть пустым
     </div>
-    <div class="invalid-feedback" *ngIf="menu.name && nameError">
-        {{nameError}}
-    </div>
+    <ng-container *ngIf="menuError.name">
+        <div class="invalid-feedback" *ngFor="let n of menuError.name">
+            {{ n }}
+        </div>
+    </ng-container>
 </fieldset>
 <div class="form-group">
     <label>Добавить в хэдер</label>
@@ -40,6 +42,11 @@
         <option></option>
         <option [value]="m.id" *ngFor="let m of menuIds">{{m.name}}</option>
     </select>
+    <ng-container *ngIf="menuError.parent">
+        <div class="invalid-feedback" *ngFor="let n of menuError.parent">
+            {{ n }}
+        </div>
+    </ng-container>
 </div>
 <div class="form-group">
     <label>Статичная страница</label>
@@ -47,6 +54,11 @@
         <option></option>
         <option [value]="sp.slug" *ngFor="let sp of staticPage">{{sp.name}}</option>
     </select>
+    <ng-container *ngIf="menuError.static_page">
+        <div class="invalid-feedback" *ngFor="let n of menuError.static_page">
+            {{ n }}
+        </div>
+    </ng-container>
 </div>
 <div class="form-group">
     <label>Рубрика</label>
@@ -54,6 +66,11 @@
         <option></option>
         <option [value]="r.slug" *ngFor="let r of rubrics">{{r.name}}</option>
     </select>
+    <ng-container *ngIf="menuError.rubric">
+        <div class="invalid-feedback" *ngFor="let n of menuError.rubric">
+            {{ n }}
+        </div>
+    </ng-container>
 </div>
 <div class="form-group">
     <label>Существующая страница или ссылка на сторонний ресурс</label>
@@ -62,6 +79,11 @@
 <!--        <option>Внесите ссылку после /home/</option>-->
 <!--        <option [value]="r.link" *ngFor="let r of pages">{{r.name}}</option>-->
 <!--    </select>-->
+    <ng-container *ngIf="menuError.link">
+        <div class="invalid-feedback" *ngFor="let n of menuError.link">
+            {{ n }}
+        </div>
+    </ng-container>
 </div>
 <div class="form-group">
     <label>Открывать в новой вкладке</label>

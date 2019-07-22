@@ -55,8 +55,9 @@ export class ClubBlockComponent implements OnInit, AfterViewInit {
     }
 
     save() {
-      const body: string[] = [];
-      this.clubs.forEach(c => body.push(c.slug));
+      const clubs: string[] = [];
+      this.clubs.forEach(c => clubs.push(c.slug));
+      const body = {club_slugs: clubs};
       this.usersService.setClubs(body).subscribe((res) => {
           console.log(res);
       });

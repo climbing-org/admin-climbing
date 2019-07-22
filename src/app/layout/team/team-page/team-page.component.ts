@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import User from '../../../shared/classes/user';
 import Team from '../../../shared/classes/team';
+import { Team as TeamError } from '../../../shared/classes/error/team';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../../../shared/services/user.service';
 import { TeamService } from '../../../shared/services/team.service';
@@ -17,6 +18,7 @@ export class TeamPageComponent implements OnInit, AfterViewInit {
 
     slug: string;
     team: Team = new Team();
+    teamError: TeamError = new TeamError();
     file: File;
     loading = false;
 
@@ -99,13 +101,19 @@ export class TeamPageComponent implements OnInit, AfterViewInit {
         });
         if (this.slug) {
             this.teamService.update(this.slug, this.team).subscribe((res) => {
-                this.router.navigateByUrl('/admin/team-table');
-                console.log(res);
+                if (res['code'] === 0) {
+                    this.router.navigateByUrl('/admin/team-table');
+                } else if (res['data']) {
+                    this.teamError = res['data'];
+                }
             });
         } else {
             this.teamService.post(this.team).subscribe((res) => {
-                this.router.navigateByUrl('/admin/team-table');
-                console.log(res);
+                if (res['code'] === 0) {
+                    this.router.navigateByUrl('/admin/team-table');
+                } else if (res['data']) {
+                    this.teamError = res['data'];
+                }
             });
         }
     }

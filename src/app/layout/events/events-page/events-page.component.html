@@ -10,14 +10,24 @@
 </div>
 <fieldset class="form-group">
     <label>Заголовок</label>
-    <input class="form-control" [ngClass]="{'is-invalid': !event.name}" [(ngModel)]="event.name">
+    <input class="form-control" [ngClass]="{'is-invalid': !event.name && eventError.name}" [(ngModel)]="event.name">
     <div class="invalid-feedback" *ngIf="!event.name">
         Не может быть пустым
     </div>
+    <ng-container *ngIf="eventError.name">
+        <div class="invalid-feedback" *ngFor="let n of eventError.name">
+            {{ n }}
+        </div>
+    </ng-container>
 </fieldset>
 <div class="form-group">
     <label for="exampleFormControlTextarea1">Короткое описание</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="event.short_description"></textarea>
+    <ng-container *ngIf="eventError.short_description">
+        <div class="invalid-feedback" *ngFor="let n of eventError.short_description">
+            {{ n }}
+        </div>
+    </ng-container>
 </div>
 <fieldset class="form-group">
     <!--    <label>Content</label>-->
@@ -45,6 +55,11 @@
           content_style: '.mce-annotation { background: #fff0b7; } .tc-active-annotation {background: #ffe168; color: black; }'
 }"></editor>
 </fieldset>
+<ng-container *ngIf="eventError.content">
+    <div class="invalid-feedback" *ngFor="let n of eventError.content">
+        {{ n }}
+    </div>
+</ng-container>
 <div class="row">
     <div class="col-md-6">
         <fieldset class="form-group">
@@ -97,6 +112,11 @@
                     <span class="fa fa-calendar"></span>
                 </button>
             </div>
+            <ng-container *ngIf="eventError.date_from">
+                <div class="invalid-feedback" *ngFor="let n of eventError.date_from">
+                    {{ n }}
+                </div>
+            </ng-container>
         </fieldset>
     </div>
     <div class="col-md-6">
@@ -109,6 +129,11 @@
                     <!-- <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/> -->
                     <span class="fa fa-calendar"></span>
                 </button>
+                <ng-container *ngIf="eventError.date_to">
+                    <div class="invalid-feedback" *ngFor="let n of eventError.date_to">
+                        {{ n }}
+                    </div>
+                </ng-container>
             </div>
         </fieldset>
     </div>
@@ -125,30 +150,55 @@
                 (onSelectAll)="onSelectAll($event)"
             >
             </ng-multiselect-dropdown>
+            <ng-container *ngIf="eventError.judges">
+                <div class="invalid-feedback" *ngFor="let n of eventError.judges">
+                    {{ n }}
+                </div>
+            </ng-container>
         </fieldset>
     </div>
     <div class="col-md-3">
         <fieldset class="form-group">
             <label>SEO хэштег</label>
             <input class="form-control" [(ngModel)]="event.seo_hashtag">
+            <ng-container *ngIf="eventError.seo_hashtag">
+                <div class="invalid-feedback" *ngFor="let n of eventError.seo_hashtag">
+                    {{ n }}
+                </div>
+            </ng-container>
         </fieldset>
     </div>
     <div class="col-md-3">
         <fieldset class="form-group">
             <label>SEO заголовок</label>
             <input class="form-control" [(ngModel)]="event.seo_title">
+            <ng-container *ngIf="eventError.seo_title">
+                <div class="invalid-feedback" *ngFor="let n of eventError.seo_title">
+                    {{ n }}
+                </div>
+            </ng-container>
         </fieldset>
     </div>
     <div class="col-md-3">
         <fieldset class="form-group">
             <label>SEO ключевые слова</label>
             <input class="form-control" [(ngModel)]="event.seo_keywords">
+            <ng-container *ngIf="eventError.seo_keywords">
+                <div class="invalid-feedback" *ngFor="let n of eventError.seo_keywords">
+                    {{ n }}
+                </div>
+            </ng-container>
         </fieldset>
     </div>
     <div class="col-md-3">
         <fieldset class="form-group">
             <label>SEO описание</label>
             <input class="form-control" [(ngModel)]="event.seo_description">
+            <ng-container *ngIf="eventError.seo_description">
+                <div class="invalid-feedback" *ngFor="let n of eventError.seo_description">
+                    {{ n }}
+                </div>
+            </ng-container>
         </fieldset>
     </div>
 </div>
@@ -168,6 +218,7 @@
   </span>
 <input #inputFile type="file" style="display: none">
 
+<img [src]="'https://androidios.kz:8000' + event.logo" class="mr-3" alt="..." style="height:70px">
 <br>
 <br>
 

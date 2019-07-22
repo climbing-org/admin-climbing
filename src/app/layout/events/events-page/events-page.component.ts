@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { UploadService } from '../../../shared/services/upload.service';
 import { EventService } from '../../../shared/services/event.service';
 import Event from '../../../shared/classes/event';
+import { Event as EventError } from '../../../shared/classes/error/event';
 import User from '../../../shared/classes/user';
 import { GeneralHelper } from '../../../shared/helpers/general.helper';
 import { UsersService } from '../../../shared/services/user.service';
@@ -19,6 +20,7 @@ export class EventsPageComponent implements OnInit, AfterViewInit {
 
     slug: string;
     event: Event = new Event();
+    eventError: EventError = new EventError();
     file: File;
     file1: File;
     file2: File;
@@ -136,13 +138,19 @@ export class EventsPageComponent implements OnInit, AfterViewInit {
         }
         if (this.slug) {
             this.eventsService.update(this.slug, this.event).subscribe((res) => {
-                this.router.navigateByUrl('/admin/events-table');
-                console.log(res);
+                if (res['code'] === 0) {
+                    this.router.navigateByUrl('/admin/events-table');
+                } else if (res['data']) {
+                    this.eventError = res['data'];
+                }
             });
         } else {
             this.eventsService.post(this.event).subscribe((res) => {
-                this.router.navigateByUrl('/admin/events-table');
-                console.log(res);
+                if (res['code'] === 0) {
+                    this.router.navigateByUrl('/admin/events-table');
+                } else if (res['data']) {
+                    this.eventError = res['data'];
+                }
             });
         }
     }

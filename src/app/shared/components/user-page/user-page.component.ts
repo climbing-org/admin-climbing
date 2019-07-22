@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../../services/user.service';
 import User from '../../classes/user';
+import { User as UserError } from '../../classes/error/user';
 import { UploadService } from '../../services/upload.service';
 
 @Component({
@@ -18,6 +19,7 @@ export class UserPageComponent implements OnInit, AfterViewInit {
 
     form: FormGroup;
     user: User;
+    userError: UserError = new UserError();
     id: number;
 
     // file
@@ -88,8 +90,11 @@ export class UserPageComponent implements OnInit, AfterViewInit {
             return;
         }
         this.usersService.partial_update(this.id, value).subscribe((res) => {
-            console.log(res);
-            this.router.navigateByUrl('/admin/user-table');
+            if (res['code'] === 0) {
+                this.router.navigateByUrl('/admin/user-table');
+            } else if (res['data']) {
+                this.userError = res['data'];
+            }
         });
     }
 

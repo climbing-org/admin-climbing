@@ -55,4 +55,8 @@ export class UsersService {
     setClubs(body: any) {
         return this.http.post('https://androidios.kz:8000/api/v1/users/clubs/', body);
     }
+
+    setTrainers(body: any) {
+        return this.http.post('https://androidios.kz:8000/api/v1/users/trainers/', body);
+    }
 }

@@ -53,7 +53,7 @@ export class LoginComponent implements OnInit {
 
         const session = this.ss.getSessionObject();
         if (session) {
-            this.router.navigateByUrl(`/admin`);
+            this.router.navigateByUrl(`/home`);
         }
     }
 
