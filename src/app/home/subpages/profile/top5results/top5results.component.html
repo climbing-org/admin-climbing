@@ -1,0 +1,104 @@
+<div class="ratings table-responsive">
+    <table class="table table-striped table-borderless table-hover">
+        <thead>
+        <tr>
+            <th></th>
+            <th scope="col">Дата</th>
+            <th scope="col">Соревнование</th>
+            <th scope="col" *ngIf="!iSsportsman">ФИ</th>
+            <th scope="col">Место</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!--                <tr *ngFor="let item of items | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">-->
+        <tr *ngFor="let e of clubs; let index = index;" >
+            <td>
+                <i class="fa fa-trash" (click)="delete(index)"></i>
+            </td>
+            <td>
+                {{e.date | date:'d/MM/y'}}
+            </td>
+            <td>
+                {{e.event}}
+            </td>
+            <td *ngIf="!iSsportsman">
+                {{e.name}}
+            </td>
+            <td>
+                {{e.place}}
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+
+<form role="form">
+    <div class="row">
+        <!--        <div class="col-md-5">-->
+        <!--            <fieldset class="form-group">-->
+        <!--                <div class="row">-->
+        <!--                    <div class="col-md-6 vertical-align-center">-->
+        <!--                            <button class="blue-button">-->
+        <!--                                Добавить новое-->
+        <!--                            </button>-->
+        <!--                    </div>-->
+        <!--                    <div class="col-md-6">-->
+        <!--                        <div class="input-group">-->
+        <!--                            <input class="form-control" placeholder="гггг-мм-дд"-->
+        <!--                                   name="dp" ngbDatepicker #d="ngbDatepicker">-->
+        <!--                            <div class="input-group-append">-->
+        <!--                                <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>-->
+        <!--                            </div>-->
+        <!--                        </div>-->
+        <!--                    </div>-->
+        <!--                </div>-->
+        <!--            </fieldset>-->
+        <!--        </div>-->
+        <div class="col-md-2 vertical-align-center">
+            <button class="blue-button" (click)="add()">
+                Добавить новое
+            </button>
+        </div>
+        <!--        <div class="col-md-4">-->
+        <!--            <input class="form-control">-->
+        <!--        </div>-->
+        <!--        <div class="col-md-4">-->
+        <!--            <input class="form-control">-->
+        <!--        </div>-->
+        <!--        <div class="col-md-1">-->
+        <!--            <div ngbDropdown class="d-inline-block">-->
+        <!--                <button class="btn btn-outline-primary my-dropdown" id="dropdownBasic2" ngbDropdownToggle>3</button>-->
+        <!--                <div ngbDropdownMenu aria-labelledby="dropdownBasic1">-->
+        <!--                    <button ngbDropdownItem>Action - 1</button>-->
+        <!--                    <button ngbDropdownItem>Another Action</button>-->
+        <!--                    <button ngbDropdownItem>Something else is here</button>-->
+        <!--                </div>-->
+        <!--            </div>-->
+        <!--        </div>-->
+
+        <div class="col-md-3">
+            <div class="input-group">
+                <input class="form-control" placeholder="гггг-мм-дд"
+                       name="dp" ngbDatepicker #d="ngbDatepicker" [(ngModel)]="selectedClub.date" [ngModelOptions]="{standalone: true}">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <input class="form-control" [(ngModel)]="selectedClub.event" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="col-md-3" *ngIf="!iSsportsman">
+            <input class="form-control" [(ngModel)]="selectedClub.name" [ngModelOptions]="{standalone: true}">
+        </div>
+        <div class="col-md-1">
+            <input class="form-control" [(ngModel)]="selectedClub.place" [ngModelOptions]="{standalone: true}">
+        </div>
+    </div>
+
+    <button type="submit" class="blue-button glav" (click)="save()">Сохранить</button>
+
+</form>

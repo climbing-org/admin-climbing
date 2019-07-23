@@ -18,9 +18,10 @@ import { PaymentBlockComponent } from './payment-block/payment-block.component';
 import { NgbDatepickerModule, NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { ClubService } from '../../../shared/services/club.service';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { Top5resultsComponent } from './top5results/top5results.component';
 
 @NgModule({
-  declarations: [ProfileComponent, EventBlockComponent, AchievementBlockComponent, RouteBlockComponent, ClubBlockComponent, TrainersBlockComponent, PaymentBlockComponent],
+  declarations: [ProfileComponent, EventBlockComponent, AchievementBlockComponent, RouteBlockComponent, ClubBlockComponent, TrainersBlockComponent, PaymentBlockComponent, Top5resultsComponent],
   imports: [
     CommonModule,
     ProfileRoutingModule,

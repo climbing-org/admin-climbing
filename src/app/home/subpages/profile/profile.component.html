@@ -271,10 +271,10 @@
 
     </div>
 
-    <app-page-title title="Мероприятия"></app-page-title>
-    <div class="container">
-        <app-event-block></app-event-block>
-    </div>
+<!--    <app-page-title title="Мероприятия"></app-page-title>-->
+<!--    <div class="container">-->
+<!--        <app-event-block></app-event-block>-->
+<!--    </div>-->
 
 <!--    <app-page-title title="Достижения, Награды"></app-page-title>-->
 <!--    <div class="container">-->
@@ -286,6 +286,13 @@
 <!--        <app-route-block></app-route-block>-->
 <!--    </div>-->
 
+    <app-page-title *ngIf="iSsportsman" title="Топ 5 результатов"></app-page-title>
+    <app-page-title *ngIf="!iSsportsman" title="Топ 5 результатов спортсменов"></app-page-title>
+    <div class="container">
+        <app-top5results  *ngIf="iSsportsman" [clubs]="user?.top_results" [iSsportsman]="iSsportsman"></app-top5results>
+        <app-top5results  *ngIf="!iSsportsman" [clubs]="user?.top_students" [iSsportsman]="iSsportsman"></app-top5results>
+    </div>
+
     <app-page-title title="Команда"></app-page-title>
     <div class="container">
         <app-club-block [clubs]="user?.clubs"></app-club-block>
@@ -293,7 +300,7 @@
 
     <app-page-title title="Тренера"></app-page-title>
     <div class="container">
-        <app-trainers-block></app-trainers-block>
+        <app-trainers-block [trainers]="user?.trainers"></app-trainers-block>
     </div>
 
 <!--    <app-page-title title="Оплаты"></app-page-title>-->

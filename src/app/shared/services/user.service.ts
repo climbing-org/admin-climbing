@@ -59,4 +59,12 @@ export class UsersService {
     setTrainers(body: any) {
         return this.http.post('https://androidios.kz:8000/api/v1/users/trainers/', body);
     }
+
+    setResults(body: any) {
+        return this.http.post('https://androidios.kz:8000/api/v1/users/top_results/', body);
+    }
+
+    setStudents(body: any) {
+        return this.http.post('https://androidios.kz:8000/api/v1/users/top_students/', body);
+    }
 }

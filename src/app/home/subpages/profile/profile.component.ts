@@ -34,6 +34,8 @@ export class ProfileComponent implements OnInit, AfterViewInit {
     showNewPasswordFailure = false;
     newPasswordFailureMessage: string;
 
+    iSsportsman: boolean;
+
   constructor(private router: Router,
               private route: ActivatedRoute,
               private uploadService: UploadService,
@@ -69,7 +71,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
               this.user = res.data;
               this.id = this.user.id;
               this.form.patchValue(this.user);
-              console.log(this.form);
+              this.iSsportsman = this.user.role === 'sportsman';
           });
       }
   }

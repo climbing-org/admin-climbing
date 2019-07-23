@@ -14,8 +14,8 @@
     <div class="invalid-feedback" *ngIf="!staticPage.name">
         Не может быть пустым
     </div>
-    <ng-container *ngIf="staticPage.name">
-        <div class="invalid-feedback" *ngFor="let n of staticPage.name">
+    <ng-container *ngIf="staticPageError.name">
+        <div class="invalid-feedback" *ngFor="let n of staticPageError.name">
             {{ n }}
         </div>
     </ng-container>
@@ -46,8 +46,8 @@
           content_style: '.mce-annotation { background: #fff0b7; } .tc-active-annotation {background: #ffe168; color: black; }'
 }"></editor>
 </fieldset>
-<ng-container *ngIf="staticPage.content">
-    <div class="invalid-feedback" *ngFor="let n of staticPage.content">
+<ng-container *ngIf="staticPageError.content">
+    <div class="invalid-feedback" *ngFor="let n of staticPageError.content">
         {{ n }}
     </div>
 </ng-container>
@@ -56,8 +56,8 @@
         <fieldset class="form-group">
             <label>SEO хэштег</label>
             <input class="form-control" [(ngModel)]="staticPage.seo_hashtag">
-            <ng-container *ngIf="staticPage.seo_hashtag">
-                <div class="invalid-feedback" *ngFor="let n of staticPage.seo_hashtag">
+            <ng-container *ngIf="staticPageError.seo_hashtag">
+                <div class="invalid-feedback" *ngFor="let n of staticPageError.seo_hashtag">
                     {{ n }}
                 </div>
             </ng-container>
@@ -67,8 +67,8 @@
         <fieldset class="form-group">
             <label>SEO заголовок</label>
             <input class="form-control" [(ngModel)]="staticPage.seo_title">
-            <ng-container *ngIf="staticPage.seo_title">
-                <div class="invalid-feedback" *ngFor="let n of staticPage.seo_title">
+            <ng-container *ngIf="staticPageError.seo_title">
+                <div class="invalid-feedback" *ngFor="let n of staticPageError.seo_title">
                     {{ n }}
                 </div>
             </ng-container>
@@ -78,8 +78,8 @@
         <fieldset class="form-group">
             <label>SEO ключевые слова</label>
             <input class="form-control" [(ngModel)]="staticPage.seo_keywords">
-            <ng-container *ngIf="staticPage.seo_keywords">
-                <div class="invalid-feedback" *ngFor="let n of staticPage.seo_keywords">
+            <ng-container *ngIf="staticPageError.seo_keywords">
+                <div class="invalid-feedback" *ngFor="let n of staticPageError.seo_keywords">
                     {{ n }}
                 </div>
             </ng-container>
@@ -89,8 +89,8 @@
         <fieldset class="form-group">
             <label>SEO описание</label>
             <input class="form-control" [(ngModel)]="staticPage.seo_description">
-            <ng-container *ngIf="staticPage.seo_description">
-                <div class="invalid-feedback" *ngFor="let n of staticPage.seo_description">
+            <ng-container *ngIf="staticPageError.seo_description">
+                <div class="invalid-feedback" *ngFor="let n of staticPageError.seo_description">
                     {{ n }}
                 </div>
             </ng-container>
