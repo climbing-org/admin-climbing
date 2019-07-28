@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-xl-12">
+        <h2 class="page-header">
+            Страница Рейтингов
+        </h2>
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Страница рейтингов</li>
+        </ol>
+    </div>
+</div>
+
+<ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+    <ng-container *ngFor="let age of options.age">
+        <ng-container *ngFor="let section of options.section">
+            <ng-container *ngFor="let gender of options.gender">
+                <ngb-panel (mouseenter)="getSingle(age.value, section.value, gender.value)" [title]="age.name + ' ' + section.name + ' ' + gender.name">
+                    <ng-template ngbPanelContent>
+                        <ng-container *ngIf="ratings[age.value + section.value + gender.value]">
+                            <fieldset class="form-group" *ngFor="let user of ratings[age.value + section.value + gender.value].users; let i = index;">
+                                <div class="row">
+<!--                                    <label class="col-md-3 col-form-label">-->
+<!--                                        Ссылка на видео-->
+<!--                                    </label>-->
+                                    <div class="col-md-8">
+                                        <input class="form-control" [(ngModel)]="user.user.email">
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control" [(ngModel)]="user.point">
+                                    </div>
+                                    <div class="col-md-1 col-form-label" (click)="removeUser(age.value + section.value + gender.value, i)" style="cursor: pointer;">
+                                        <i class="fa fa-trash"></i>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </ng-container>
+                        <fieldset class="form-group">
+                            <div class="row">
+                                <label class="col-md-3" style="cursor: pointer" (click)="newUser(age.value + section.value + gender.value)">
+                                    <i class="fa fa-plus-circle" style="font-size: 1.5rem"></i> &nbsp;&nbsp;&nbsp;Пользователь
+                                </label>
+                            </div>
+                        </fieldset>
+                    </ng-template>
+                </ngb-panel>
+            </ng-container>
+        </ng-container>
+    </ng-container>
+</ngb-accordion>
+

@@ -7,7 +7,7 @@
             </ol>
         </nav>
         <div class="head">
-            <h2>{{title}}</h2>
+            <h2>{{title}} <a *ngIf="showLogout" (click)="onLoggedout()" style="color: #696969;text-decoration: underline;font-size: 12px;cursor: pointer">Выйти</a></h2>
         </div>
     </div>
 </div>

@@ -42,7 +42,8 @@
                     <i class="fa fa-search"></i>
                 </a>
                 <div class="vertical-line" *ngIf="user">
-                    Привет, <span class="name" routerLink="/home/profile/" style="cursor: pointer">{{user.first_name}}</span>
+                    Привет,
+                    <span class="name" routerLink="/home/profile/" style="cursor: pointer">{{user.first_name}}</span>
                     <div class="circular--landscape">
                         <img [src]="'https://androidios.kz:8000' + user.avatar" alt="...">
                     </div>

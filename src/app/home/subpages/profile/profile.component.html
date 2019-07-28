@@ -1,6 +1,6 @@
 <div class="main">
 
-    <app-page-title activeLinkTitle="Профиль" [title]="user.last_name + ' ' + user.first_name"></app-page-title>
+    <app-page-title activeLinkTitle="Профиль" [title]="user.last_name + ' ' + user.first_name" [showLogout]="true"></app-page-title>
     <div class="container">
 
         <form role="form" [formGroup]="form">
@@ -141,7 +141,7 @@
                                     </label>
                                     <div class="col-md-9">
                                         <div class="circular--landscape">
-                                            <img [src]="'https://androidios.kz:8000' + user.avatar" class="mr-3" alt="...">
+                                            <img [src]="'https://androidios.kz:8000' + user.avatar" alt="...">
                                         </div>
                                         <button type="button" class="upload-file blue-button" (click)="inputFile.click()">
                                             <i class="fa fa-paperclip"></i> Загрузить изображение
@@ -188,7 +188,7 @@
                                         <ng-container *ngIf="user.images?.length">
                                             <ng-container *ngFor="let i of user.images; let i = index;">
                                                 <div class="images">
-                                                    <img [src]="'https://androidios.kz:8000' + i" class="mr-3" alt="...">
+                                                    <img [src]="'https://androidios.kz:8000' + i" alt="...">
                                                 </div>
                                                 <i class="fa fa-trash" (click)="deleteFile(i)" style="cursor: pointer"></i>
 <!--                                                <button type="button" class="upload-file" (click)="inputFile1.click()" style="background-color: red;">-->

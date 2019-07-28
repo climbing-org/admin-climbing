@@ -9,4 +9,7 @@ class UserPoint {
 export default class Rating {
     id: number;
     users: UserPoint[];
+    age: string;
+    gender: string;
+    section: string;
 }

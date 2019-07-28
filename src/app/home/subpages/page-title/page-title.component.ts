@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { JWTHelper } from '../../../shared/helpers/jwt.helper';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-page-title',
@@ -9,10 +11,20 @@ export class PageTitleComponent implements OnInit {
 
     @Input() activeLinkTitle: string;
     @Input() title: string;
+    @Input() showLogout: boolean;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
+
+    onLoggedout() {
+        JWTHelper.removeToken();
+        localStorage.removeItem('user');
+        const redirectURL = '/home';
+
+        this.router.navigateByUrl(redirectURL);
+        location.reload();
+    }
 
 }

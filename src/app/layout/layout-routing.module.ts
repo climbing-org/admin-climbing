@@ -41,6 +41,7 @@ const routes: Routes = [
             { path: 'rubric-page/:id', loadChildren: './rubric/rubric-page/rubric-page.module#RubricPageModule' },
             { path: 'rubric-table', loadChildren: './rubric/rubric-table/rubric-table.module#RubricTableModule' },
             { path: 'team-table', loadChildren: './team/team-table/team-table.module#TeamTableModule' },
+            { path: 'raiting', loadChildren: './raiting/raiting.module#RaitingModule' },
             { path: 'team-page', loadChildren: './team/team-page/team-page.module#TeamPageModule' },
             { path: 'team-page/:id', loadChildren: './team/team-page/team-page.module#TeamPageModule' },
         ]

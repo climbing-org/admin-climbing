@@ -11,6 +11,8 @@ export class HeaderComponent implements OnInit {
 
     user: User;
 
+    isCollapsed = true;
+
   constructor(private ss: SecurityService) { }
 
   ngOnInit() {
