@@ -6,7 +6,7 @@
 
             <div class="row">
                 <div class="col-md-4">
-                    <img [src]="'https://androidios.kz:8000' + user.avatar" class="mr-3" alt="...">
+                    <img *ngIf="user.avatar" [src]="'https://androidios.kz:8000' + user.avatar" class="mr-3" alt="...">
                 </div>
                 <div class="col-md-8">
                     <div class="row">
@@ -41,8 +41,8 @@
                                         Команды:
                                     </label>
                                     <div class="col-md-9 col-form-label">
-                                        <a href="" target="_blank" *ngFor="let c of user.clubs">
-                                            {{c.name}}
+                                        <a [href]="'/home/teams/' + c.slug" target="_blank" *ngFor="let c of user.clubs; let last = last">
+                                            {{c.name}}<ng-container *ngIf="!last">, </ng-container>
                                         </a>
                                         <br/>
                                     </div>
@@ -128,7 +128,7 @@
                     <br/>
                     <div class="row">
                         <div class="col-md-6" *ngFor="let u of user.youtube_links">
-                            <iframe [src]="u"></iframe>
+                            <iframe *ngIf="u" [src]="u"></iframe>
                         </div>
                     </div>
                 </div>

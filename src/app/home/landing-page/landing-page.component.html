@@ -50,7 +50,7 @@
           <div class="media">
             <div class="circular--landscape">
 <!--              <img src="/assets/test/art1.jpg" class="mr-3" alt="...">-->
-                <img [src]="'https://androidios.kz:8000' + u.avatar" class="mr-3" alt="...">
+                <img [src]="'https://androidios.kz:8000' + u.avatar" alt="...">
             </div>
           <div class="media-body">
             <b>
@@ -60,12 +60,12 @@
           </div>
         </div>
         </td>
-        <td class="place">
+        <td class="place" style="word-wrap: break-word;">
           <span class="blue" *ngFor="let c of u.clubs">{{c.name}}</span>
         </td>
-        <td class="level">{{u.level}}</td>
-        <td class="rank">1050</td>
-          <td class="direction"><</td>
+        <td class="level" style="width: 120px;">{{u.level}}</td>
+        <td class="rank" style="width: 50px;">1050</td>
+        <td class="direction"><</td>
       </tr>
 
       </tbody>

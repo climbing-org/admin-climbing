@@ -6,7 +6,7 @@
         <ng-container *ngIf="id && teams.length">
             <div class="row">
                 <div class="col-md-4 border">
-                    <fieldset class="form-group">
+                    <fieldset class="form-group" *ngIf="team.address">
                         <div class="row">
                             <label class="col-md-3 col-form-label">
                                 Адрес:
@@ -16,7 +16,7 @@
                             </div>
                         </div>
                     </fieldset>
-                    <fieldset class="form-group">
+                    <fieldset class="form-group" *ngIf="team.phone">
                         <div class="row">
                             <label class="col-md-3 col-form-label">
                                 Телефон:
@@ -26,7 +26,7 @@
                             </div>
                         </div>
                     </fieldset>
-                    <fieldset class="form-group">
+                    <fieldset class="form-group" *ngIf="team.email">
                         <div class="row">
                             <label class="col-md-3 col-form-label">
                                 Email:
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                     </fieldset>
-                    <fieldset class="form-group">
+                    <fieldset class="form-group" *ngIf="team.instagram">
                         <div class="row">
                             <label class="col-md-3 col-form-label">
                                 Instagram:
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                     </fieldset>
-                    <fieldset class="form-group">
+                    <fieldset class="form-group" *ngIf="team.facebook">
                         <div class="row">
                             <label class="col-md-3 col-form-label">
                                 FB:
@@ -56,7 +56,7 @@
                             </div>
                         </div>
                     </fieldset>
-                    <fieldset class="form-group">
+                    <fieldset class="form-group" *ngIf="team.vk">
                         <div class="row">
                             <label class="col-md-3 col-form-label">
                                 VK:
@@ -66,7 +66,7 @@
                             </div>
                         </div>
                     </fieldset>
-                    <fieldset class="form-group">
+                    <fieldset class="form-group" *ngIf="team.site">
                         <div class="row">
                             <label class="col-md-3 col-form-label">
                                 {{team.site}}

@@ -5,6 +5,7 @@ import { HomeComponent } from './home.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { StaticPageComponent } from './subpages/static-page/static-page.component';
 import { RubricPageComponent } from './subpages/rubric-page/rubric-page.component';
+import { TrainerProfileComponent } from './subpages/trainer-profile/trainer-profile.component';
 
 const routes: Routes = [{
     path: '',
@@ -27,7 +28,7 @@ const routes: Routes = [{
         {path: 'profile', loadChildren: './subpages/profile/profile.module#ProfileModule'},
         {path: 'profile/:id', loadChildren: './subpages/profile/profile.module#ProfileModule'},
         {path: 'trainer-profile', loadChildren: './subpages/trainer-profile/trainer-profile.module#TrainerProfileModule'},
-        {path: 'trainer-profile/:id', loadChildren: './subpages/trainer-profile/trainer-profile.module#TrainerProfileModule'},
+        // {path: 'trainer-profile/:id', loadChildren: './subpages/trainer-profile/trainer-profile.module#TrainerProfileModule'},
         {path: 'teams', loadChildren: './subpages/teams/teams.module#TeamsModule'},
         {path: 'teams/:id', loadChildren: './subpages/teams/teams.module#TeamsModule'}
     ],

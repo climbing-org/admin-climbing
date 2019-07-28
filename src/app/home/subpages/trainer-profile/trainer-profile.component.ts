@@ -19,19 +19,28 @@ export class TrainerProfileComponent implements OnInit {
               private usersService: UsersService) { }
 
   ngOnInit() {
-      this.id = this.route.snapshot.params['id'];
-      if (this.id) {
-          this.usersService.get(this.id).subscribe((res: {data: User}) => {
-              console.log(res);
-              this.user = res.data;
-          });
-      } else {
-          this.usersService.getMyProfile().subscribe((res: {data: User}) => {
-              console.log(res);
-              this.user = res.data;
-              this.id = this.user.id;
-          });
-      }
+      // this.id = this.route.snapshot.params['id'];
+
+      // this.route.data.subscribe((res: { data: User }) => {
+      //     // console.log(user);
+      //     this.user = res.data;
+      //     this.id = this.user.id;
+      // });
+      this.user = this.route.snapshot.data['data'];
+      this.id = this.user.id;
+
+      // if (this.id) {
+      //     this.usersService.get(this.id).subscribe((res: {data: User}) => {
+      //         console.log(res);
+      //         this.user = res.data;
+      //     });
+      // } else {
+      //     this.usersService.getMyProfile().subscribe((res: {data: User}) => {
+      //         console.log(res);
+      //         this.user = res.data;
+      //         this.id = this.user.id;
+      //     });
+      // }
   }
 
 }

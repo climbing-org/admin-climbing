@@ -22,18 +22,13 @@ export class TeamsComponent implements OnInit {
 
   ngOnInit() {
       this.id = this.route.snapshot.params['id'];
-      if (this.id) {
-          this.teamService.get(this.id).subscribe((res: {data: Team}) => {
-              console.log(res);
-              this.teams.push(res.data);
-              this.team = res.data;
-          });
-      } else {
-          this.teamService.list().subscribe((res: {data: Team[]}) => {
-              console.log(res);
-              this.teams = res.data;
-          });
-      }
+      this.teamService.list().subscribe((res: {data: Team[]}) => {
+          console.log(res);
+          this.teams = res.data;
+          if (this.id) {
+              this.team = this.teams.find((t) => t.slug === this.id);
+          }
+      });
   }
 
     teamSelected(team: Team) {

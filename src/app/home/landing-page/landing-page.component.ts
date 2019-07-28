@@ -36,12 +36,15 @@ export class LandingPageComponent implements OnInit {
     this.images = ['/assets/home/carousel-new.png', '/assets/home/carousel-pic.png'];
     this.newsService.list().subscribe((res: {data: News[]}) => {
         this.news = GeneralHelper.isEmpty(res) ? [] : res.data;
+        this.news.splice(3);
     });
     this.eventService.list().subscribe((res: {data: Event[]}) => {
       this.events = GeneralHelper.isEmpty(res) ? [] : res.data;
+        this.events.splice(10);
     });
     this.usersService.list().subscribe((res: {data: User[]}) => {
         this.users = GeneralHelper.isEmpty(res) ? [] : res.data;
+        this.users.splice(6);
     });
   }
 
