@@ -5,7 +5,7 @@ import { UsersService } from '../../../shared/services/user.service';
 import { GeneralHelper } from '../../../shared/helpers/general.helper';
 import { LocalDataSource } from 'ng2-smart-table';
 import { DatePipe } from '@angular/common';
-import { Deferred } from 'ng2-smart-table/lib/helpers';
+import { Deferred } from 'ng2-smart-table/lib/lib/helpers';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({

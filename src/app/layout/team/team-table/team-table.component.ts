@@ -5,7 +5,7 @@ import Team from '../../../shared/classes/team';
 import { LocalDataSource } from 'ng2-smart-table';
 import Club from '../../../shared/classes/club';
 import { GeneralHelper } from '../../../shared/helpers/general.helper';
-import { Deferred } from 'ng2-smart-table/lib/helpers';
+import { Deferred } from 'ng2-smart-table/lib/lib/helpers';
 
 @Component({
   selector: 'app-team-table',

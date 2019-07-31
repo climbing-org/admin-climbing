@@ -5,7 +5,7 @@ import { DatePipe } from '@angular/common';
 import { Router } from '@angular/router';
 import { RubricService } from '../../../shared/services/rubric.service';
 import { GeneralHelper } from '../../../shared/helpers/general.helper';
-import { Deferred } from 'ng2-smart-table/lib/helpers';
+import { Deferred } from 'ng2-smart-table/lib/lib/helpers';
 import Response from '../../../shared/classes/response';
 
 @Component({

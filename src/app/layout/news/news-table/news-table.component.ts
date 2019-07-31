@@ -4,7 +4,7 @@ import News from '../../../shared/classes/news';
 import { NewsService } from '../../../shared/services/news.service';
 import { GeneralHelper } from '../../../shared/helpers/general.helper';
 import { LocalDataSource } from 'ng2-smart-table';
-import { Deferred } from 'ng2-smart-table/lib/helpers';
+import { Deferred } from 'ng2-smart-table/lib/lib/helpers';
 import { DatePipe } from '@angular/common';
 import Response from '../../../shared/classes/response';
 import { ToastrService } from 'ngx-toastr';
