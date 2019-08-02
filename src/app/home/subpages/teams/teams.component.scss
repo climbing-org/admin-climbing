@@ -5,16 +5,19 @@
 //}
 
 .container {
-    font-size: 13px;
+    font-size: 14px;
+    padding:30px;
 }
 
 .border {
-    background-color: white;
+    background-color: #f2f3f6;
     border-color: black;
 }
 
 fieldset label {
     font-weight: 600;
+    font-family: "Open Sans";
+    color:#1c3279;
 }
 
 .google-map {

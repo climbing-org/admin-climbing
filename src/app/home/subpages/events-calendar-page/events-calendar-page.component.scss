@@ -29,13 +29,14 @@
 }
 
 .event-name {
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 600;
     color: #6c7293;
+    font-family: "Open Sans";
 }
 
 .event-description {
-    font-size: 13px;
+    font-size: 14px;
     color: #6c7293;
     font-weight: 300;
 }
@@ -46,14 +47,16 @@ hr {
 
 h4 {
     font-size: 13px;
-    font-weight: 600;
-    //float: right;
-    position:absolute;
+    font-family: "Open Sans";
+    font-weight: 100;
+    float: right;
     bottom:0;
     right:0;
     margin-bottom: 0;
-    padding-right: 12px;
-    color: #6c7293;
+    padding: 5px;
+    color: #fff;
+    text-transform: uppercase;
+    background-color: #1d3279;
 }
 
 @media (min-width: 992px) {
@@ -97,7 +100,7 @@ h4 {
 .associates-content {
     //padding-left: 30px;
     //padding-right: 30px;
-    padding-top: 35px;
+    padding-top: 25px;
     padding-bottom: 25px;
     background-color: white;
     color: #6c7293;
@@ -109,8 +112,9 @@ h4 {
     margin-left: auto;
     margin-right: auto;
     .event-description {
-        font-size: 13px;
+        font-size: 16px;
         font-weight: 600;
+        font-family: "Open Sans";
     }
     article {
         //margin-bottom: 17px;
