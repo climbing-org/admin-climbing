@@ -8,12 +8,6 @@
     color: white;
 }
 
-a {
-    color: #007bff !important;
-    //text-decoration: underline !important;
-    cursor: pointer;
-}
-
 .age {
     margin-bottom: 20px;
 }
@@ -75,11 +69,12 @@ a {
     .media-body {
         margin-left: 11px;
         color: #6c7293;
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 600;
+        font-family: "Open Sans";
     }
     .place, .level, .rank, .direction, .rang {
-        font-size: 13px;
+        font-size: 15px;
         vertical-align: middle;
     }
     .rang {
@@ -99,13 +94,14 @@ a {
         width: 20px;
     }
     .table-striped tbody tr:nth-of-type(odd) {
-        background-color: white;
+        background-color: #ededed;
     }
     thead {
         background-color: #1d337a;
         color: white;
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 600;
+        font-family: "Open Sans";
     }
     ul {
         width: 26%;
@@ -131,4 +127,20 @@ a {
 }
 :host ::ng-deep .page-link {
     color: #1d3279;
+}
+.section span, .age span, .gender span {
+    color: #fff;
+    background-color: #1d3279;
+    padding: 2px 5px;
+}
+.section a, .age a, .gender a {
+    color: #1d3279;
+    padding: 2px 5px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: "Open Sans";    
+}
+.section a:hover, .age a:hover, .gender a:hover {
+    color: #fff;
+    background-color: #1d3279;
 }

@@ -42,7 +42,7 @@
                                 Instagram:
                             </label>
                             <div class="col-md-9 col-form-label">
-                                {{team.instagram}}
+                                <a target="_blank" href="{{team.instagram}}">{{team.instagram}}</a>
                             </div>
                         </div>
                     </fieldset>
@@ -52,7 +52,7 @@
                                 FB:
                             </label>
                             <div class="col-md-9 col-form-label">
-                                {{team.facebook}}
+                                <a target="_blank" href="{{team.facebook}}">{{team.facebook}}</a>                                
                             </div>
                         </div>
                     </fieldset>
@@ -62,14 +62,17 @@
                                 VK:
                             </label>
                             <div class="col-md-9 col-form-label">
-                                {{team.vk}}
+                                <a target="_blank" href="{{team.vk}}">{{team.vk}}</a>
                             </div>
                         </div>
                     </fieldset>
                     <fieldset class="form-group" *ngIf="team.site">
                         <div class="row">
-                            <label class="col-md-3 col-form-label">
-                                {{team.site}}
+                                <label class="col-md-3 col-form-label">
+                                        WWW:
+                                    </label>                            
+                            <label class="col-md-9 col-form-label">
+                              <a target="_blank" href="{{team.site}}">{{team.site}}</a>
                             </label>
                         </div>
                     </fieldset>

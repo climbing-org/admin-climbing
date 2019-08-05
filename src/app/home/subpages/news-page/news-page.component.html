@@ -11,7 +11,8 @@
                 </div>
                 <div class="col-md-9">
                     <div class="card-body">
-                        <h5 class="card-title">{{n.created_at | date:'d MMM'}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{n.name}}</h5>
+                        <div class="dates"><span class="dates-in blue">{{n.created_at | date:'dd/MM/yyyy'}}</span></div>
+                        <h5 class="card-title">{{n.name}}</h5>
                         <!--                        <div class="card-text" [innerHTML]="n?.content"></div>-->
                         <div class="card-text">{{n.short_description}}</div>
                     </div>

@@ -72,6 +72,11 @@
     margin-top: 15px;
 }
 
+.bg-grey {
+  margin-top: 15px;
+  background-color:#f2f3f6;
+}
+
 .col-md-4.my.events {
     padding-left: 22px;
 }
@@ -106,7 +111,7 @@
 
 .blue {
   background-color: #3391cf;
-  padding: 3px;
+  padding: 0px 10px 0px 0px;
   color: white;
 }
 
@@ -131,10 +136,18 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 13px;
+        font-size: 15px;
         color: #1c3279;
-        font-weight: 600;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-family: "Open Sans";
+        padding:5px 0;
     }
+    h4:hover {
+      color: #fff;
+      background-color: #3391cf;
+
+  }    
 }
 
 .ratings {
@@ -144,19 +157,21 @@
     padding-top: 35px;
     padding-bottom: 25px;
     background-color: white;
-    padding-left: 30px;
+    padding-left: 0px;
+    padding-right: 0px;
     .head {
-        margin-bottom: 20px;
+        margin-bottom: 25px;
         height: 26px;
         position: relative;
+        padding: 0 30px;
         h2 {
-            font-size: 26px;
+            font-size: 30px;
             color: #1c3279;
             font-weight: 300;
             float: left;
         }
         h4 {
-            font-size: 13px;
+            font-size: 15px;
             color: #1c3279;
             font-weight: 600;
             //float: right;
@@ -164,9 +179,14 @@
             bottom:0;
             right:0;
             margin-bottom: 0;
-            padding-right: 12px;
+            padding: 5px 25px;
+            font-family: "Open Sans";
         }
-    }
+        h4:hover {
+          color: #fff;
+          background-color: #3391cf;
+      }        
+    }  
   .circular--landscape {
     display: inline-block;
     position: relative;
@@ -186,13 +206,14 @@
   }
 
   .media-body {
-    margin-left: 11px;
+    margin-left: 15px;
     color: #6c7293;
-    font-size: 12px;
-      font-weight: 600;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: "Open Sans";
   }
   .place, .level, .rank, .direction {
-    font-size: 13px;
+    font-size: 15px;
       vertical-align: middle;
   }
     .blue {
@@ -217,7 +238,13 @@
         width: 100%;
     }
 }
-
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+} 
+.table-striped td {
+  border:none;
+  padding: 20px 25px;
+}
 .events {
   //border-radius: 50px 0 0 50px;
     margin-bottom: 60px;
@@ -234,7 +261,7 @@
     height: 100%;
   h2 {
     text-transform: uppercase;
-    font-size: 26px;
+    font-size: 30px;
     margin-bottom: 20px;
       font-weight: 300;
       padding-left: 30px;
@@ -243,33 +270,56 @@
   .dates {
     margin-bottom: 6px;
       margin-left: -30px;
-    font-size: 13px;
+    font-size: 15px;
       font-weight: 300;
   }
     .dates-in {
         padding-left: 30px;
     }
   .event-description {
-    font-size: 13px;
-      font-weight: 600;
+    font-size: 14px;
+    font-weight: 700;
     color: #bec5dd;
+    font-family: "Open Sans";
+  }
+  .event-description:hover {
+    color: #fff;
   }
   .event-location {
-    font-size: 12px;
+    font-size: 14px;
+    font-weight: 700;
     color: #bec5dd;
-      font-weight: 300;
+    font-family: "Open Sans";
+  }
+  .event-location:hover {
+    color: #fff;
   }
   article {
     margin-bottom: 17px;
       padding-left: 30px;
       padding-right: 30px;
+      color: #bec5dd;
   }
     article:hover {
-        padding-left: 40px;
         background-color: #203988;
         cursor: pointer;
+        color: #fff;
     }
 }
+h4.allevents {
+  text-transform: uppercase;
+  font-size: 15px;
+  color: #1c3279;
+  font-weight: 600;
+  float: left;
+  margin-top: 25px;
+  padding: 5px 30px;
+  font-family: "Open Sans";
+}
+h4.allevents:hover {
+color: #fff;
+background-color: #3391cf;
+} 
 
 .news-block {
     background-color: #1d337a;
@@ -286,21 +336,26 @@
         height: 26px;
         position: relative;
         h2 {
-            font-size: 26px;
+            font-size: 30px;
             font-weight: 300;
             float: left;
         }
         h4 {
-            font-size: 13px;
+            font-size: 15px;
             font-weight: 600;
             //float: right;
             position:absolute;
             bottom:0;
             right:0;
             margin-bottom: 0;
-            padding-right: 12px;
+            padding: 5px 25px;
             color: #bec5dd;
+            font-family: "Open Sans";
         }
+        h4:hover {
+          color: #1c3279;
+          background-color: #fff;
+      }        
     }
     .card.mb-3:hover {
         background-color: #203988;
@@ -319,7 +374,7 @@
         font-weight: 600;
     }
     .card-text {
-      font-size: 12px;
+      font-size: 14px;
         color: #bec5dd;
     }
   }
@@ -340,7 +395,7 @@
     height: 100%;
     h2 {
         text-transform: uppercase;
-        font-size: 26px;
+        font-size: 30px;
         margin-bottom: 20px;
         font-weight: 300;
         color: #1c3279;
@@ -353,12 +408,14 @@
         font-weight: 300;
     }
     .event-description {
-        font-size: 13px;
-        font-weight: 600;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: "Open Sans";
     }
     .event-location {
-        font-size: 12px;
+        font-size: 14px;
         font-weight: 300;
+        font-family: "Open Sans";
     }
     article {
         //margin-bottom: 17px;
